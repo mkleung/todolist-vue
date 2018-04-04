@@ -17,6 +17,7 @@ class CreateItemTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->boolean('status');
+            $table->bigInteger('completeTime');
             $table->timestamps();
         });
     }
