@@ -15,8 +15,26 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
+
+let Navbar = require('./components/Navbar.vue');
+let Home = require('./components/Home.vue');
+
+const routes = [
+  { path: '/home', component: Home },
+]
+
+const router = new VueRouter({
+  // mode: 'history',
+  routes
+})
+
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    router,
+    components:{Navbar}
 });

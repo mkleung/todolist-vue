@@ -2,8 +2,11 @@
 
 > composer create-project --prefer-dist laravel/laravel dailymoneymaster "5.4.*"
 > npm install vue-router --save
+
 > npm install bulma --save
+
 > npm install font-awesome
+
 > npm install (this will install everything in package.json file)
 
 # Remove bootstrap 4
@@ -43,7 +46,9 @@ Schema::create('flights', function (Blueprint $table) {
 
 # Run the project
 
-> npm run watch (this will compile the project whenever you change something)
+> npm run watch
+
+(this will compile the project whenever you change something)
 
 > php artisan serve
 
