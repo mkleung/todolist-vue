@@ -22,9 +22,11 @@ Inside resources/assets/sass/app.scss, remove bootstrap and add the folloing
 @import "~font-awesome/scss/font-awesome";
 ```
 
-Inside resources/assets/js/bootstrap.js
+Inside resources/assets/js/bootstrap.js, remove the following
 
-Remove require('bootstrap-sass');
+```
+require('bootstrap-sass');
+```
 
 ### Importing Bulma and vue
 
@@ -76,7 +78,8 @@ DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=homestead
 DB_USERNAME=homestead
-DB_PASSWORD=secret```
+DB_PASSWORD=secret
+```
 
 
 # Running the project
