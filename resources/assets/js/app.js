@@ -20,7 +20,9 @@ Vue.config.devtools = true
 
 let topbar = require('./components/topbar.vue');
 
+let home = require('./components/home.vue');
+
 const app = new Vue({
     el: '#app',
-    components:{topbar}
+    components:{topbar, home}
 });
