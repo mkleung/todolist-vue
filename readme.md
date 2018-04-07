@@ -15,25 +15,29 @@
 
 ### Remove bootstrap 4, import font awesome and bulma
 
-Inside resources/assets/sass/app.scss
+Inside resources/assets/sass/app.scss, remove bootstrap and add the folloing
+
+```
 @import "~bulma/bulma";
 @import "~font-awesome/scss/font-awesome";
+```
 
 Inside resources/assets/js/bootstrap.js
+
 Remove require('bootstrap-sass');
 
 ### Importing Bulma and vue
 
-Inside welcome.blade.php
+Inside welcome.blade.php, add the following code
 
-Add this inside head
-```<link rel="stylesheet" href="{{ asset('css/app.css') }}">```
 
-Add this inside body
-```<div id="app">
+```
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<div id="app">
   <example></example>
 </div>
-<script src="{{ asset('js/app.js')}}"></script>```
+<script src="{{ asset('js/app.js')}}"></script>
+```
 
 ### Add vue routes and declare components
 
@@ -63,7 +67,6 @@ const app = new Vue({
 });
 ```
 
-
 ### Setup database
 
 Inside .env file, add yoour db credentials inside
@@ -85,7 +88,7 @@ DB_PASSWORD=secret```
 > php artisan serve
 
 
-### To run the application on your machine, clone and then npm install
+### To run the application on your machine, clone and then npm install 
 
 
 Reference:
