@@ -71,7 +71,7 @@ const app = new Vue({
 
 ### Setup database
 
-Inside .env file, add yoour db credentials inside
+Inside .env file, add your db credentials inside
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1

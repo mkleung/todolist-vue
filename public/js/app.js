@@ -43830,6 +43830,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -43852,9 +43866,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "column is-6 is-offset-3" }, [
-        _c("h1", [_vm._v("To do list")])
+    return _c("section", { staticClass: "hero is-primary is-bold" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "column is-6 is-offset-3" }, [
+            _c("h1", { staticClass: "title has-text-centered" }, [
+              _vm._v("To Do List")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "card" }, [
+              _c("div", { staticClass: "card-content" }, [
+                _c("p", { staticClass: "subtitle has-text-black" }, [
+                  _vm._v("Use the list below to get things done")
+                ])
+              ])
+            ])
+          ])
+        ])
       ])
     ])
   }
