@@ -1,17 +1,16 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Example Component</div>
-
-                    <div class="panel-body">
-                        I'm an example component!
-                    </div>
-                </div>
-            </div>
-        </div>
+  <section class="hero is-primary is-medium">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Medium title
+        </h1>
+        <h2 class="subtitle">
+          Medium subtitle
+        </h2>
+      </div>
     </div>
+  </section>
 </template>
 
 <script>

@@ -9,7 +9,9 @@
 
 > npm install font-awesome
 
-> npm install (this will install everything in package.json file)
+> npm install
+
+(this will install everything in package.json file)
 
 
 ### Remove bootstrap 4
@@ -20,13 +22,20 @@ Inside resources/assets/sass/app.scss
 Inside resources/assets/js/bootstrap.js
 Remove require('bootstrap-sass');
 
-# Run the project
+### Importing Bulma and vue
 
-> npm run watch (this will compile the project whenever you change something)
+Inside welcome.blade.php
 
-> php artisan serve
+Add this inside head
+```<link rel="stylesheet" href="{{ asset('css/app.css') }}">```
 
-### Inside app.js
+Add this inside body
+```<div id="app">
+  <example></example>
+</div>
+<script src="{{ asset('js/app.js')}}"></script>```
+
+### Add vue routes and declare components
 
 ```
 require('./bootstrap');
@@ -37,16 +46,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-let Myheader = require('./components/Myheader.vue');
-
-let Home = require('./components/Home.vue');
-let About = require('./components/About.vue');
+let example = require('./components/Example.vue');
 
 const routes = [
-  { path: '/home', component: Home },
-  { path: '/about', component: About }
+  { path: '/', component: example },
 ]
-
 const router = new VueRouter({
   // mode: 'history',
   routes
@@ -55,8 +59,31 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    components:{Myheader}
+    components:{example}
 });
 ```
+
+
+### Setup database
+
+Inside .env file, add yoour db credentials inside
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret```
+
+
+# Running the project
+
+> npm run dev
+
+> npm run watch (this will compile the project whenever you change something)
+
+> php artisan serve
+
+
 
 https://www.youtube.com/watch?v=JDnYobhaScg&list=PLe30vg_FG4OSl8zlikYc_RLkfueqAMUb_&index=10

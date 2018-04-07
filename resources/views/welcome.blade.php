@@ -5,18 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>To Do List</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     </head>
     <body>
-          <div id="app">
-            <topbar></topbar>
-            <home></home>
-            <footer></footer>
-          </div>
-
-          <script src="{{ asset('js/app.js')}}"></script>
+      <div id="app">
+        <example></example>
+      </div>
+      <script src="{{ asset('js/app.js')}}"></script>
     </body>
 </html>
