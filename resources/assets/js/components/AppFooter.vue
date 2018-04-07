@@ -3,7 +3,7 @@
         <div class="container">
             <div class="content has-text-centered">
             <p>
-                <strong>To Do List</strong> by <a href="">Mike Leung</a>
+                <strong>To Do List</strong> by <a href="http://mikeleung.ca" target="_blank">Mike Leung</a>
             </p>
             </div>
         </div>

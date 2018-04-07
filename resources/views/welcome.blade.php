@@ -8,10 +8,13 @@
         <title>To Do List</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
 
         <!-- https://favicon.io/emoji-favicons -->
         <link rel="shortcut icon" href="{{ asset('img/favicon1.ico') }}" type="image/x-icon">

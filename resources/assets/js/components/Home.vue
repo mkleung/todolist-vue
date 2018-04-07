@@ -10,7 +10,13 @@
                 <div class="card">
                     <div class="card-content">
                         <p class="subtitle has-text-black">Use the list below to get things done</p>
+
+                        <tiles></tiles>
                     </div>
+
+                    
+
+
                 </div>
                     
             </div>
@@ -21,7 +27,11 @@
 </template>
 
 <script>
+
+    let tiles = require('./Tiles.vue');
+
     export default {
+        components: {tiles},
         mounted() {
             console.log('Component mounted.')
         }
