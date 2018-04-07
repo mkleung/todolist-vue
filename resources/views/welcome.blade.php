@@ -19,8 +19,9 @@
     </head>
     <body>
       <div id="app">
-        <navbar></navbar>
-        <example></example>
+        <appheader></appheader>
+        <home></home>
+        <appfooter></appfooter>
       </div>
       <script src="{{ asset('js/app.js')}}"></script>
     </body>

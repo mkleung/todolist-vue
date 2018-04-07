@@ -13,12 +13,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-let example = require('./components/Example.vue');
+let home = require('./components/Home.vue');
 
-let navbar = require('./components/Navbar.vue');
+let appheader = require('./components/AppHeader.vue');
+let appfooter = require('./components/AppFooter.vue');
 
 const routes = [
-  { path: '/', component: example },
+  { path: '/', component: home },
 ]
 const router = new VueRouter({
   mode: 'history',
@@ -28,5 +29,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    components:{example, navbar}
+    components:{appheader, home, appfooter}
 });
