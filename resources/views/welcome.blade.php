@@ -13,6 +13,8 @@
     <body>
           <div id="app">
             <topbar></topbar>
+            <home></home>
+            <footer></footer>
           </div>
 
           <script src="{{ asset('js/app.js')}}"></script>

@@ -21,8 +21,9 @@ Vue.config.devtools = true
 let topbar = require('./components/topbar.vue');
 
 let home = require('./components/home.vue');
+let footer = require('./components/footer.vue');
 
 const app = new Vue({
     el: '#app',
-    components:{topbar, home}
+    components:{topbar, home, footer}
 });
