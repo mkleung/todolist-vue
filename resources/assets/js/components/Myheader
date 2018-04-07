@@ -17,7 +17,7 @@
 <script>
     export default {
         mounted() {
-            console.log('navbar mounted.')
+            console.log('myheader mounted.')
         }
     }
 </script>
