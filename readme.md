@@ -13,11 +13,11 @@
 
 (this will install everything in package.json file)
 
-
-### Remove bootstrap 4
+### Remove bootstrap 4, import font awesome and bulma
 
 Inside resources/assets/sass/app.scss
 @import "~bulma/bulma";
+@import "~font-awesome/scss/font-awesome";
 
 Inside resources/assets/js/bootstrap.js
 Remove require('bootstrap-sass');
@@ -85,5 +85,8 @@ DB_PASSWORD=secret```
 > php artisan serve
 
 
+### To run the application on your machine, clone and then npm install
 
+
+Reference:
 https://www.youtube.com/watch?v=JDnYobhaScg&list=PLe30vg_FG4OSl8zlikYc_RLkfueqAMUb_&index=10

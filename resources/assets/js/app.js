@@ -15,6 +15,8 @@ Vue.use(VueRouter)
 
 let example = require('./components/Example.vue');
 
+let navbar = require('./components/Navbar.vue');
+
 const routes = [
   { path: '/', component: example },
 ]
@@ -26,5 +28,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    components:{example}
+    components:{example, navbar}
 });
