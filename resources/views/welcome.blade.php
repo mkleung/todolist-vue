@@ -13,8 +13,7 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
-         <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-
+        <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
         <!-- https://favicon.io/emoji-favicons -->
         <link rel="shortcut icon" href="{{ asset('img/favicon1.ico') }}" type="image/x-icon">

@@ -14,6 +14,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 let home = require('./components/Home.vue');
+let addTask = require('./components/AddTask.vue');
 
 let appheader = require('./components/AppHeader.vue');
 let appfooter = require('./components/AppFooter.vue');
@@ -29,5 +30,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    components:{appheader, home, appfooter}
+    components:{appheader, home, addTask, appfooter}
 });

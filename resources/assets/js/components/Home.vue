@@ -10,13 +10,13 @@
                 <div class="card">
                     <div class="card-content">
                         <p class="subtitle has-text-black">Use the list below to get things done</p>
-
+                        <p><a class="button is-primary is-rounded">Add Task</a></p>
+                        <addTask></addTask>
+                    </div>
+                    <div class="card-content">
                         <tiles></tiles>
                     </div>
-
                     
-
-
                 </div>
                     
             </div>
@@ -29,9 +29,10 @@
 <script>
 
     let tiles = require('./Tiles.vue');
+    let addTask = require('./AddTask.vue');
 
     export default {
-        components: {tiles},
+        components: {tiles, addTask},
         mounted() {
             console.log('Component mounted.')
         }
