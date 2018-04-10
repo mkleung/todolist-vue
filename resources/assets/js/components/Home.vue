@@ -10,7 +10,6 @@
                 <div class="card">
                     <div class="card-content">
                         <p class="subtitle has-text-black">Use the list below to get things done</p>
-                        <p><a class="button is-primary is-rounded">Add Task</a></p>
                         <addTask></addTask>
                     </div>
                     <div class="card-content">
