@@ -43611,16 +43611,34 @@ var staticRenderFns = [
     return _c("div", { staticClass: "tile is-ancestor" }, [
       _c("div", { staticClass: "tile is-vertical is-12" }, [
         _c("div", { staticClass: "tile is-parent is-vertical" }, [
-          _c(
-            "article",
-            { staticClass: "tile is-child notification is-warning" },
-            [_c("p", { staticClass: "title" }, [_vm._v("Clean the toilet")])]
-          )
+          _c("article", { staticClass: "tile is-child notification" }, [
+            _c("div", { staticClass: "title todoTitle__title" }, [
+              _c("span", { staticClass: "todoTitle__title--span" }, [
+                _vm._v("Clean the toilet")
+              ]),
+              _vm._v(" "),
+              _c("span", [
+                _c("a", { attrs: { href: "" } }, [
+                  _c("i", { staticClass: "fa fa-trash" })
+                ])
+              ])
+            ])
+          ])
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "tile is-parent" }, [
-          _c("article", { staticClass: "tile is-child notification is-info" }, [
-            _c("p", { staticClass: "title" }, [_vm._v("Clean the dishes")])
+          _c("article", { staticClass: "tile is-child notification" }, [
+            _c("p", { staticClass: "title todoTitle__title" }, [
+              _c("span", { staticClass: "todoTitle__title--span" }, [
+                _vm._v("Clean the dishes")
+              ]),
+              _vm._v(" "),
+              _c("span", [
+                _c("a", { attrs: { href: "" } }, [
+                  _c("i", { staticClass: "fa fa-trash" })
+                ])
+              ])
+            ])
           ])
         ])
       ])
