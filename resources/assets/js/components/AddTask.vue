@@ -1,18 +1,34 @@
 <template>
 
-<form>
+
     <div class="field">
-    <label class="label">Add a Task</label>
+        <label class="label">Add a Task</label>
         <div class="control">
             <input class="input" type="text" placeholder="Text input">
         </div>
-    </div>
 
-    <div class="field is-grouped">
-    <div class="control">
-        <button class="button is-link">Submit</button>
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-link" @click='addTask'>Submit</button>
+            </div>
+        </div>
     </div>
-    </div>
-</form>
 
 </template>
+
+<script>
+  export default {
+
+    data(){
+    },
+    methods: {
+      addTask() {
+          axios.post('task')
+          .then((response)=>{
+           console.log("task added");
+          })
+          .catch((error) => this.errors = error.response.data);
+      }
+    }
+  }
+</script>

@@ -34,6 +34,9 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request->title);
+
         $myTask = new Task;
         $myTask->title = $request->title;
         $myTask->save();
