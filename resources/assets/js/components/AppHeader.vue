@@ -43,11 +43,3 @@
   </div>
 </nav>
 </template>
-
-<script>
-    export default {
-        mounted() {
-            console.log('navbar mounted.')
-        }
-    }
-</script>

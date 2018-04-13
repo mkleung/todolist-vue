@@ -19,15 +19,15 @@
 <script>
   export default {
 
-    data(){
-    },
+   
     methods: {
       addTask() {
-          axios.post('task')
-          .then((response)=>{
-           console.log("task added");
-          })
-          .catch((error) => this.errors = error.response.data);
+          console.log("add task");
+        //   axios.post('task')
+        //   .then((response)=>{
+        //    console.log("task added");
+        //   })
+        //   .catch((error) => this.errors = error.response.data);
       }
     }
   }

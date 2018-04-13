@@ -33,7 +33,7 @@
     export default {
         components: {tiles, addTask},
         mounted() {
-            console.log('Component mounted.')
+           
         }
     }
 </script>
