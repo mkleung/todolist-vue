@@ -43541,7 +43541,21 @@ var addTask = __webpack_require__(11);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: { tiles: tiles, addTask: addTask },
-    mounted: function mounted() {}
+    data: function data() {
+        return {
+            list: []
+        };
+    },
+    mounted: function mounted() {
+        this.init();
+    },
+
+
+    methods: {
+        init: function init() {
+            this.list = this.$children.list;
+        }
+    }
 });
 
 /***/ }),
@@ -43603,7 +43617,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "tile is-vertical is-12" },
-      _vm._l(_vm.basketItems, function(item, index) {
+      _vm._l(_vm.list, function(item, index) {
         return _c(
           "div",
           { key: index, staticClass: "tile is-parent is-vertical" },
@@ -44064,7 +44078,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      basketItems: []
+      list: []
     };
   },
   mounted: function mounted() {
@@ -44076,7 +44090,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.get('getTasks').then(function (response) {
-        return _this.basketItems = response.data;
+        return _this.list = response.data;
       }).catch(function (error) {
         return _this.errors = error.response.data;
       });

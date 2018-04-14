@@ -32,8 +32,19 @@
 
     export default {
         components: {tiles, addTask},
-        mounted() {
-           
+        data() {
+            return {
+                list:[]
+            }
+        },
+        mounted(){
+            this.init()
+        },
+
+        methods: {
+            init(){
+                this.list = this.$children.list;
+            }
         }
     }
 </script>

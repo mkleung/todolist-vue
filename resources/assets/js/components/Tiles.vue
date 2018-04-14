@@ -1,7 +1,7 @@
 <template>
 <div class="tile is-ancestor">
     <div class="tile is-vertical is-12">
-          <div class="tile is-parent is-vertical"  v-for="(item, index) in basketItems" :key='index'>
+          <div class="tile is-parent is-vertical"  v-for="(item, index) in list" :key='index'>
             <article class="tile is-child notification">
               <div class="title todoTitle__title">
                 <span class="todoTitle__title--span">{{item.title}}</span>
@@ -17,7 +17,7 @@
 export default {
   data() {
     return {
-     basketItems: []
+     list: []
     }
   },
   mounted(){
@@ -26,7 +26,7 @@ export default {
   methods: {
        init(){
            axios.get('getTasks')
-            .then((response)=> this.basketItems = response.data)
+            .then((response)=> this.list = response.data)
             .catch((error) => this.errors = error.response.data);
       }
   }
