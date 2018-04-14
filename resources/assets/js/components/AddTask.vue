@@ -4,7 +4,7 @@
     <div class="field">
         <label class="label">Add a Task</label>
         <div class="control">
-            <input class="input" type="text" placeholder="Text input">
+            <input class="input" type="text" placeholder="Text input" v-model="task.title">
         </div>
 
         <div class="field is-grouped">
@@ -18,16 +18,21 @@
 
 <script>
   export default {
-
-   
+    data(){
+        return{
+          task: {
+            title: ''
+          },
+        }
+    },
     methods: {
       addTask() {
           console.log("add task");
-        //   axios.post('task')
-        //   .then((response)=>{
-        //    console.log("task added");
-        //   })
-        //   .catch((error) => this.errors = error.response.data);
+          axios.post('task', this.$data.task)
+          .then((response)=>{
+                console.log("task added");
+          })
+          .catch((error) => this.errors = error.response.data);
       }
     }
   }

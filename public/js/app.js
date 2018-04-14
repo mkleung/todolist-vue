@@ -12085,7 +12085,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(58);
+module.exports = __webpack_require__(51);
 
 
 /***/ }),
@@ -12116,7 +12116,7 @@ var home = __webpack_require__(40);
 var addTask = __webpack_require__(11);
 
 var appheader = __webpack_require__(47);
-var appfooter = __webpack_require__(50);
+var appfooter = __webpack_require__(49);
 
 var routes = [{ path: '/', component: home }];
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
@@ -43678,15 +43678,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      task: {
+        title: ''
+      }
+    };
+  },
 
   methods: {
     addTask: function addTask() {
+      var _this = this;
+
       console.log("add task");
-      //   axios.post('task')
-      //   .then((response)=>{
-      //    console.log("task added");
-      //   })
-      //   .catch((error) => this.errors = error.response.data);
+      axios.post('task', this.$data.task).then(function (response) {
+        console.log("task added");
+      }).catch(function (error) {
+        return _this.errors = error.response.data;
+      });
     }
   }
 });
@@ -43702,7 +43711,29 @@ var render = function() {
   return _c("div", { staticClass: "field" }, [
     _c("label", { staticClass: "label" }, [_vm._v("Add a Task")]),
     _vm._v(" "),
-    _vm._m(0),
+    _c("div", { staticClass: "control" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.task.title,
+            expression: "task.title"
+          }
+        ],
+        staticClass: "input",
+        attrs: { type: "text", placeholder: "Text input" },
+        domProps: { value: _vm.task.title },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.task, "title", $event.target.value)
+          }
+        }
+      })
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "field is-grouped" }, [
       _c("div", { staticClass: "control" }, [
@@ -43715,19 +43746,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "control" }, [
-      _c("input", {
-        staticClass: "input",
-        attrs: { type: "text", placeholder: "Text input" }
-      })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -43793,7 +43812,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(49)
+var __vue_template__ = __webpack_require__(48)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -43832,8 +43851,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */,
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -43926,7 +43944,7 @@ if (false) {
 }
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -43934,7 +43952,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(50)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -43973,13 +43991,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -44020,7 +44032,7 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 51 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
