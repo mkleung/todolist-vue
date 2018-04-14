@@ -18,6 +18,10 @@ class TaskController extends Controller
         //
     }
 
+    public function getTasks(){
+        return Task::orderBy('title', 'ASC')->get();
+      }
+
     /**
      * Show the form for creating a new resource.
      *

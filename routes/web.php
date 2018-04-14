@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('task', 'TaskController');
+
+
+
+Route::get('getTasks', 'TaskController@getTasks');
