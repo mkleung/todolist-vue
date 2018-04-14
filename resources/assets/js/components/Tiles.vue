@@ -15,9 +15,10 @@
 
 <script>
 export default {
+  props: ["list"],
   data() {
     return {
-     list: []
+
     }
   },
   mounted(){
@@ -25,9 +26,7 @@ export default {
     },
   methods: {
        init(){
-           axios.get('getTasks')
-            .then((response)=> this.list = response.data)
-            .catch((error) => this.errors = error.response.data);
+           
       }
   }
 }

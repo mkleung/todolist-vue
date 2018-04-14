@@ -43550,10 +43550,15 @@ var addTask = __webpack_require__(11);
         this.init();
     },
 
-
     methods: {
         init: function init() {
-            this.list = this.$children.list;
+            var _this = this;
+
+            axios.get('getTasks').then(function (response) {
+                return _this.list = response.data;
+            }).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
         }
     }
 });
@@ -43696,9 +43701,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     addTask: function addTask() {
       var _this = this;
 
-      console.log("add task");
       axios.post('task', this.$data.task).then(function (response) {
-        console.log("task added");
+
+        _this.$parent.list.push(response.data);
       }).catch(function (error) {
         return _this.errors = error.response.data;
       });
@@ -43792,7 +43797,12 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "card-content" }, [_c("tiles")], 1)
+            _c(
+              "div",
+              { staticClass: "card-content" },
+              [_c("tiles", { attrs: { list: _vm.list } })],
+              1
+            )
           ])
         ])
       ])
@@ -44076,25 +44086,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["list"],
   data: function data() {
-    return {
-      list: []
-    };
+    return {};
   },
   mounted: function mounted() {
     this.init();
   },
 
   methods: {
-    init: function init() {
-      var _this = this;
-
-      axios.get('getTasks').then(function (response) {
-        return _this.list = response.data;
-      }).catch(function (error) {
-        return _this.errors = error.response.data;
-      });
-    }
+    init: function init() {}
   }
 });
 

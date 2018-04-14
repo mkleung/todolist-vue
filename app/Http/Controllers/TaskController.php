@@ -44,6 +44,8 @@ class TaskController extends Controller
         $myTask = new Task;
         $myTask->title = $request->title;
         $myTask->save();
+
+        return $myTask;
     }
 
     /**

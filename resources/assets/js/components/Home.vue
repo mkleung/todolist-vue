@@ -13,7 +13,7 @@
                         <addTask></addTask>
                     </div>
                     <div class="card-content">
-                        <tiles></tiles>
+                        <tiles :list="list"></tiles>
                     </div>
                     
                 </div>
@@ -34,16 +34,17 @@
         components: {tiles, addTask},
         data() {
             return {
-                list:[]
+                list: []
             }
         },
         mounted(){
             this.init()
-        },
-
+            },
         methods: {
             init(){
-                this.list = this.$children.list;
+                axios.get('getTasks')
+                    .then((response)=> this.list = response.data)
+                    .catch((error) => this.errors = error.response.data);
             }
         }
     }

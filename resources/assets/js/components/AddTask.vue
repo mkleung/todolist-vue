@@ -27,10 +27,10 @@
     },
     methods: {
       addTask() {
-          console.log("add task");
           axios.post('task', this.$data.task)
           .then((response)=>{
-                console.log("task added");
+             
+                 this.$parent.list.push(response.data)
           })
           .catch((error) => this.errors = error.response.data);
       }
