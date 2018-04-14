@@ -43599,25 +43599,29 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "tile is-ancestor" },
-    _vm._l(_vm.basketItems, function(item, index) {
-      return _c("div", { key: index, staticClass: "tile is-vertical is-12" }, [
-        _c("div", { staticClass: "tile is-parent is-vertical" }, [
-          _c("article", { staticClass: "tile is-child notification" }, [
-            _c("div", { staticClass: "title todoTitle__title" }, [
-              _c("span", { staticClass: "todoTitle__title--span" }, [
-                _vm._v(_vm._s(item.title))
-              ]),
-              _vm._v(" "),
-              _vm._m(0, true)
+  return _c("div", { staticClass: "tile is-ancestor" }, [
+    _c(
+      "div",
+      { staticClass: "tile is-vertical is-12" },
+      _vm._l(_vm.basketItems, function(item, index) {
+        return _c(
+          "div",
+          { key: index, staticClass: "tile is-parent is-vertical" },
+          [
+            _c("article", { staticClass: "tile is-child notification" }, [
+              _c("div", { staticClass: "title todoTitle__title" }, [
+                _c("span", { staticClass: "todoTitle__title--span" }, [
+                  _vm._v(_vm._s(item.title))
+                ]),
+                _vm._v(" "),
+                _vm._m(0, true)
+              ])
             ])
-          ])
-        ])
-      ])
-    })
-  )
+          ]
+        )
+      })
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
