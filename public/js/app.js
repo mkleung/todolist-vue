@@ -43629,14 +43629,12 @@ var render = function() {
           "div",
           { key: index, staticClass: "tile is-parent is-vertical" },
           [
-            _c("article", { staticClass: "tile is-child notification" }, [
-              _c("div", { staticClass: "title todoTitle__title" }, [
-                _c("span", { staticClass: "todoTitle__title--span" }, [
-                  _vm._v(_vm._s(item.title))
-                ]),
-                _vm._v(" "),
-                _vm._m(0, true)
-              ])
+            _c("div", { staticClass: "title todoTitle__title" }, [
+              _c("span", { staticClass: "todoTitle__title--span" }, [
+                _vm._v(_vm._s(item.title))
+              ]),
+              _vm._v(" "),
+              _vm._m(0, true)
             ])
           ]
         )
@@ -43651,7 +43649,11 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("span", [
       _c("a", { attrs: { href: "" } }, [
-        _c("i", { staticClass: "fa fa-trash" })
+        _c("i", { staticClass: "fa fa-pencil todoTitle__title--icon" })
+      ]),
+      _vm._v(" "),
+      _c("a", { attrs: { href: "" } }, [
+        _c("i", { staticClass: "fa fa-trash todoTitle__title--icon" })
       ])
     ])
   }
@@ -44062,6 +44064,9 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
 //
 //
 //
