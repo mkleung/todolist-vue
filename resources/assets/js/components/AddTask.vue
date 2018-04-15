@@ -20,11 +20,11 @@
     },
     methods: {
       addTask() {
-          if (this.$data.task !== "") {
+          if (this.$data.task.title !== "") {
             axios.post('task', this.$data.task)
             .then((response)=>{
-                
                 this.$parent.list.unshift(response.data)
+                this.$data.task.title = "";
             })
             .catch((error) => this.errors = error.response.data);
           }

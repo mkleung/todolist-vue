@@ -43696,10 +43696,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     addTask: function addTask() {
       var _this = this;
 
-      if (this.$data.task !== "") {
+      if (this.$data.task.title !== "") {
         axios.post('task', this.$data.task).then(function (response) {
-
           _this.$parent.list.unshift(response.data);
+          _this.$data.task.title = "";
         }).catch(function (error) {
           return _this.errors = error.response.data;
         });
