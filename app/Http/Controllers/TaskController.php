@@ -19,8 +19,9 @@ class TaskController extends Controller
     }
 
     public function getTasks(){
-        return Task::orderBy('title', 'ASC')->get();
-      }
+        $allTasks = Task::orderBy('created_at', 'DESC')->get();
+        return $allTasks;
+    }
 
     /**
      * Show the form for creating a new resource.

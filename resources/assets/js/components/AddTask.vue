@@ -1,19 +1,12 @@
 <template>
-
-
-    <div class="field">
-        <label class="label">Add a Task</label>
-        <div class="control">
-            <input class="input" type="text" placeholder="Text input" v-model="task.title">
+    <div class="field has-addons">
+        <div class="control addTask__input">
+            <input class="input" type="text" placeholder="Add a task" v-model="task.title">
         </div>
-
-        <div class="field is-grouped">
-            <div class="control">
-                <button class="button is-link" @click='addTask'>Submit</button>
-            </div>
+        <div class="control">
+            <button class="button is-info" @click='addTask'>Save</button>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -27,12 +20,16 @@
     },
     methods: {
       addTask() {
-          axios.post('task', this.$data.task)
-          .then((response)=>{
-             
-                 this.$parent.list.push(response.data)
-          })
-          .catch((error) => this.errors = error.response.data);
+          if (this.$data.task !== "") {
+            axios.post('task', this.$data.task)
+            .then((response)=>{
+                
+                this.$parent.list.unshift(response.data)
+            })
+            .catch((error) => this.errors = error.response.data);
+          }
+
+
       }
     }
   }

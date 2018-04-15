@@ -43555,7 +43555,9 @@ var addTask = __webpack_require__(11);
             var _this = this;
 
             axios.get('getTasks').then(function (response) {
-                return _this.list = response.data;
+                var taskList = response.data;
+
+                _this.list = response.data;
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
@@ -43680,13 +43682,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -43701,12 +43696,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     addTask: function addTask() {
       var _this = this;
 
-      axios.post('task', this.$data.task).then(function (response) {
+      if (this.$data.task !== "") {
+        axios.post('task', this.$data.task).then(function (response) {
 
-        _this.$parent.list.push(response.data);
-      }).catch(function (error) {
-        return _this.errors = error.response.data;
-      });
+          _this.$parent.list.unshift(response.data);
+        }).catch(function (error) {
+          return _this.errors = error.response.data;
+        });
+      }
     }
   }
 });
@@ -43719,10 +43716,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "field" }, [
-    _c("label", { staticClass: "label" }, [_vm._v("Add a Task")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "control" }, [
+  return _c("div", { staticClass: "field has-addons" }, [
+    _c("div", { staticClass: "control addTask__input" }, [
       _c("input", {
         directives: [
           {
@@ -43733,7 +43728,7 @@ var render = function() {
           }
         ],
         staticClass: "input",
-        attrs: { type: "text", placeholder: "Text input" },
+        attrs: { type: "text", placeholder: "Add a task" },
         domProps: { value: _vm.task.title },
         on: {
           input: function($event) {
@@ -43746,14 +43741,12 @@ var render = function() {
       })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "field is-grouped" }, [
-      _c("div", { staticClass: "control" }, [
-        _c(
-          "button",
-          { staticClass: "button is-link", on: { click: _vm.addTask } },
-          [_vm._v("Submit")]
-        )
-      ])
+    _c("div", { staticClass: "control" }, [
+      _c(
+        "button",
+        { staticClass: "button is-info", on: { click: _vm.addTask } },
+        [_vm._v("Save")]
+      )
     ])
   ])
 }
@@ -43789,7 +43782,7 @@ var render = function() {
               { staticClass: "card-content" },
               [
                 _c("p", { staticClass: "subtitle has-text-black" }, [
-                  _vm._v("Use the list below to get things done")
+                  _vm._v("Add a task below and click save")
                 ]),
                 _vm._v(" "),
                 _c("addTask")

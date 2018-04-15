@@ -9,7 +9,7 @@
                 
                 <div class="card">
                     <div class="card-content">
-                        <p class="subtitle has-text-black">Use the list below to get things done</p>
+                        <p class="subtitle has-text-black">Add a task below and click save</p>
                         <addTask></addTask>
                     </div>
                     <div class="card-content">
@@ -43,7 +43,14 @@
         methods: {
             init(){
                 axios.get('getTasks')
-                    .then((response)=> this.list = response.data)
+       
+                    .then((response)=>{
+                        var taskList = response.data;
+                    
+                        this.list = response.data;
+                  
+                    })
+
                     .catch((error) => this.errors = error.response.data);
             }
         }

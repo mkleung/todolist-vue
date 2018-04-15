@@ -13,3 +13,7 @@ body {
 .todoTitle__title span{
     color: #363636;
 }
+
+.addTask__input {
+    width: 100%;
+}
