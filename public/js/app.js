@@ -43645,11 +43645,7 @@ var render = function() {
                         }
                       }
                     },
-                    [
-                      _c("i", {
-                        staticClass: "fa fa-pencil todoTitle__title--icon"
-                      })
-                    ]
+                    [_c("i", { staticClass: "fa fa-pencil todoTitle__icon" })]
                   ),
                   _vm._v(" "),
                   _c(
@@ -43657,22 +43653,48 @@ var render = function() {
                     {
                       on: {
                         click: function($event) {
-                          _vm.toggle(item)
+                          _vm.toggleDelete(item)
                         }
                       }
                     },
-                    [
-                      _c("i", {
-                        staticClass: "fa fa-trash todoTitle__title--icon"
-                      })
-                    ]
+                    [_c("i", { staticClass: "fa fa-trash todoTitle__icon" })]
                   ),
                   _vm._v(" "),
                   _vm.deleting == item.id
-                    ? _c("div", [
-                        _c("i", {
-                          staticClass: "fa fa-check todoTitle__title--icon"
-                        })
+                    ? _c("span", [
+                        _c(
+                          "a",
+                          {
+                            on: {
+                              click: function($event) {
+                                _vm.deleteTask(index, item.id)
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass:
+                                "fa fa-check todoTitle__icon todoTitle__icon--green"
+                            })
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            on: {
+                              click: function($event) {
+                                _vm.untoggleDelete()
+                              }
+                            }
+                          },
+                          [
+                            _c("i", {
+                              staticClass:
+                                "fa fa-times todoTitle__icon todoTitle__icon--red"
+                            })
+                          ]
+                        )
                       ])
                     : _vm._e()
                 ])
@@ -44120,6 +44142,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
@@ -44131,9 +44156,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
   methods: {
-    toggle: function toggle(item) {
+    toggleDelete: function toggleDelete(item) {
       // this.deleting = !this.deleting;
       this.deleting = item.id;
+    },
+    untoggleDelete: function untoggleDelete() {
+      this.deleting = false;
     },
     deleteTask: function deleteTask(key, id) {
       var _this = this;

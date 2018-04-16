@@ -18,10 +18,14 @@ body {
     width: 100%;
 }
 
-.todoTitle__title--icon {
+.todoTitle__icon {
     padding: 0 5px;
 }
 
-.active {
-    color: red;
+.todoTitle__icon--green {
+    color:#27ae60;
+}
+
+.todoTitle__icon--red {
+    color: #e74c3c;
 }

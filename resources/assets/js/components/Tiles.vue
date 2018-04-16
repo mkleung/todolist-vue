@@ -6,17 +6,20 @@
               <div class="title todoTitle__title">
                 <span class="todoTitle__title--span">{{item.title}}</span>
                 <span>
-                    <a @click='editTask(index, item.id)'><i class="fa fa-pencil todoTitle__title--icon"></i></a>
-                    <a @click="toggle(item)">
-                      <i class="fa fa-trash todoTitle__title--icon"></i>
+                    <a @click='editTask(index, item.id)'><i class="fa fa-pencil todoTitle__icon"></i></a>
+                    
+                    <a @click="toggleDelete(item)">
+                      <i class="fa fa-trash todoTitle__icon"></i>
                     </a>
 
-                    <div v-if="deleting == item.id">
-                        <i  class="fa fa-check todoTitle__title--icon"></i>
-                    </div>
-
-                    <!-- <a v-show="isActive" @click='deleteTask(index, item.id)'><i  class="fa fa-check todoTitle__title--icon"></i></a>
-                    <a href=""><i  class="fa fa-times todoTitle__title--icon"></i></a> -->
+                    <span v-if="deleting == item.id">
+                        <a @click ="deleteTask(index, item.id)">
+                          <i class="fa fa-check todoTitle__icon todoTitle__icon--green"></i>
+                        </a>
+                        <a @click="untoggleDelete()">
+                          <i class="fa fa-times todoTitle__icon todoTitle__icon--red"></i>
+                        </a>
+                    </span>
                 </span>
               </div>
             </article>
@@ -35,9 +38,12 @@ export default {
   },
 
   methods: {
-     toggle: function (item) {
+    toggleDelete: function (item) {
         // this.deleting = !this.deleting;
         this.deleting = item.id;
+    },
+    untoggleDelete: function () {
+        this.deleting = false;
     },
     deleteTask(key, id){
           axios.delete(`task/${id}`)
