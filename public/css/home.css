@@ -21,3 +21,7 @@ body {
 .todoTitle__title--icon {
     padding: 0 5px;
 }
+
+.active {
+    color: red;
+}

@@ -43657,7 +43657,7 @@ var render = function() {
                     {
                       on: {
                         click: function($event) {
-                          _vm.deleteTask(index, item.id)
+                          _vm.toggle(item)
                         }
                       }
                     },
@@ -43666,7 +43666,15 @@ var render = function() {
                         staticClass: "fa fa-trash todoTitle__title--icon"
                       })
                     ]
-                  )
+                  ),
+                  _vm._v(" "),
+                  _vm.deleting == item.id
+                    ? _c("div", [
+                        _c("i", {
+                          staticClass: "fa fa-check todoTitle__title--icon"
+                        })
+                      ])
+                    : _vm._e()
                 ])
               ])
             ])
@@ -44103,25 +44111,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
   data: function data() {
-    return {};
+    return {
+      deleting: false
+    };
   },
 
 
   methods: {
+    toggle: function toggle(item) {
+      // this.deleting = !this.deleting;
+      this.deleting = item.id;
+    },
     deleteTask: function deleteTask(key, id) {
       var _this = this;
 
-      if (confirm("Are you sure?")) {
-        axios.delete("task/" + id).then(function (response) {
-          return _this.list.splice(key, 1);
-        }).catch(function (error) {
-          return _this.errors = error.response.data;
-        });
-      }
+      axios.delete("task/" + id).then(function (response) {
+        return _this.list.splice(key, 1);
+      }).catch(function (error) {
+        return _this.errors = error.response.data;
+      });
     },
     editTask: function editTask(id) {
       console.log(id);
