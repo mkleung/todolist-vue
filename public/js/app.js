@@ -43635,7 +43635,39 @@ var render = function() {
                   _vm._v(_vm._s(item.title))
                 ]),
                 _vm._v(" "),
-                _vm._m(0, true)
+                _c("span", [
+                  _c(
+                    "a",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.editTask(index, item.id)
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-pencil todoTitle__title--icon"
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      on: {
+                        click: function($event) {
+                          _vm.deleteTask(index, item.id)
+                        }
+                      }
+                    },
+                    [
+                      _c("i", {
+                        staticClass: "fa fa-trash todoTitle__title--icon"
+                      })
+                    ]
+                  )
+                ])
               ])
             ])
           ]
@@ -43644,22 +43676,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", [
-      _c("a", { attrs: { href: "" } }, [
-        _c("i", { staticClass: "fa fa-pencil todoTitle__title--icon" })
-      ]),
-      _vm._v(" "),
-      _c("a", { attrs: { href: "" } }, [
-        _c("i", { staticClass: "fa fa-trash todoTitle__title--icon" })
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -44092,12 +44109,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {};
   },
-  mounted: function mounted() {
-    this.init();
-  },
+
 
   methods: {
-    init: function init() {}
+    deleteTask: function deleteTask(key, id) {
+      var _this = this;
+
+      if (confirm("Are you sure?")) {
+        axios.delete("task/" + id).then(function (response) {
+          return _this.list.splice(key, 1);
+        }).catch(function (error) {
+          return _this.errors = error.response.data;
+        });
+      }
+    },
+    editTask: function editTask(id) {
+      console.log(id);
+      // if (confirm("Are you sure?")){
+      //   axios.delete(`task/${id}`)
+      //       .then((response)=> this.list.splice(key,1))
+      //       .catch((error) => this.errors = error.response.data);
+      // }
+    }
   }
 });
 
