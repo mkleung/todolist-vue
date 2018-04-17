@@ -43631,9 +43631,55 @@ var render = function() {
           [
             _c("article", { staticClass: "tile is-child notification" }, [
               _c("div", { staticClass: "title todoTitle__title" }, [
-                _c("span", { staticClass: "todoTitle__title--span" }, [
-                  _vm._v(_vm._s(item.title))
-                ]),
+                _vm.editing != item.id
+                  ? _c("span", { staticClass: "todoTitle__title--span" }, [
+                      _vm._v(_vm._s(item.title))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.editing == item.id
+                  ? _c("span", { staticClass: "todoTitle__title--span" }, [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: item.title,
+                            expression: "item.title"
+                          }
+                        ],
+                        staticClass: "input",
+                        attrs: { type: "text", placeholder: "Name" },
+                        domProps: { value: item.title },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(item, "title", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-info",
+                          on: { click: _vm.updateTask }
+                        },
+                        [_vm._v("Update")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "button is-info",
+                          on: { click: _vm.updateTask }
+                        },
+                        [_vm._v("Cancel")]
+                      )
+                    ])
+                  : _vm._e(),
                 _vm._v(" "),
                 _c("span", [
                   _c(
@@ -43641,7 +43687,7 @@ var render = function() {
                     {
                       on: {
                         click: function($event) {
-                          _vm.editTask(index, item.id)
+                          _vm.toggleEdit(item)
                         }
                       }
                     },
@@ -43684,7 +43730,7 @@ var render = function() {
                           {
                             on: {
                               click: function($event) {
-                                _vm.untoggleDelete()
+                                _vm.deleting = false
                               }
                             }
                           },
@@ -44145,23 +44191,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
   data: function data() {
     return {
-      deleting: false
+      deleting: false,
+      editing: false
     };
   },
 
 
   methods: {
-    toggleDelete: function toggleDelete(item) {
-      // this.deleting = !this.deleting;
-      this.deleting = item.id;
+    toggleEdit: function toggleEdit(item) {
+      if (!this.editing) {
+        this.editing = item.id;
+      } else {
+        this.editing = false;
+      }
     },
-    untoggleDelete: function untoggleDelete() {
-      this.deleting = false;
+    updateTask: function updateTask(item) {},
+
+    toggleDelete: function toggleDelete(item) {
+      this.deleting = item.id;
     },
     deleteTask: function deleteTask(key, id) {
       var _this = this;
@@ -44171,14 +44236,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (error) {
         return _this.errors = error.response.data;
       });
-    },
-    editTask: function editTask(id) {
-      console.log(id);
-      // if (confirm("Are you sure?")){
-      //   axios.delete(`task/${id}`)
-      //       .then((response)=> this.list.splice(key,1))
-      //       .catch((error) => this.errors = error.response.data);
-      // }
     }
   }
 });

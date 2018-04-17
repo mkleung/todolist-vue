@@ -4,10 +4,22 @@
           <div class="tile is-parent is-vertical"  v-for="(item, index) in list" :key='index'>
             <article class="tile is-child notification">
               <div class="title todoTitle__title">
-                <span class="todoTitle__title--span">{{item.title}}</span>
+
+                <span  v-if="editing != item.id"  class="todoTitle__title--span">{{item.title}}</span>
+                
+                <span v-if="editing == item.id" class="todoTitle__title--span">
+                  <input class="input" type="text"  placeholder="Name" v-model="item.title">
+                  <button class="button is-info" @click='updateTask'>Update</button>
+                  <button class="button is-info" @click='updateTask'>Cancel</button>
+                </span>
+
                 <span>
-                    <a @click='editTask(index, item.id)'><i class="fa fa-pencil todoTitle__icon"></i></a>
+                    <!-- Edit -->
+                    <a @click='toggleEdit(item)'>
+                      <i class="fa fa-pencil todoTitle__icon"></i>
+                    </a>
                     
+                    <!-- Delete -->
                     <a @click="toggleDelete(item)">
                       <i class="fa fa-trash todoTitle__icon"></i>
                     </a>
@@ -16,10 +28,11 @@
                         <a @click ="deleteTask(index, item.id)">
                           <i class="fa fa-check todoTitle__icon todoTitle__icon--green"></i>
                         </a>
-                        <a @click="untoggleDelete()">
+                        <a @click="deleting = false">
                           <i class="fa fa-times todoTitle__icon todoTitle__icon--red"></i>
                         </a>
                     </span>
+
                 </span>
               </div>
             </article>
@@ -34,31 +47,31 @@ export default {
   data() {
     return {
       deleting: false,
+      editing: false
     }
   },
 
   methods: {
-    toggleDelete: function (item) {
-        // this.deleting = !this.deleting;
-        this.deleting = item.id;
+    toggleEdit: function (item) {
+        if (!this.editing) {
+           this.editing = item.id;
+        }
+       else {
+          this.editing = false;
+       }
     },
-    untoggleDelete: function () {
-        this.deleting = false;
+    updateTask(item){
+
+    },
+    toggleDelete: function (item) {
+        this.deleting = item.id;
     },
     deleteTask(key, id){
           axios.delete(`task/${id}`)
               .then((response)=> this.list.splice(key,1))
               .catch((error) => this.errors = error.response.data);
-        
     },
-    editTask(id){
-      console.log( id);
-        // if (confirm("Are you sure?")){
-        //   axios.delete(`task/${id}`)
-        //       .then((response)=> this.list.splice(key,1))
-        //       .catch((error) => this.errors = error.response.data);
-        // }
-    }
+  
   }
 }
 </script>
