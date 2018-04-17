@@ -7,11 +7,19 @@
 
                 <span  v-if="editing != item.id"  class="todoTitle__title--span">{{item.title}}</span>
                 
-                <span v-if="editing == item.id" class="todoTitle__title--span">
-                  <input class="input" type="text"  placeholder="Name" v-model="item.title">
-                  <button class="button is-info" @click='updateTask'>Update</button>
-                  <button class="button is-info" @click='updateTask'>Cancel</button>
+                <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
+                  <p class="control is-expanded">
+                      <input type="text" placeholder="Update" class="input" v-model="item.title">
+                  </p>
+                  <p class="control">
+                    <button class="button is-info">Update</button>
+                  </p>
+                  <p class="control">
+                    <button class="button is-text" @click="editing = false">Cancel</button>
+                  </p>
                 </span>
+
+      
 
                 <span>
                     <!-- Edit -->

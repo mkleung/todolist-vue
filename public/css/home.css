@@ -29,3 +29,7 @@ body {
 .todoTitle__icon--red {
     color: #e74c3c;
 }
+
+.field.is-grouped {
+    margin-bottom: 0;
+}
