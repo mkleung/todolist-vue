@@ -69,7 +69,8 @@ export default {
        }
     },
     updateTask(item){
-        axios.patch('task', this.$data.task)
+      console.log("update task");
+        axios.patch(`task/${item}`)
               .then((response)=>{})
               .catch((error) => this.errors = error.response.data);
     },

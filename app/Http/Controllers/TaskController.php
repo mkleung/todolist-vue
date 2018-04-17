@@ -80,8 +80,9 @@ class TaskController extends Controller
      */
     public function update(Request $request)
     {
-        echo $request->id;
-        // $myTask = Task::find($request->id);
+        
+        $myTask = Task::find($request->id);
+        echo $myTask->id;
         // $myTask->name = $request->name;
         // $myTask->phone = $request->phone;
         // $myTask->email = $request->email;

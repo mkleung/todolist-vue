@@ -44254,7 +44254,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     updateTask: function updateTask(item) {
       var _this = this;
 
-      axios.patch('task', this.$data.task).then(function (response) {}).catch(function (error) {
+      console.log("update task");
+      axios.patch("task/" + item).then(function (response) {}).catch(function (error) {
         return _this.errors = error.response.data;
       });
     },
