@@ -12,7 +12,7 @@
                       <input type="text" placeholder="Update" class="input" v-model="item.title">
                   </p>
                   <p class="control">
-                    <button class="button is-info">Update</button>
+                    <button class="button is-info" @click="updateTask(item)">Update</button>
                   </p>
                   <p class="control">
                     <button class="button is-text" @click="editing = false">Cancel</button>
@@ -69,10 +69,9 @@ export default {
        }
     },
     updateTask(item){
-
-    },
-    toggleDelete: function (item) {
-        this.deleting = item.id;
+        axios.patch('task', this.$data.task)
+              .then((response)=>{})
+              .catch((error) => this.errors = error.response.data);
     },
     deleteTask(key, id){
           axios.delete(`task/${id}`)

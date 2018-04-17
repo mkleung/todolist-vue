@@ -43668,7 +43668,20 @@ var render = function() {
                           })
                         ]),
                         _vm._v(" "),
-                        _vm._m(0, true),
+                        _c("p", { staticClass: "control" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "button is-info",
+                              on: {
+                                click: function($event) {
+                                  _vm.updateTask(item)
+                                }
+                              }
+                            },
+                            [_vm._v("Update")]
+                          )
+                        ]),
                         _vm._v(" "),
                         _c("p", { staticClass: "control" }, [
                           _c(
@@ -43759,16 +43772,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "control" }, [
-      _c("button", { staticClass: "button is-info" }, [_vm._v("Update")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -44247,18 +44251,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.editing = false;
       }
     },
-    updateTask: function updateTask(item) {},
-
-    toggleDelete: function toggleDelete(item) {
-      this.deleting = item.id;
-    },
-    deleteTask: function deleteTask(key, id) {
+    updateTask: function updateTask(item) {
       var _this = this;
 
-      axios.delete("task/" + id).then(function (response) {
-        return _this.list.splice(key, 1);
-      }).catch(function (error) {
+      axios.patch('task', this.$data.task).then(function (response) {}).catch(function (error) {
         return _this.errors = error.response.data;
+      });
+    },
+    deleteTask: function deleteTask(key, id) {
+      var _this2 = this;
+
+      axios.delete("task/" + id).then(function (response) {
+        return _this2.list.splice(key, 1);
+      }).catch(function (error) {
+        return _this2.errors = error.response.data;
       });
     }
   }
