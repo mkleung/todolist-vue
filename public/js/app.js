@@ -43675,7 +43675,7 @@ var render = function() {
                               staticClass: "button is-info",
                               on: {
                                 click: function($event) {
-                                  _vm.updateTask(item)
+                                  _vm.updateTask(item, index)
                                 }
                               }
                             },
@@ -44251,11 +44251,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.editing = false;
       }
     },
-    updateTask: function updateTask(item) {
+    updateTask: function updateTask(item, id) {
       var _this = this;
 
       console.log("update task");
-      axios.patch("task/" + item).then(function (response) {}).catch(function (error) {
+
+      axios.patch("task/" + id, item).then(function (response) {
+        _this.editing = false;
+      }).catch(function (error) {
         return _this.errors = error.response.data;
       });
     },
