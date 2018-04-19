@@ -4,8 +4,14 @@
           <div class="tile is-parent is-vertical"  v-for="(item, index) in list" :key='index'>
             <article class="tile is-child notification">
               <div class="title todoTitle__title">
-
-                <span  v-if="editing != item.id"  class="todoTitle__title--span">{{item.title}}</span>
+                
+                <span  v-if="editing != item.id"  class="todoTitle__title--span">
+                  <span class="todoTitle__checkbox b-checkbox is-default">
+                      <input id="checkbox" class="styled" checked type="checkbox">
+                      <label for="checkbox"></label>
+                  </span>
+                  {{item.title}}
+                </span>
                 
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
                   <p class="control is-expanded">
@@ -61,12 +67,14 @@ export default {
 
   methods: {
     toggleEdit: function (item) {
-        if (!this.editing) {
-           this.editing = item.id;
-        }
-       else {
-          this.editing = false;
-       }
+        this.editing = item.id;
+
+            // if (!this.editing) {
+            //     this.editing = item.id;
+            // }
+            // else {
+            //   this.editing = false;
+            // }
     },
     updateTask(item, id){
       console.log("update task");

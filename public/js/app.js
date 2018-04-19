@@ -43633,7 +43633,12 @@ var render = function() {
               _c("div", { staticClass: "title todoTitle__title" }, [
                 _vm.editing != item.id
                   ? _c("span", { staticClass: "todoTitle__title--span" }, [
-                      _vm._v(_vm._s(item.title))
+                      _vm._m(0, true),
+                      _vm._v(
+                        "\n                  " +
+                          _vm._s(item.title) +
+                          "\n                "
+                      )
                     ])
                   : _vm._e(),
                 _vm._v(" "),
@@ -43772,7 +43777,25 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "span",
+      { staticClass: "todoTitle__checkbox b-checkbox is-default" },
+      [
+        _c("input", {
+          staticClass: "styled",
+          attrs: { id: "checkbox", checked: "", type: "checkbox" }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "checkbox" } })
+      ]
+    )
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -44232,6 +44255,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
@@ -44245,11 +44274,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     toggleEdit: function toggleEdit(item) {
-      if (!this.editing) {
-        this.editing = item.id;
-      } else {
-        this.editing = false;
-      }
+      this.editing = item.id;
+
+      // if (!this.editing) {
+      //     this.editing = item.id;
+      // }
+      // else {
+      //   this.editing = false;
+      // }
     },
     updateTask: function updateTask(item, id) {
       var _this = this;

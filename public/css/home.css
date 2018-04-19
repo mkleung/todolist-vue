@@ -33,3 +33,7 @@ body {
 .field.is-grouped {
     margin-bottom: 0;
 }
+
+.todoTitle__checkbox {
+    top: 12px;
+}
