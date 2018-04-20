@@ -43697,6 +43697,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     toggleEdit: function toggleEdit(item) {
       this.editing = item.id;
     },
+    toggleDelete: function toggleDelete(item) {
+      this.deleting = item.id;
+    },
     updateTask: function updateTask(item, id) {
       var _this2 = this;
 

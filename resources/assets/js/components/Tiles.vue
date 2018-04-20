@@ -77,6 +77,9 @@ export default {
     toggleEdit: function (item) {
         this.editing = item.id;
     },
+    toggleDelete: function (item) {
+         this.deleting = item.id;
+    },
     updateTask(item, id){
       console.log("update task");
         
