@@ -44,6 +44,7 @@ class TaskController extends Controller
 
         $myTask = new Task;
         $myTask->title = $request->title;
+        $myTask->status = false;
         $myTask->save();
 
         return $myTask;
@@ -95,5 +96,12 @@ class TaskController extends Controller
     {
         $delTask= Task::where('id', $id)->first();
         $delTask->delete();
+    }
+
+
+    public function toggleTask(Request $request){
+        $toggleTask= Task::where('id', $request->id)->first();
+        $toggleTask->status = !$toggleTask->status;
+        $toggleTask->save();
     }
 }

@@ -20,3 +20,6 @@ Route::resource('task', 'TaskController');
 
 
 Route::get('getTasks', 'TaskController@getTasks');
+
+
+Route::post('toggleTask', 'TaskController@toggleTask');

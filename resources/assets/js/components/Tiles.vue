@@ -7,8 +7,8 @@
                 
                 <span  v-if="editing != item.id"  class="todoTitle__title--span">
                   <span class="todoTitle__checkbox b-checkbox is-default">
-                      <input id="checkbox" class="styled" checked type="checkbox">
-                      <label for="checkbox"></label>
+                      <input @click="toggleTask(item)"  v-bind:id="index" class="styled" type="checkbox" v-model="item.status">
+                      <label v-bind:for="index"></label>
                   </span>
                   {{item.title}}
                 </span>
@@ -66,15 +66,16 @@ export default {
   },
 
   methods: {
+    toggleTask: function(item) {
+ 
+        axios.post('toggleTask', item)
+          .then((response)=> {
+            
+          })
+          .catch((error) => this.errors = error.response.data);
+    },
     toggleEdit: function (item) {
         this.editing = item.id;
-
-            // if (!this.editing) {
-            //     this.editing = item.id;
-            // }
-            // else {
-            //   this.editing = false;
-            // }
     },
     updateTask(item, id){
       console.log("update task");

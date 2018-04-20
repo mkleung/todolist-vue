@@ -12040,9 +12040,9 @@ module.exports = Vue;
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(44)
+var __vue_script__ = __webpack_require__(45)
 /* template */
-var __vue_template__ = __webpack_require__(45)
+var __vue_template__ = __webpack_require__(46)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -12085,7 +12085,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(51);
+module.exports = __webpack_require__(52);
 
 
 /***/ }),
@@ -12115,8 +12115,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 var home = __webpack_require__(40);
 var addTask = __webpack_require__(11);
 
-var appheader = __webpack_require__(47);
-var appfooter = __webpack_require__(49);
+var appheader = __webpack_require__(48);
+var appfooter = __webpack_require__(50);
 
 var routes = [{ path: '/', component: home }];
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
@@ -43463,7 +43463,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(41)
 /* template */
-var __vue_template__ = __webpack_require__(46)
+var __vue_template__ = __webpack_require__(47)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -43572,9 +43572,9 @@ var addTask = __webpack_require__(11);
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(62)
+var __vue_script__ = __webpack_require__(43)
 /* template */
-var __vue_template__ = __webpack_require__(43)
+var __vue_template__ = __webpack_require__(44)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -43614,6 +43614,114 @@ module.exports = Component.exports
 
 /***/ }),
 /* 43 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["list"],
+  data: function data() {
+    return {
+      deleting: false,
+      editing: false
+    };
+  },
+
+
+  methods: {
+    toggleTask: function toggleTask(item) {
+      var _this = this;
+
+      axios.post('toggleTask', item).then(function (response) {}).catch(function (error) {
+        return _this.errors = error.response.data;
+      });
+    },
+    toggleEdit: function toggleEdit(item) {
+      this.editing = item.id;
+    },
+    updateTask: function updateTask(item, id) {
+      var _this2 = this;
+
+      console.log("update task");
+
+      axios.patch("task/" + id, item).then(function (response) {
+        _this2.editing = false;
+      }).catch(function (error) {
+        return _this2.errors = error.response.data;
+      });
+    },
+    deleteTask: function deleteTask(key, id) {
+      var _this3 = this;
+
+      axios.delete("task/" + id).then(function (response) {
+        return _this3.list.splice(key, 1);
+      }).catch(function (error) {
+        return _this3.errors = error.response.data;
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -43633,7 +43741,67 @@ var render = function() {
               _c("div", { staticClass: "title todoTitle__title" }, [
                 _vm.editing != item.id
                   ? _c("span", { staticClass: "todoTitle__title--span" }, [
-                      _vm._m(0, true),
+                      _c(
+                        "span",
+                        {
+                          staticClass:
+                            "todoTitle__checkbox b-checkbox is-default"
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: item.status,
+                                expression: "item.status"
+                              }
+                            ],
+                            staticClass: "styled",
+                            attrs: { id: index, type: "checkbox" },
+                            domProps: {
+                              checked: Array.isArray(item.status)
+                                ? _vm._i(item.status, null) > -1
+                                : item.status
+                            },
+                            on: {
+                              click: function($event) {
+                                _vm.toggleTask(item)
+                              },
+                              change: function($event) {
+                                var $$a = item.status,
+                                  $$el = $event.target,
+                                  $$c = $$el.checked ? true : false
+                                if (Array.isArray($$a)) {
+                                  var $$v = null,
+                                    $$i = _vm._i($$a, $$v)
+                                  if ($$el.checked) {
+                                    $$i < 0 &&
+                                      _vm.$set(
+                                        item,
+                                        "status",
+                                        $$a.concat([$$v])
+                                      )
+                                  } else {
+                                    $$i > -1 &&
+                                      _vm.$set(
+                                        item,
+                                        "status",
+                                        $$a
+                                          .slice(0, $$i)
+                                          .concat($$a.slice($$i + 1))
+                                      )
+                                  }
+                                } else {
+                                  _vm.$set(item, "status", $$c)
+                                }
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("label", { attrs: { for: index } })
+                        ]
+                      ),
                       _vm._v(
                         "\n                  " +
                           _vm._s(item.title) +
@@ -43777,25 +43945,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "span",
-      { staticClass: "todoTitle__checkbox b-checkbox is-default" },
-      [
-        _c("input", {
-          staticClass: "styled",
-          attrs: { id: "checkbox", checked: "", type: "checkbox" }
-        }),
-        _vm._v(" "),
-        _c("label", { attrs: { for: "checkbox" } })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -43806,7 +43956,7 @@ if (false) {
 }
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -43851,7 +44001,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -43903,7 +44053,7 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -43955,7 +44105,7 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -43963,7 +44113,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(48)
+var __vue_template__ = __webpack_require__(49)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -44002,7 +44152,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -44095,7 +44245,7 @@ if (false) {
 }
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -44103,7 +44253,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(51)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -44142,7 +44292,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -44183,128 +44333,10 @@ if (false) {
 }
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["list"],
-  data: function data() {
-    return {
-      deleting: false,
-      editing: false
-    };
-  },
-
-
-  methods: {
-    toggleEdit: function toggleEdit(item) {
-      this.editing = item.id;
-
-      // if (!this.editing) {
-      //     this.editing = item.id;
-      // }
-      // else {
-      //   this.editing = false;
-      // }
-    },
-    updateTask: function updateTask(item, id) {
-      var _this = this;
-
-      console.log("update task");
-
-      axios.patch("task/" + id, item).then(function (response) {
-        _this.editing = false;
-      }).catch(function (error) {
-        return _this.errors = error.response.data;
-      });
-    },
-    deleteTask: function deleteTask(key, id) {
-      var _this2 = this;
-
-      axios.delete("task/" + id).then(function (response) {
-        return _this2.list.splice(key, 1);
-      }).catch(function (error) {
-        return _this2.errors = error.response.data;
-      });
-    }
-  }
-});
 
 /***/ })
 /******/ ]);
