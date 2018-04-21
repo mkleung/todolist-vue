@@ -17,12 +17,6 @@
                   <p class="control is-expanded">
                       <input type="text" placeholder="Update" class="input" v-model="item.title">
                   </p>
-                  <p class="control">
-                    <button class="button is-info" @click="updateTask(item, index)">Update</button>
-                  </p>
-                  <p class="control">
-                    <button class="button is-text" @click="editing = false">Cancel</button>
-                  </p>
                 </span>
 
       
@@ -32,6 +26,20 @@
                     <a @click='toggleEdit(item)'>
                       <i class="fa fa-pencil todoTitle__icon"></i>
                     </a>
+
+                    <span v-if="editing == item.id">
+                        
+                          <a @click="updateTask(item, index)">
+                              <i class="fa fa-check todoTitle__icon todoTitle__icon--green"></i>
+                          </a>
+                       
+                          <a @click="editing = false">
+                            <i class="fa fa-times todoTitle__icon todoTitle__icon--red"></i>
+                          </a>
+                      
+                    </span>
+
+
                     
                     <!-- Delete -->
                     <a @click="toggleDelete(item)">
@@ -48,6 +56,7 @@
                     </span>
 
                 </span>
+
               </div>
             </article>
           </div> 

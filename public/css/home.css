@@ -41,3 +41,9 @@ body {
 .strikethrough {
     text-decoration: line-through;
 }
+
+.input {
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Quicksand', sans-serif;
+}
