@@ -20,29 +20,23 @@
                 </span>
 
       
-
                 <span>
                     <!-- Edit -->
-                    <a @click='toggleEdit(item)'>
+                    <a v-if="editing != item.id" @click='toggleEdit(item)'>
                       <i class="fa fa-pencil todoTitle__icon"></i>
                     </a>
 
                     <span v-if="editing == item.id">
-                        
-                          <a @click="updateTask(item, index)">
-                              <i class="fa fa-check todoTitle__icon todoTitle__icon--green"></i>
-                          </a>
-                       
-                          <a @click="editing = false">
-                            <i class="fa fa-times todoTitle__icon todoTitle__icon--red"></i>
-                          </a>
-                      
+                      <a @click="updateTask(item, index)">
+                          <i class="fa fa-check todoTitle__icon todoTitle__icon--green"></i>
+                      </a>
+                      <a @click="editing = false">
+                        <i class="fa fa-times todoTitle__icon todoTitle__icon--red"></i>
+                      </a>
                     </span>
 
-
-                    
                     <!-- Delete -->
-                    <a @click="toggleDelete(item)">
+                    <a  v-if="deleting != item.id" @click="toggleDelete(item)">
                       <i class="fa fa-trash todoTitle__icon"></i>
                     </a>
 

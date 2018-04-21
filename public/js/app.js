@@ -43678,12 +43678,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
@@ -43856,17 +43850,23 @@ var render = function() {
                   : _vm._e(),
                 _vm._v(" "),
                 _c("span", [
-                  _c(
-                    "a",
-                    {
-                      on: {
-                        click: function($event) {
-                          _vm.toggleEdit(item)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fa fa-pencil todoTitle__icon" })]
-                  ),
+                  _vm.editing != item.id
+                    ? _c(
+                        "a",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.toggleEdit(item)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-pencil todoTitle__icon"
+                          })
+                        ]
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm.editing == item.id
                     ? _c("span", [
@@ -43906,17 +43906,23 @@ var render = function() {
                       ])
                     : _vm._e(),
                   _vm._v(" "),
-                  _c(
-                    "a",
-                    {
-                      on: {
-                        click: function($event) {
-                          _vm.toggleDelete(item)
-                        }
-                      }
-                    },
-                    [_c("i", { staticClass: "fa fa-trash todoTitle__icon" })]
-                  ),
+                  _vm.deleting != item.id
+                    ? _c(
+                        "a",
+                        {
+                          on: {
+                            click: function($event) {
+                              _vm.toggleDelete(item)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", {
+                            staticClass: "fa fa-trash todoTitle__icon"
+                          })
+                        ]
+                      )
+                    : _vm._e(),
                   _vm._v(" "),
                   _vm.deleting == item.id
                     ? _c("span", [
