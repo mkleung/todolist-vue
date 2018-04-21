@@ -5,7 +5,7 @@
         </p>
         <p class="control">
             <button class="button is-info" @click='addTask'>
-                Save
+                SAVE
             </button>
         </p>
     </div>

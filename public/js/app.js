@@ -44062,7 +44062,7 @@ var render = function() {
       _c(
         "button",
         { staticClass: "button is-info", on: { click: _vm.addTask } },
-        [_vm._v("\n            Save\n        ")]
+        [_vm._v("\n            SAVE\n        ")]
       )
     ])
   ])

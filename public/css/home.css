@@ -12,6 +12,7 @@ body {
 
 .todoTitle__title span{
     color: #363636;
+    font-size: 22px;
 }
 
 .addTask__input {
@@ -35,7 +36,7 @@ body {
 }
 
 .todoTitle__checkbox {
-    top: 12px;
+    top: 5px;
 }
 
 .strikethrough {
