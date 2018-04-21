@@ -8,11 +8,13 @@ body {
 .todoTitle__title {
     display: flex;
     justify-content: space-between;
+    height: 30px;
 }
 
 .todoTitle__title span{
     color: #363636;
     font-size: 22px;
+
 }
 
 .addTask__input {
@@ -46,4 +48,9 @@ body {
 .input {
     font-weight: 900;
     font-family: 'Quicksand', sans-serif;
+    height: 30px;
+}
+
+.title.is-child {
+    padding-bottom: 15px;
 }
