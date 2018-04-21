@@ -37,3 +37,7 @@ body {
 .todoTitle__checkbox {
     top: 12px;
 }
+
+.strikethrough {
+    text-decoration: line-through;
+}

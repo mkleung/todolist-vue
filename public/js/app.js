@@ -43805,11 +43805,10 @@ var render = function() {
                           _c("label", { attrs: { for: index } })
                         ]
                       ),
-                      _vm._v(
-                        "\n                  " +
-                          _vm._s(item.title) +
-                          "\n                "
-                      )
+                      _vm._v(" "),
+                      _c("span", { class: { strikethrough: item.status } }, [
+                        _vm._v(_vm._s(item.title))
+                      ])
                     ])
                   : _vm._e(),
                 _vm._v(" "),

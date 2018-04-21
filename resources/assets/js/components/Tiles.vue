@@ -10,7 +10,7 @@
                       <input @click="toggleTask(item)"  v-bind:id="index" class="styled" type="checkbox" v-model="item.status">
                       <label v-bind:for="index"></label>
                   </span>
-                  {{item.title}}
+                  <span v-bind:class="{ strikethrough: item.status }">{{item.title}}</span>
                 </span>
                 
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
