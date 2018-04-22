@@ -43,6 +43,7 @@ body {
 
 .strikethrough {
     text-decoration: line-through;
+    color: #95a5a6!important;
 }
 
 .input {

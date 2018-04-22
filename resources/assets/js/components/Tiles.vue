@@ -5,13 +5,23 @@
             <article class="tile is-child notification">
               <div class="title todoTitle__title">
                 
-                <span  v-if="editing != item.id"  class="todoTitle__title--span">
+                <!-- <span  v-if="editing != item.id"  class="todoTitle__title--span">
                   <span class="todoTitle__checkbox b-checkbox is-default">
                       <input @click="toggleTask(item)"  v-bind:id="index" class="styled" type="checkbox" v-model="item.status">
                       <label v-bind:for="index"></label>
                   </span>
                   <span v-bind:class="{ strikethrough: item.status }">{{item.title}}</span>
-                </span>
+                </span> -->
+
+               
+              <div class="field">
+                  <b-checkbox @change="toggleTask(item)" size="is-small" v-model="item.status"
+                  true-value="1"
+                  false-value="0">
+                      <span v-bind:class="{ strikethrough: item.status }">{{item.title}}</span>
+                  </b-checkbox>
+              </div>
+
                 
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
                   <p class="control is-expanded">
@@ -70,12 +80,12 @@ export default {
 
   methods: {
     toggleTask: function(item) {
- 
-        axios.post('toggleTask', item)
-          .then((response)=> {
+        console.log("toggle task");
+        // axios.post('toggleTask', item)
+        //   .then((response)=> {
             
-          })
-          .catch((error) => this.errors = error.response.data);
+        //   })
+        //   .catch((error) => this.errors = error.response.data);
     },
     toggleEdit: function (item) {
         this.editing = item.id;

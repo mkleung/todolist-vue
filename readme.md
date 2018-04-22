@@ -83,6 +83,12 @@ DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
 
+Create a database and then migrate
+
+```
+php artisan migrate
+```
+
 
 # Running the project
 

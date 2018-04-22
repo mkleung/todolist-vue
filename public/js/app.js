@@ -44275,6 +44275,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
@@ -44288,11 +44298,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     toggleTask: function toggleTask(item) {
-      var _this = this;
+      console.log("toggle task");
+      // axios.post('toggleTask', item)
+      //   .then((response)=> {
 
-      axios.post('toggleTask', item).then(function (response) {}).catch(function (error) {
-        return _this.errors = error.response.data;
-      });
+      //   })
+      //   .catch((error) => this.errors = error.response.data);
     },
     toggleEdit: function toggleEdit(item) {
       this.editing = item.id;
@@ -44301,23 +44312,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.deleting = item.id;
     },
     updateTask: function updateTask(item, id) {
-      var _this2 = this;
+      var _this = this;
 
       console.log("update task");
 
       axios.patch("task/" + id, item).then(function (response) {
-        _this2.editing = false;
+        _this.editing = false;
       }).catch(function (error) {
-        return _this2.errors = error.response.data;
+        return _this.errors = error.response.data;
       });
     },
     deleteTask: function deleteTask(key, id) {
-      var _this3 = this;
+      var _this2 = this;
 
       axios.delete("task/" + id).then(function (response) {
-        return _this3.list.splice(key, 1);
+        return _this2.list.splice(key, 1);
       }).catch(function (error) {
-        return _this3.errors = error.response.data;
+        return _this2.errors = error.response.data;
       });
     }
   }
@@ -44342,75 +44353,40 @@ var render = function() {
           [
             _c("article", { staticClass: "tile is-child notification" }, [
               _c("div", { staticClass: "title todoTitle__title" }, [
-                _vm.editing != item.id
-                  ? _c("span", { staticClass: "todoTitle__title--span" }, [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "todoTitle__checkbox b-checkbox is-default"
+                _c(
+                  "div",
+                  { staticClass: "field" },
+                  [
+                    _c(
+                      "b-checkbox",
+                      {
+                        attrs: {
+                          size: "is-small",
+                          "true-value": "1",
+                          "false-value": "0"
                         },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: item.status,
-                                expression: "item.status"
-                              }
-                            ],
-                            staticClass: "styled",
-                            attrs: { id: index, type: "checkbox" },
-                            domProps: {
-                              checked: Array.isArray(item.status)
-                                ? _vm._i(item.status, null) > -1
-                                : item.status
-                            },
-                            on: {
-                              click: function($event) {
-                                _vm.toggleTask(item)
-                              },
-                              change: function($event) {
-                                var $$a = item.status,
-                                  $$el = $event.target,
-                                  $$c = $$el.checked ? true : false
-                                if (Array.isArray($$a)) {
-                                  var $$v = null,
-                                    $$i = _vm._i($$a, $$v)
-                                  if ($$el.checked) {
-                                    $$i < 0 &&
-                                      _vm.$set(
-                                        item,
-                                        "status",
-                                        $$a.concat([$$v])
-                                      )
-                                  } else {
-                                    $$i > -1 &&
-                                      _vm.$set(
-                                        item,
-                                        "status",
-                                        $$a
-                                          .slice(0, $$i)
-                                          .concat($$a.slice($$i + 1))
-                                      )
-                                  }
-                                } else {
-                                  _vm.$set(item, "status", $$c)
-                                }
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c("label", { attrs: { for: index } })
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("span", { class: { strikethrough: item.status } }, [
-                        _vm._v(_vm._s(item.title))
-                      ])
-                    ])
-                  : _vm._e(),
+                        on: {
+                          change: function($event) {
+                            _vm.toggleTask(item)
+                          }
+                        },
+                        model: {
+                          value: item.status,
+                          callback: function($$v) {
+                            _vm.$set(item, "status", $$v)
+                          },
+                          expression: "item.status"
+                        }
+                      },
+                      [
+                        _c("span", { class: { strikethrough: item.status } }, [
+                          _vm._v(_vm._s(item.title))
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                ),
                 _vm._v(" "),
                 _vm.editing == item.id
                   ? _c(
