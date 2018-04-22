@@ -11,6 +11,11 @@ window.Vue = require('vue');
 
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Buefy from 'buefy'
+import 'buefy/lib/buefy.css'
+
+Vue.use(Buefy)
+
 Vue.use(VueRouter)
 
 let home = require('./components/Home.vue');

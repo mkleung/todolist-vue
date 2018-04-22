@@ -9,6 +9,8 @@
 
 > npm install font-awesome
 
+> npm install buefy --save
+
 > npm install
 
 (this will install everything in package.json file)
