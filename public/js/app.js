@@ -44131,6 +44131,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 var tiles = __webpack_require__(48);
@@ -44153,7 +44154,6 @@ var addTask = __webpack_require__(11);
 
             axios.get('getTasks').then(function (response) {
                 var taskList = response.data;
-
                 _this.list = response.data;
             }).catch(function (error) {
                 return _this.errors = error.response.data;
@@ -44298,12 +44298,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
     toggleTask: function toggleTask(item) {
-      console.log("toggle task");
-      // axios.post('toggleTask', item)
-      //   .then((response)=> {
+      var _this = this;
 
-      //   })
-      //   .catch((error) => this.errors = error.response.data);
+      console.log("toggle task");
+      axios.post('toggleTask', item).then(function (response) {}).catch(function (error) {
+        return _this.errors = error.response.data;
+      });
     },
     toggleEdit: function toggleEdit(item) {
       this.editing = item.id;
@@ -44312,23 +44312,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.deleting = item.id;
     },
     updateTask: function updateTask(item, id) {
-      var _this = this;
+      var _this2 = this;
 
       console.log("update task");
 
       axios.patch("task/" + id, item).then(function (response) {
-        _this.editing = false;
+        _this2.editing = false;
       }).catch(function (error) {
-        return _this.errors = error.response.data;
+        return _this2.errors = error.response.data;
       });
     },
     deleteTask: function deleteTask(key, id) {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.delete("task/" + id).then(function (response) {
-        return _this2.list.splice(key, 1);
+        return _this3.list.splice(key, 1);
       }).catch(function (error) {
-        return _this2.errors = error.response.data;
+        return _this3.errors = error.response.data;
       });
     }
   }
@@ -44355,7 +44355,13 @@ var render = function() {
               _c("div", { staticClass: "title todoTitle__title" }, [
                 _c(
                   "div",
-                  { staticClass: "field" },
+                  {
+                    on: {
+                      change: function($event) {
+                        _vm.toggleTask(item)
+                      }
+                    }
+                  },
                   [
                     _c(
                       "b-checkbox",
@@ -44364,11 +44370,6 @@ var render = function() {
                           size: "is-small",
                           "true-value": "1",
                           "false-value": "0"
-                        },
-                        on: {
-                          change: function($event) {
-                            _vm.toggleTask(item)
-                          }
                         },
                         model: {
                           value: item.status,
