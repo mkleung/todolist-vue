@@ -13,8 +13,8 @@
                   <span v-bind:class="{ strikethrough: item.status }">{{item.title}}</span>
                 </span> -->
 
-                 <div @change="toggleTask(item)">
-                    <b-checkbox size="is-small" v-model="item.status"
+                 <div  @change="toggleTask(item)">
+                    <b-checkbox size="is-small"  v-model="item.status"
                     true-value="1"
                     false-value="0">
                         <span v-bind:class="{ strikethrough: item.status }">{{item.title}}</span>
@@ -83,7 +83,7 @@ export default {
         console.log("toggle task");
         axios.post('toggleTask', item)
           .then((response)=> {
-            
+ 
           })
           .catch((error) => this.errors = error.response.data);
     },

@@ -23,7 +23,7 @@
     <body>
       <div id="app">
         <appheader></appheader>
-        <home></home>
+        <dashboard></dashboard>
         <appfooter></appfooter>
       </div>
       <script src="{{ asset('js/app.js')}}"></script>
