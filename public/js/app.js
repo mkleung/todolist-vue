@@ -44175,7 +44175,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
@@ -44270,11 +44269,7 @@ var render = function() {
                           expression: "item.status"
                         }
                       },
-                      [
-                        _c("span", { class: { strikethrough: item.status } }, [
-                          _vm._v(_vm._s(item.title))
-                        ])
-                      ]
+                      [_c("span", [_vm._v(_vm._s(item.title))])]
                     )
                   ],
                   1
@@ -44464,12 +44459,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       task: {
-        title: ''
+        title: '',
+        time: new Date()
       }
     };
   },
@@ -44498,39 +44512,101 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "field is-grouped" }, [
-    _c("p", { staticClass: "control is-expanded" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.task.title,
-            expression: "task.title"
-          }
-        ],
-        staticClass: "input",
-        attrs: { type: "text", placeholder: "Add a task" },
-        domProps: { value: _vm.task.title },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
+  return _c(
+    "div",
+    { staticClass: "field is-grouped" },
+    [
+      _c("p", { staticClass: "control is-expanded" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.task.title,
+              expression: "task.title"
             }
-            _vm.$set(_vm.task, "title", $event.target.value)
+          ],
+          staticClass: "input",
+          attrs: { type: "text", placeholder: "Add a task" },
+          domProps: { value: _vm.task.title },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.$set(_vm.task, "title", $event.target.value)
+            }
           }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "control" }, [
+        })
+      ]),
+      _vm._v(" "),
       _c(
-        "button",
-        { staticClass: "button is-info", on: { click: _vm.addTask } },
-        [_vm._v("\n            SAVE\n        ")]
-      )
-    ])
-  ])
+        "b-field",
+        [
+          _c(
+            "b-timepicker",
+            {
+              attrs: { placeholder: "Select a time" },
+              model: {
+                value: _vm.time,
+                callback: function($$v) {
+                  _vm.time = $$v
+                },
+                expression: "time"
+              }
+            },
+            [
+              _c(
+                "button",
+                {
+                  staticClass: "button is-primary",
+                  on: {
+                    click: function($event) {
+                      _vm.time = new Date()
+                    }
+                  }
+                },
+                [
+                  _c("b-icon", { attrs: { icon: "clock" } }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Now")])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "button is-danger",
+                  on: {
+                    click: function($event) {
+                      _vm.time = null
+                    }
+                  }
+                },
+                [
+                  _c("b-icon", { attrs: { icon: "close" } }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v("Clear")])
+                ],
+                1
+              )
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "control" }, [
+        _c(
+          "button",
+          { staticClass: "button is-info", on: { click: _vm.addTask } },
+          [_vm._v("\n            SAVE\n        ")]
+        )
+      ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

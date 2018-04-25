@@ -17,12 +17,11 @@
                     <b-checkbox size="is-small"  v-model="item.status"
                     true-value="1"
                     false-value="0">
-                        <span v-bind:class="{ strikethrough: item.status }">{{item.title}}</span>
+                      <span>{{item.title}}</span>
                     </b-checkbox>
-                  </div>
-              
 
-                
+                  </div>
+
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
                   <p class="control is-expanded">
                       <input type="text" placeholder="Update" class="input" v-model="item.title">
@@ -74,7 +73,7 @@ export default {
   data() {
     return {
       deleting: false,
-      editing: false
+      editing: false,
     }
   },
 
@@ -83,7 +82,7 @@ export default {
         console.log("toggle task");
         axios.post('toggleTask', item)
           .then((response)=> {
- 
+           
           })
           .catch((error) => this.errors = error.response.data);
     },
