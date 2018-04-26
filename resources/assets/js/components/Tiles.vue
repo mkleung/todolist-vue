@@ -32,16 +32,22 @@
                       type="checkbox">
                   <span class="check"/>
                   <span class="control-label"><slot/></span>
-                  <span v-bind:class="{ strikethrough: item.status }"> {{item.title}}</span>
-              </label>
-            
-              
+                  
 
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
                   <p class="control is-expanded">
                       <input type="text" placeholder="Update" class="input" v-model="item.title">
                   </p>
                 </span>
+                <span v-else>
+                    <span v-bind:class="{ strikethrough: item.status }"> {{item.title}}</span>
+                </span>
+
+              </label>
+            
+              
+
+         
 
 
                 <span>

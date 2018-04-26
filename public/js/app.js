@@ -44299,6 +44299,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
@@ -44451,45 +44457,48 @@ var render = function() {
                       2
                     ),
                     _vm._v(" "),
-                    _c("span", { class: { strikethrough: item.status } }, [
-                      _vm._v(" " + _vm._s(item.title))
-                    ])
+                    _vm.editing == item.id
+                      ? _c(
+                          "span",
+                          {
+                            staticClass:
+                              "todoTitle__title--span field is-grouped"
+                          },
+                          [
+                            _c("p", { staticClass: "control is-expanded" }, [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: item.title,
+                                    expression: "item.title"
+                                  }
+                                ],
+                                staticClass: "input",
+                                attrs: { type: "text", placeholder: "Update" },
+                                domProps: { value: item.title },
+                                on: {
+                                  input: function($event) {
+                                    if ($event.target.composing) {
+                                      return
+                                    }
+                                    _vm.$set(item, "title", $event.target.value)
+                                  }
+                                }
+                              })
+                            ])
+                          ]
+                        )
+                      : _c("span", [
+                          _c(
+                            "span",
+                            { class: { strikethrough: item.status } },
+                            [_vm._v(" " + _vm._s(item.title))]
+                          )
+                        ])
                   ]
                 ),
-                _vm._v(" "),
-                _vm.editing == item.id
-                  ? _c(
-                      "span",
-                      {
-                        staticClass: "todoTitle__title--span field is-grouped"
-                      },
-                      [
-                        _c("p", { staticClass: "control is-expanded" }, [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: item.title,
-                                expression: "item.title"
-                              }
-                            ],
-                            staticClass: "input",
-                            attrs: { type: "text", placeholder: "Update" },
-                            domProps: { value: item.title },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(item, "title", $event.target.value)
-                              }
-                            }
-                          })
-                        ])
-                      ]
-                    )
-                  : _vm._e(),
                 _vm._v(" "),
                 _c("span", [
                   _vm.editing != item.id
