@@ -58,3 +58,6 @@ body {
 
 
 
+.b-checkbox.checkbox input[type=checkbox] + .check {
+    background:#FFF;
+}
