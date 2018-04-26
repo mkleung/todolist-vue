@@ -12121,7 +12121,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_buef
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
-var dashboard = __webpack_require__(66);
+var dashboard = __webpack_require__(46);
 var addTask = __webpack_require__(11);
 
 var appheader = __webpack_require__(54);
@@ -44052,8 +44052,117 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 46 */,
-/* 47 */,
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(47)
+/* template */
+var __vue_template__ = __webpack_require__(53)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Dashboard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1f65406d", Component.options)
+  } else {
+    hotAPI.reload("data-v-1f65406d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var tiles = __webpack_require__(48);
+var addTask = __webpack_require__(11);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { tiles: tiles, addTask: addTask },
+    data: function data() {
+        return {
+            list: []
+        };
+    },
+    mounted: function mounted() {
+        this.init();
+    },
+
+    methods: {
+        init: function init() {
+            var _this = this;
+
+            axios.get('getTasks').then(function (response) {
+                var taskList = response.data;
+                _this.list = response.data;
+            }).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
+        }
+    }
+});
+
+/***/ }),
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44175,13 +44284,42 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["list"],
   data: function data() {
     return {
       deleting: false,
-      editing: false
+      editing: false,
+      value: [String, Number, Boolean, Function, Object, Array, Symbol],
+      nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
+      disabled: Boolean,
+      name: String,
+      size: String,
+      trueValue: {
+        type: [String, Number, Boolean, Function, Object, Array, Symbol],
+        default: true
+      },
+      falseValue: {
+        type: [String, Number, Boolean, Function, Object, Array, Symbol],
+        default: false
+      }
+
     };
   },
 
@@ -44220,6 +44358,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }).catch(function (error) {
         return _this3.errors = error.response.data;
       });
+    },
+    groupChange: function groupChange() {
+      console.log('impl.groupChange()');
+    },
+    checkChange: function checkChange() {
+      console.log('impl.checkChange()');
     }
   }
 });
@@ -44244,35 +44388,83 @@ var render = function() {
             _c("article", { staticClass: "tile is-child notification" }, [
               _c("div", { staticClass: "title todoTitle__title" }, [
                 _c(
-                  "div",
+                  "label",
                   {
+                    ref: "label",
+                    refInFor: true,
+                    staticClass: "b-checkbox checkbox",
+                    class: [_vm.size, { "is-disabled": _vm.disabled }],
                     on: {
-                      change: function($event) {
-                        _vm.toggleTask(item)
+                      keydown: function($event) {
+                        if (
+                          !("button" in $event) &&
+                          _vm._k(
+                            $event.keyCode,
+                            "enter",
+                            13,
+                            $event.key,
+                            "Enter"
+                          ) &&
+                          _vm._k($event.keyCode, "space", 32, $event.key, " ")
+                        ) {
+                          return null
+                        }
+                        $event.preventDefault()
+                        _vm.$refs.label.click()
                       }
                     }
                   },
                   [
-                    _c(
-                      "b-checkbox",
-                      {
-                        attrs: {
-                          size: "is-small",
-                          "true-value": "1",
-                          "false-value": "0"
-                        },
-                        model: {
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
                           value: item.status,
-                          callback: function($$v) {
-                            _vm.$set(item, "status", $$v)
-                          },
                           expression: "item.status"
                         }
+                      ],
+                      attrs: { type: "checkbox" },
+                      domProps: {
+                        checked: Array.isArray(item.status)
+                          ? _vm._i(item.status, null) > -1
+                          : item.status
                       },
-                      [_c("span", [_vm._v(_vm._s(item.title))])]
+                      on: {
+                        change: function($event) {
+                          var $$a = item.status,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = null,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                _vm.$set(item, "status", $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                _vm.$set(
+                                  item,
+                                  "status",
+                                  $$a.slice(0, $$i).concat($$a.slice($$i + 1))
+                                )
+                            }
+                          } else {
+                            _vm.$set(item, "status", $$c)
+                          }
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "check" }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { staticClass: "control-label" },
+                      [_vm._t("default")],
+                      2
                     )
-                  ],
-                  1
+                  ]
                 ),
                 _vm._v(" "),
                 _vm.editing == item.id
@@ -44461,30 +44653,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       task: {
-        title: '',
-        time: new Date()
-      }
+        title: ''
+
+      },
+      time: new Date()
     };
   },
 
@@ -44540,62 +44717,16 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c(
-        "b-field",
-        [
-          _c(
-            "b-timepicker",
-            {
-              attrs: { placeholder: "Select a time" },
-              model: {
-                value: _vm.time,
-                callback: function($$v) {
-                  _vm.time = $$v
-                },
-                expression: "time"
-              }
-            },
-            [
-              _c(
-                "button",
-                {
-                  staticClass: "button is-primary",
-                  on: {
-                    click: function($event) {
-                      _vm.time = new Date()
-                    }
-                  }
-                },
-                [
-                  _c("b-icon", { attrs: { icon: "clock" } }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Now")])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "button is-danger",
-                  on: {
-                    click: function($event) {
-                      _vm.time = null
-                    }
-                  }
-                },
-                [
-                  _c("b-icon", { attrs: { icon: "close" } }),
-                  _vm._v(" "),
-                  _c("span", [_vm._v("Clear")])
-                ],
-                1
-              )
-            ]
-          )
-        ],
-        1
-      ),
+      _c("b-timepicker", {
+        attrs: { inline: "" },
+        model: {
+          value: _vm.time,
+          callback: function($$v) {
+            _vm.time = $$v
+          },
+          expression: "time"
+        }
+      }),
       _vm._v(" "),
       _c("p", { staticClass: "control" }, [
         _c(
@@ -44619,7 +44750,58 @@ if (false) {
 }
 
 /***/ }),
-/* 53 */,
+/* 53 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "hero is-primary is-bold" }, [
+    _c("div", { staticClass: "hero-body" }, [
+      _c("div", { staticClass: "container" }, [
+        _c("div", { staticClass: "column is-6 is-offset-3" }, [
+          _c("h1", { staticClass: "title has-text-centered" }, [
+            _vm._v("To Do List")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card" }, [
+            _c(
+              "div",
+              { staticClass: "card-content" },
+              [
+                _c("p", { staticClass: "subtitle has-text-black" }, [
+                  _vm._v("Add a task below and click save")
+                ]),
+                _vm._v(" "),
+                _c("addTask")
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-content" },
+              [_c("tiles", { attrs: { list: _vm.list } })],
+              1
+            )
+          ])
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1f65406d", module.exports)
+  }
+}
+
+/***/ }),
 /* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44846,176 +45028,6 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(67)
-/* template */
-var __vue_template__ = __webpack_require__(68)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Dashboard.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1f65406d", Component.options)
-  } else {
-    hotAPI.reload("data-v-1f65406d", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 67 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-var tiles = __webpack_require__(48);
-var addTask = __webpack_require__(11);
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTask: addTask },
-    data: function data() {
-        return {
-            list: []
-        };
-    },
-    mounted: function mounted() {
-        this.init();
-    },
-
-    methods: {
-        init: function init() {
-            var _this = this;
-
-            axios.get('getTasks').then(function (response) {
-                var taskList = response.data;
-                _this.list = response.data;
-            }).catch(function (error) {
-                return _this.errors = error.response.data;
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "hero is-primary is-bold" }, [
-    _c("div", { staticClass: "hero-body" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "column is-6 is-offset-3" }, [
-          _c("h1", { staticClass: "title has-text-centered" }, [
-            _vm._v("To Do List")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card" }, [
-            _c(
-              "div",
-              { staticClass: "card-content" },
-              [
-                _c("p", { staticClass: "subtitle has-text-black" }, [
-                  _vm._v("Add a task below and click save")
-                ]),
-                _vm._v(" "),
-                _c("addTask")
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-content" },
-              [_c("tiles", { attrs: { list: _vm.list } })],
-              1
-            )
-          ])
-        ])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1f65406d", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);

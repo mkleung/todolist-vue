@@ -1,4 +1,5 @@
 <template>
+
 <div class="tile is-ancestor">
     <div class="tile is-vertical is-12">
           <div class="tile is-parent is-vertical"  v-for="(item, index) in list" :key='index'>
@@ -13,14 +14,28 @@
                   <span v-bind:class="{ strikethrough: item.status }">{{item.title}}</span>
                 </span> -->
 
-                 <div  @change="toggleTask(item)">
-                    <b-checkbox size="is-small"  v-model="item.status"
+
+                <!-- <div  @change="toggleTask(item)">
+                    <b-checkbox  size="is-small"  v-model="item.status"
                     true-value="1"
                     false-value="0">
-                      <span>{{item.title}}</span>
+                        <span>{{ item.title }}</span>
                     </b-checkbox>
+                </div> -->
 
-                  </div>
+                <label
+                  class="b-checkbox checkbox"
+                  :class="[size, { 'is-disabled': disabled }]"
+                  ref="label"
+        
+                  @keydown.prevent.enter.space="$refs.label.click()">
+                  <input
+                      v-model="item.status"
+                      type="checkbox">
+                  <span class="check"/>
+                  <span class="control-label"><slot/></span>
+              </label>
+            
 
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
                   <p class="control is-expanded">
@@ -28,7 +43,7 @@
                   </p>
                 </span>
 
-      
+
                 <span>
                     <!-- Edit -->
                     <a v-if="editing != item.id" @click='toggleEdit(item)'>
@@ -74,6 +89,20 @@ export default {
     return {
       deleting: false,
       editing: false,
+      value: [String, Number, Boolean, Function, Object, Array, Symbol],
+            nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
+            disabled: Boolean,
+            name: String,
+            size: String,
+            trueValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: true
+            },
+            falseValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: false
+            }
+
     }
   },
 
@@ -106,7 +135,12 @@ export default {
               .then((response)=> this.list.splice(key,1))
               .catch((error) => this.errors = error.response.data);
     },
-  
+    groupChange() {
+        console.log('impl.groupChange()');
+    },
+    checkChange() {
+        console.log('impl.checkChange()');
+    }
   }
 }
 </script>
