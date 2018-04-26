@@ -58,8 +58,3 @@ body {
 
 
 
-
-input[type=checkbox]:checked {
-  color:red;
-  text-decoration: line-through;
-} /*Th

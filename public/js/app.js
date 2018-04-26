@@ -44395,22 +44395,8 @@ var render = function() {
                     staticClass: "b-checkbox checkbox",
                     class: [_vm.size, { "is-disabled": _vm.disabled }],
                     on: {
-                      keydown: function($event) {
-                        if (
-                          !("button" in $event) &&
-                          _vm._k(
-                            $event.keyCode,
-                            "enter",
-                            13,
-                            $event.key,
-                            "Enter"
-                          ) &&
-                          _vm._k($event.keyCode, "space", 32, $event.key, " ")
-                        ) {
-                          return null
-                        }
-                        $event.preventDefault()
-                        _vm.$refs.label.click()
+                      change: function($event) {
+                        _vm.toggleTask(item)
                       }
                     }
                   },
@@ -44463,7 +44449,11 @@ var render = function() {
                       { staticClass: "control-label" },
                       [_vm._t("default")],
                       2
-                    )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { class: { strikethrough: item.status } }, [
+                      _vm._v(" " + _vm._s(item.title))
+                    ])
                   ]
                 ),
                 _vm._v(" "),

@@ -26,16 +26,16 @@
                 <label
                   class="b-checkbox checkbox"
                   :class="[size, { 'is-disabled': disabled }]"
-                  ref="label"
-        
-                  @keydown.prevent.enter.space="$refs.label.click()">
+                  ref="label" @change="toggleTask(item)">
                   <input
                       v-model="item.status"
                       type="checkbox">
                   <span class="check"/>
                   <span class="control-label"><slot/></span>
+                  <span v-bind:class="{ strikethrough: item.status }"> {{item.title}}</span>
               </label>
             
+              
 
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
                   <p class="control is-expanded">
