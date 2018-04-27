@@ -3,8 +3,6 @@
         <p class="control is-expanded">
            <input class="input" type="text" placeholder="Add a task" v-model="task.title">
         </p>
-         <b-timepicker v-model="time" inline></b-timepicker>
-
         <p class="control">
             <button class="button is-info" @click='addTask'>
                 SAVE

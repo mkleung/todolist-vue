@@ -11,6 +11,9 @@
                     <div class="card-content">
                         <p class="subtitle has-text-black">Add a task below and click save</p>
                         <addTask></addTask>
+
+                        <searchTask></searchTask>
+
                     </div>
                     <div class="card-content">
                         <tiles :list="list"></tiles>
@@ -30,10 +33,10 @@
 
     let tiles = require('./Tiles.vue');
     let addTask = require('./AddTask.vue');
-
+    let searchTask = require('./SearchTask.vue');
 
     export default {
-        components: {tiles, addTask},
+        components: {tiles, addTask, searchTask},
         data() {
             return {
                 list: []

@@ -44132,13 +44132,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 var tiles = __webpack_require__(48);
 var addTask = __webpack_require__(11);
+var searchTask = __webpack_require__(66);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTask: addTask },
+    components: { tiles: tiles, addTask: addTask, searchTask: searchTask },
     data: function data() {
         return {
             list: []
@@ -44650,8 +44654,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -44688,55 +44690,39 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "field is-grouped" },
-    [
-      _c("p", { staticClass: "control is-expanded" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.task.title,
-              expression: "task.title"
-            }
-          ],
-          staticClass: "input",
-          attrs: { type: "text", placeholder: "Add a task" },
-          domProps: { value: _vm.task.title },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
-              }
-              _vm.$set(_vm.task, "title", $event.target.value)
-            }
+  return _c("div", { staticClass: "field is-grouped" }, [
+    _c("p", { staticClass: "control is-expanded" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.task.title,
+            expression: "task.title"
           }
-        })
-      ]),
-      _vm._v(" "),
-      _c("b-timepicker", {
-        attrs: { inline: "" },
-        model: {
-          value: _vm.time,
-          callback: function($$v) {
-            _vm.time = $$v
-          },
-          expression: "time"
+        ],
+        staticClass: "input",
+        attrs: { type: "text", placeholder: "Add a task" },
+        domProps: { value: _vm.task.title },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.task, "title", $event.target.value)
+          }
         }
-      }),
-      _vm._v(" "),
-      _c("p", { staticClass: "control" }, [
-        _c(
-          "button",
-          { staticClass: "button is-info", on: { click: _vm.addTask } },
-          [_vm._v("\n            SAVE\n        ")]
-        )
-      ])
-    ],
-    1
-  )
+      })
+    ]),
+    _vm._v(" "),
+    _c("p", { staticClass: "control" }, [
+      _c(
+        "button",
+        { staticClass: "button is-info", on: { click: _vm.addTask } },
+        [_vm._v("\n            SAVE\n        ")]
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -44773,7 +44759,9 @@ var render = function() {
                   _vm._v("Add a task below and click save")
                 ]),
                 _vm._v(" "),
-                _c("addTask")
+                _c("addTask"),
+                _vm._v(" "),
+                _c("searchTask")
               ],
               1
             ),
@@ -44895,13 +44883,17 @@ var staticRenderFns = [
             _c("div", { staticClass: "navbar-item" }, [
               _c("div", { staticClass: "field is-grouped" }, [
                 _c("p", { staticClass: "control" }, [
-                  _c("a", { staticClass: "button", attrs: { href: "" } }, [
-                    _c("span", { staticClass: "icon" }, [
-                      _c("i", { staticClass: "fa fa-thumbs-up" })
-                    ]),
-                    _vm._v(" "),
-                    _c("span", [_vm._v("Signup")])
-                  ])
+                  _c(
+                    "a",
+                    { staticClass: "button is-info", attrs: { href: "" } },
+                    [
+                      _c("span", { staticClass: "icon" }, [
+                        _c("i", { staticClass: "fa fa-thumbs-up" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Signup")])
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
                 _c("p", { staticClass: "control" }, [
@@ -45027,6 +45019,165 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(67)
+/* template */
+var __vue_template__ = __webpack_require__(68)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SearchTask.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4343da44", Component.options)
+  } else {
+    hotAPI.reload("data-v-4343da44", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 67 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: ['Angular', 'Angular 2', 'Aurelia', 'Backbone', 'Ember', 'jQuery', 'Meteor', 'Node.js', 'Polymer', 'React', 'RxJS', 'Vue.js'],
+            name: '',
+            selected: null
+        };
+    },
+
+    computed: {
+        filteredDataArray: function filteredDataArray() {
+            var _this = this;
+
+            return this.data.filter(function (option) {
+                return option.toString().toLowerCase().indexOf(_this.name.toLowerCase()) >= 0;
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 68 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c("p", { staticClass: "content" }, [
+        _c("b", [_vm._v("Selected:")]),
+        _vm._v(" " + _vm._s(_vm.selected))
+      ]),
+      _vm._v(" "),
+      _c(
+        "b-field",
+        [
+          _c(
+            "b-autocomplete",
+            {
+              attrs: {
+                rounded: "",
+                data: _vm.filteredDataArray,
+                placeholder: "Search Task",
+                icon: "magnify"
+              },
+              on: {
+                select: function(option) {
+                  return (_vm.selected = option)
+                }
+              },
+              model: {
+                value: _vm.name,
+                callback: function($$v) {
+                  _vm.name = $$v
+                },
+                expression: "name"
+              }
+            },
+            [_c("template", { slot: "empty" }, [_vm._v("No results found")])],
+            2
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4343da44", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

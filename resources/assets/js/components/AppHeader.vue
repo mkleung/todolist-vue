@@ -22,7 +22,7 @@
       <div class="navbar-item">
         <div class="field is-grouped">
             <p class="control">
-                <a class="button" href="">
+                <a class="button is-info" href="">
                 <span class="icon">
                     <i class="fa fa-thumbs-up"></i>
                 </span>
