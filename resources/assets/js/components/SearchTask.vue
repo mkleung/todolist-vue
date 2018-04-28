@@ -1,12 +1,12 @@
 <template>
     <section>
         <p class="content"><b>Selected:</b> {{ selected }}</p>
-        <b-field>
+        <b-field label="Find a JS framework">
             <b-autocomplete
                 rounded
                 v-model="name"
                 :data="filteredDataArray"
-                placeholder="Search Task"
+                placeholder="e.g. jQuery"
                 icon="magnify"
                 @select="option => selected = option">
                 <template slot="empty">No results found</template>
@@ -16,23 +16,12 @@
 </template>
 
 <script>
+
     export default {
+        props: ["searchList"],
         data() {
             return {
-                data: [
-                    'Angular',
-                    'Angular 2',
-                    'Aurelia',
-                    'Backbone',
-                    'Ember',
-                    'jQuery',
-                    'Meteor',
-                    'Node.js',
-                    'Polymer',
-                    'React',
-                    'RxJS',
-                    'Vue.js'
-                ],
+                data: this.searchList,
                 name: '',
                 selected: null
             }

@@ -44145,7 +44145,8 @@ var searchTask = __webpack_require__(66);
     components: { tiles: tiles, addTask: addTask, searchTask: searchTask },
     data: function data() {
         return {
-            list: []
+            list: [],
+            searchList: []
         };
     },
     mounted: function mounted() {
@@ -44159,6 +44160,12 @@ var searchTask = __webpack_require__(66);
             axios.get('getTasks').then(function (response) {
                 var taskList = response.data;
                 _this.list = response.data;
+
+                for (var i = 0; i < taskList.length; i++) {
+                    _this.searchList.push(taskList[i].title);
+                }
+
+                console.log(_this.searchList);
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
@@ -44761,7 +44768,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("addTask"),
                 _vm._v(" "),
-                _c("searchTask")
+                _c("searchTask", { attrs: { searchList: _vm.searchList } })
               ],
               1
             ),
@@ -45098,10 +45105,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["searchList"],
     data: function data() {
         return {
-            data: ['Angular', 'Angular 2', 'Aurelia', 'Backbone', 'Ember', 'jQuery', 'Meteor', 'Node.js', 'Polymer', 'React', 'RxJS', 'Vue.js'],
+            data: this.searchList,
             name: '',
             selected: null
         };
@@ -45136,6 +45145,7 @@ var render = function() {
       _vm._v(" "),
       _c(
         "b-field",
+        { attrs: { label: "Find a JS framework" } },
         [
           _c(
             "b-autocomplete",
@@ -45143,7 +45153,7 @@ var render = function() {
               attrs: {
                 rounded: "",
                 data: _vm.filteredDataArray,
-                placeholder: "Search Task",
+                placeholder: "e.g. jQuery",
                 icon: "magnify"
               },
               on: {

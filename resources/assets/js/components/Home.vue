@@ -40,7 +40,8 @@
         components: {tiles, addTask, searchTask},
         data() {
             return {
-                list: []
+                list: [],
+                searchList: []
             }
         },
         mounted(){
@@ -52,6 +53,8 @@
                     .then((response)=>{
                         var taskList = response.data;
                         this.list = response.data;
+
+                        console.log(response.data);
                     })
                     .catch((error) => this.errors = error.response.data);
             }

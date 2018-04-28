@@ -12,7 +12,7 @@
                         <p class="subtitle has-text-black">Add a task below and click save</p>
                         <addTask></addTask>
 
-                        <searchTask></searchTask>
+                        <searchTask :searchList="searchList"></searchTask>
 
                     </div>
                     <div class="card-content">
@@ -39,7 +39,8 @@
         components: {tiles, addTask, searchTask},
         data() {
             return {
-                list: []
+                list: [],
+                searchList: []
             }
         },
         mounted(){
@@ -51,6 +52,12 @@
                     .then((response)=>{
                         var taskList = response.data;
                         this.list = response.data;
+
+                        for (var i = 0; i < taskList.length; i++) {
+                            this.searchList.push(taskList[i].title);
+                        }
+
+                        console.log(this.searchList);
                     })
                     .catch((error) => this.errors = error.response.data);
             }
