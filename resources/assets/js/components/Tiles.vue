@@ -22,17 +22,17 @@
                         <span>{{ item.title }}</span>
                     </b-checkbox>
                 </div> -->
-
+        
                 <label
                   class="b-checkbox checkbox"
                   :class="[size, { 'is-disabled': disabled }]"
                   ref="label" @change="toggleTask(item)">
-                  <input
-                      v-model="item.status"
-                      type="checkbox">
-                  <span class="check"/>
-                  <span class="control-label"><slot/></span>
-                  
+                      <input
+                                v-model="item.status"
+                                type="checkbox">
+                            <span class="check"/>
+                            <span class="control-label"><slot/></span>
+                
 
                 <span v-if="editing == item.id" class="todoTitle__title--span field is-grouped">
                   <p class="control is-expanded">
@@ -42,15 +42,17 @@
                 <span v-else>
                     <span v-bind:class="{ strikethrough: item.status }"> {{item.title}}</span>
                 </span>
-
               </label>
             
 
                 <span>
                     <!-- Edit -->
-                    <a v-if="editing != item.id" @click='toggleEdit(item)'>
-                      <i class="fa fa-pencil todoTitle__icon"></i>
-                    </a>
+                     <b-tooltip label="Edit"
+                        position="is-bottom">
+                        <a v-if="editing != item.id" @click='toggleEdit(item)'>
+                          <i class="fa fa-pencil todoTitle__icon"></i>
+                        </a>
+                    </b-tooltip>
 
                     <span v-if="editing == item.id">
                       <a @click="updateTask(item, index)">
@@ -62,9 +64,14 @@
                     </span>
 
                     <!-- Delete -->
-                    <a  v-if="deleting != item.id" @click="toggleDelete(item)">
-                      <i class="fa fa-trash todoTitle__icon"></i>
-                    </a>
+                    <b-tooltip label="Delete"
+                        position="is-bottom">
+                        <a  v-if="deleting != item.id" @click="toggleDelete(item)">
+                          <i class="fa fa-trash todoTitle__icon"></i>
+                        </a>
+                    </b-tooltip>
+
+                    
 
                     <span v-if="deleting == item.id">
                         <a @click ="deleteTask(index, item)">
