@@ -44208,7 +44208,8 @@ var addTask = __webpack_require__(11);
             } else {
                 this.searchList = this.list;
             }
-        }
+        },
+        checkSearchQuery: function checkSearchQuery() {}
     },
 
     methods: {
@@ -44373,77 +44374,73 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["searchList"],
-  data: function data() {
-    return {
-      deleting: false,
-      editing: false,
-      value: [String, Number, Boolean, Function, Object, Array, Symbol],
-      nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
-      disabled: Boolean,
-      name: String,
-      size: String,
-      trueValue: {
-        type: [String, Number, Boolean, Function, Object, Array, Symbol],
-        default: true
-      },
-      falseValue: {
-        type: [String, Number, Boolean, Function, Object, Array, Symbol],
-        default: false
-      }
+    props: ["searchList"],
+    data: function data() {
+        return {
+            deleting: false,
+            editing: false,
+            value: [String, Number, Boolean, Function, Object, Array, Symbol],
+            nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
+            disabled: Boolean,
+            name: String,
+            size: String,
+            trueValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: true
+            },
+            falseValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: false
+            }
 
-    };
-  },
-
-
-  methods: {
-    toggleTask: function toggleTask(item) {
-      var _this = this;
-
-      console.log("toggle task");
-      axios.post('toggleTask', item).then(function (response) {}).catch(function (error) {
-        return _this.errors = error.response.data;
-      });
+        };
     },
-    toggleEdit: function toggleEdit(item) {
-      this.editing = item.id;
-    },
-    toggleDelete: function toggleDelete(item) {
-      this.deleting = item.id;
-    },
-    updateTask: function updateTask(item, id) {
-      var _this2 = this;
 
-      axios.patch("task/" + id, item).then(function (response) {
-        _this2.editing = false;
-      }).catch(function (error) {
-        return _this2.errors = error.response.data;
-      });
-    },
-    deleteTask: function deleteTask(key, item) {
-      var _this3 = this;
 
-      axios.delete("task/" + item.id).then(function (response) {
+    methods: {
+        toggleTask: function toggleTask(item) {
+            var _this = this;
 
-        _this3.$parent.searchList = _this3.$parent.searchList.filter(function (e) {
-          return e !== item;
-        });
-        _this3.$parent.titleList = _this3.$parent.titleList.filter(function (e) {
-          return e !== item.title;
-        });
-        _this3.$parent.list = _this3.$parent.list.filter(function (e) {
-          return e !== item;
-        });
-      }).catch(function (error) {
-        return _this3.errors = error.response.data;
-      });
+            console.log("toggle task");
+            axios.post('toggleTask', item).then(function (response) {}).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
+        },
+        toggleEdit: function toggleEdit(item) {
+            this.editing = item.id;
+        },
+        toggleDelete: function toggleDelete(item) {
+            this.deleting = item.id;
+        },
+        updateTask: function updateTask(item, id) {
+            var _this2 = this;
+
+            axios.patch("task/" + id, item).then(function (response) {
+                _this2.editing = false;
+            }).catch(function (error) {
+                return _this2.errors = error.response.data;
+            });
+        },
+        deleteTask: function deleteTask(key, item) {
+            var _this3 = this;
+
+            axios.delete("task/" + item.id).then(function (response) {
+                _this3.$parent.searchList = _this3.$parent.searchList.filter(function (e) {
+                    return e !== item;
+                });
+                _this3.$parent.titleList = _this3.$parent.titleList.filter(function (e) {
+                    return e !== item.title;
+                });
+                _this3.$parent.list = _this3.$parent.list.filter(function (e) {
+                    return e !== item;
+                });
+            }).catch(function (error) {
+                return _this3.errors = error.response.data;
+            });
+        }
     }
-  }
 });
 
 /***/ }),
@@ -44853,7 +44850,9 @@ var render = function() {
               _c(
                 "section",
                 [
-                  _vm._m(0),
+                  _c("p", { staticClass: "content" }, [
+                    _c("b", [_vm._v("Search " + _vm._s(_vm.selected))])
+                  ]),
                   _vm._v(" "),
                   _c(
                     "b-field",
@@ -44895,7 +44894,7 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm.searchQuery
+            _vm.searchQuery && !_vm.selected
               ? _c("div", { staticClass: "card-content" })
               : _vm._e(),
             _vm._v(" "),
@@ -44911,14 +44910,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("p", { staticClass: "content" }, [_c("b", [_vm._v("Search")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

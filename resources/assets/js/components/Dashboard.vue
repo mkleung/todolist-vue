@@ -17,7 +17,7 @@
                     <!-- SAERCH -->
                     <div class="card-content">
                         <section>
-                            <p class="content"><b>Search</b></p>
+                            <p class="content"><b>Search {{ selected }}</b></p>
                             <b-field>
                                 <b-autocomplete
                                     rounded
@@ -32,7 +32,7 @@
                         </section>
                      </div>
 
-                    <div  v-if = "searchQuery" class="card-content">
+                    <div  v-if = "searchQuery && !selected" class="card-content">
                     </div>
 
                     <!-- LIST -->
@@ -102,6 +102,9 @@
                 else {
                      this.searchList = this.list;
                 }
+            },
+            checkSearchQuery: function () {
+
             }
         },
 

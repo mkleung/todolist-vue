@@ -44,9 +44,8 @@
                 </span>
               </label>
             
-
-                <span>
-                    <!-- Edit -->
+              <!-- Edit -->
+              <span>
                      <b-tooltip label="Edit"
                         position="is-bottom">
                         <a v-if="editing != item.id" @click='toggleEdit(item)'>
@@ -70,8 +69,6 @@
                           <i class="fa fa-trash todoTitle__icon"></i>
                         </a>
                     </b-tooltip>
-
-                    
 
                     <span v-if="deleting == item.id">
                         <a @click ="deleteTask(index, item)">
@@ -133,18 +130,17 @@ export default {
     updateTask(item, id){
         axios.patch(`task/${id}`, item)
           .then((response)=> {
-            this.editing = false;
+              this.editing = false;
+
           })
           .catch((error) => this.errors = error.response.data);
     },
     deleteTask(key, item){
           axios.delete(`task/${item.id}`)
               .then((response)=> {
-                  
-
                   this.$parent.searchList = this.$parent.searchList.filter(function(e) { return e !== item })
                   this.$parent.titleList = this.$parent.titleList.filter(function(e) { return e !== item.title })
-                 this.$parent.list = this.$parent.list.filter(function(e) { return e !== item })
+                  this.$parent.list = this.$parent.list.filter(function(e) { return e !== item })
               })
               .catch((error) => this.errors = error.response.data);
     },
