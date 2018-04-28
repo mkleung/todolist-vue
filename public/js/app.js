@@ -44171,6 +44171,15 @@ var addTask = __webpack_require__(11);
         this.init();
     },
 
+    computed: {
+        fillSearchOptions: function fillSearchOptions() {
+            var _this = this;
+
+            return this.titleList.filter(function (option) {
+                return option.toString().toLowerCase().indexOf(_this.searchQuery.toLowerCase()) >= 0;
+            });
+        }
+    },
     watch: {
         // searchQuery(){
         //     if (this.searchQuery.length > 0) {
@@ -44189,28 +44198,34 @@ var addTask = __webpack_require__(11);
                 // });
 
                 for (var key in this.list) {
-                    var item = this.list[key];
+                    var task = this.list[key];
 
-                    if (item.title == this.searchQuery) {}
+                    if (task.title == this.searchQuery) {
+                        this.searchList = this.list.filter(function (el) {
+                            return el.title == task.title;
+                        });
+                    }
                 }
-            } else {}
+            } else {
+                this.searchList = this.list;
+            }
         }
     },
 
     methods: {
         init: function init() {
-            var _this = this;
+            var _this2 = this;
 
             axios.get('getTasks').then(function (response) {
                 var taskList = response.data;
-                _this.list = response.data;
-                _this.searchList = response.data;
+                _this2.list = response.data;
+                _this2.searchList = response.data;
 
                 for (var i = 0; i < taskList.length; i++) {
-                    _this.titleList.push(taskList[i].title);
+                    _this2.titleList.push(taskList[i].title);
                 }
             }).catch(function (error) {
-                return _this.errors = error.response.data;
+                return _this2.errors = error.response.data;
             });
         }
     }
@@ -44817,7 +44832,7 @@ var render = function() {
                           {
                             attrs: {
                               rounded: "",
-                              data: _vm.titleList,
+                              data: _vm.fillSearchOptions,
                               placeholder: "Search for a task",
                               icon: "magnify"
                             },

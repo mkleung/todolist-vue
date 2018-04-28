@@ -19,7 +19,7 @@
                                 <b-autocomplete
                                     rounded
                                     v-model="searchQuery"
-                                    :data="titleList"
+                                    :data="fillSearchOptions"
                                     placeholder="Search for a task"
                                     icon="magnify"
                                     @select="option => selected = option">
@@ -65,6 +65,16 @@
         mounted(){
             this.init()
         },
+        computed: {
+            fillSearchOptions() {
+                return this.titleList.filter((option) => {
+                    return option
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(this.searchQuery.toLowerCase()) >= 0
+                })
+            }
+        },
          watch: {
             // searchQuery(){
             //     if (this.searchQuery.length > 0) {
@@ -83,15 +93,17 @@
                     // });
 
                     for (var key in this.list){
-                        var item = this.list[key];
+                        var task = this.list[key];
                         
-                        if (item.title == this.searchQuery) {
-                           
+                        if (task.title == this.searchQuery) {
+                           this.searchList = this.list.filter(function(el) {
+                                return el.title == task.title;
+                            });
                         }
                     }
                 }
                 else {
-
+                     this.searchList = this.list;
                 }
             }
         },
