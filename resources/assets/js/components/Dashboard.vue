@@ -8,13 +8,16 @@
                 <h1 class="title has-text-centered">To Do List</h1>
                
                 <div class="card">
+                    <!-- ADD TASK -->
                     <div class="card-content">
                         <p class="subtitle has-text-black">Add a task below and click save</p>
                         <addTask></addTask>
+                    </div>
 
-                        <!-- Search -->
+                    <!-- SAERCH -->
+                    <div class="card-content">
                         <section>
-                            <p class="content"><b>Selected:</b> {{ selected }}</p>
+                            <p class="content"><b>Search</b></p>
                             <b-field>
                                 <b-autocomplete
                                     rounded
@@ -27,8 +30,12 @@
                                 </b-autocomplete>
                             </b-field>
                         </section>
+                     </div>
 
+                    <div  v-if = "searchQuery" class="card-content">
                     </div>
+
+                    <!-- LIST -->
                     <div class="card-content">
                         <tiles :searchList="searchList"></tiles>
                     </div>
@@ -76,31 +83,21 @@
             }
         },
          watch: {
-            // searchQuery(){
-            //     if (this.searchQuery.length > 0) {
-            //     this.searchList = this.lists.filter((item) => {
-            //         return item.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
-            //     });
-            //     } else {
-            //     this.searchList = this.lists;
-            //     }
-            // }
-
             searchQuery: function () {
                if (this.searchQuery.length > 0) {
-                    // this.searchList = this.list.filter((item) => {
-                    //     return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
-                    // });
+                    this.searchList = this.list.filter((item) => {
+                        return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+                    });
 
-                    for (var key in this.list){
-                        var task = this.list[key];
-                        
-                        if (task.title == this.searchQuery) {
-                           this.searchList = this.list.filter(function(el) {
-                                return el.title == task.title;
-                            });
-                        }
-                    }
+                    // for (var key in this.list){
+                       
+                    //     var taskTitle = this.list[key].title.toLowerCase();
+                    //     if (taskTitle.includes(this.searchQuery.toLowerCase())) {
+                    //        this.searchList = this.list.filter(function(element) {
+                    //             return element.title.toLowerCase() == taskTitle;
+                    //         });
+                    //     }
+                    // }
                 }
                 else {
                      this.searchList = this.list;

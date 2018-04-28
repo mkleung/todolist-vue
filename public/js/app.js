@@ -44149,6 +44149,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 var tiles = __webpack_require__(48);
@@ -44181,31 +44188,23 @@ var addTask = __webpack_require__(11);
         }
     },
     watch: {
-        // searchQuery(){
-        //     if (this.searchQuery.length > 0) {
-        //     this.searchList = this.lists.filter((item) => {
-        //         return item.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
-        //     });
-        //     } else {
-        //     this.searchList = this.lists;
-        //     }
-        // }
-
         searchQuery: function searchQuery() {
+            var _this2 = this;
+
             if (this.searchQuery.length > 0) {
-                // this.searchList = this.list.filter((item) => {
-                //     return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
-                // });
+                this.searchList = this.list.filter(function (item) {
+                    return item.title.toLowerCase().indexOf(_this2.searchQuery.toLowerCase()) > -1;
+                });
 
-                for (var key in this.list) {
-                    var task = this.list[key];
+                // for (var key in this.list){
 
-                    if (task.title == this.searchQuery) {
-                        this.searchList = this.list.filter(function (el) {
-                            return el.title == task.title;
-                        });
-                    }
-                }
+                //     var taskTitle = this.list[key].title.toLowerCase();
+                //     if (taskTitle.includes(this.searchQuery.toLowerCase())) {
+                //        this.searchList = this.list.filter(function(element) {
+                //             return element.title.toLowerCase() == taskTitle;
+                //         });
+                //     }
+                // }
             } else {
                 this.searchList = this.list;
             }
@@ -44214,18 +44213,18 @@ var addTask = __webpack_require__(11);
 
     methods: {
         init: function init() {
-            var _this2 = this;
+            var _this3 = this;
 
             axios.get('getTasks').then(function (response) {
                 var taskList = response.data;
-                _this2.list = response.data;
-                _this2.searchList = response.data;
+                _this3.list = response.data;
+                _this3.searchList = response.data;
 
                 for (var i = 0; i < taskList.length; i++) {
-                    _this2.titleList.push(taskList[i].title);
+                    _this3.titleList.push(taskList[i].title);
                 }
             }).catch(function (error) {
-                return _this2.errors = error.response.data;
+                return _this3.errors = error.response.data;
             });
         }
     }
@@ -44814,57 +44813,60 @@ var render = function() {
                   _vm._v("Add a task below and click save")
                 ]),
                 _vm._v(" "),
-                _c("addTask"),
-                _vm._v(" "),
-                _c(
-                  "section",
-                  [
-                    _c("p", { staticClass: "content" }, [
-                      _c("b", [_vm._v("Selected:")]),
-                      _vm._v(" " + _vm._s(_vm.selected))
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "b-field",
-                      [
-                        _c(
-                          "b-autocomplete",
-                          {
-                            attrs: {
-                              rounded: "",
-                              data: _vm.fillSearchOptions,
-                              placeholder: "Search for a task",
-                              icon: "magnify"
-                            },
-                            on: {
-                              select: function(option) {
-                                return (_vm.selected = option)
-                              }
-                            },
-                            model: {
-                              value: _vm.searchQuery,
-                              callback: function($$v) {
-                                _vm.searchQuery = $$v
-                              },
-                              expression: "searchQuery"
-                            }
-                          },
-                          [
-                            _c("template", { slot: "empty" }, [
-                              _vm._v("No results found")
-                            ])
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
+                _c("addTask")
               ],
               1
             ),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-content" }, [
+              _c(
+                "section",
+                [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "b-field",
+                    [
+                      _c(
+                        "b-autocomplete",
+                        {
+                          attrs: {
+                            rounded: "",
+                            data: _vm.fillSearchOptions,
+                            placeholder: "Search for a task",
+                            icon: "magnify"
+                          },
+                          on: {
+                            select: function(option) {
+                              return (_vm.selected = option)
+                            }
+                          },
+                          model: {
+                            value: _vm.searchQuery,
+                            callback: function($$v) {
+                              _vm.searchQuery = $$v
+                            },
+                            expression: "searchQuery"
+                          }
+                        },
+                        [
+                          _c("template", { slot: "empty" }, [
+                            _vm._v("No results found")
+                          ])
+                        ],
+                        2
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _vm.searchQuery
+              ? _c("div", { staticClass: "card-content" })
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "div",
@@ -44878,7 +44880,14 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", { staticClass: "content" }, [_c("b", [_vm._v("Search")])])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
