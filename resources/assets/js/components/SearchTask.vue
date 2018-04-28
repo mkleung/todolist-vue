@@ -1,12 +1,12 @@
 <template>
     <section>
         <p class="content"><b>Selected:</b> {{ selected }}</p>
-        <b-field label="Find a JS framework">
+        <b-field>
             <b-autocomplete
                 rounded
-                v-model="name"
+                v-model="searchQuery"
                 :data="filteredDataArray"
-                placeholder="e.g. jQuery"
+                placeholder="Search for a task"
                 icon="magnify"
                 @select="option => selected = option">
                 <template slot="empty">No results found</template>
@@ -22,7 +22,7 @@
         data() {
             return {
                 data: this.searchList,
-                name: '',
+                nsearchQueryame: '',
                 selected: null
             }
         },
@@ -32,7 +32,7 @@
                     return option
                         .toString()
                         .toLowerCase()
-                        .indexOf(this.name.toLowerCase()) >= 0
+                        .indexOf(this.searchQuery.toLowerCase()) >= 0
                 })
             }
         }

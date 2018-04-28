@@ -12,7 +12,21 @@
                         <p class="subtitle has-text-black">Add a task below and click save</p>
                         <addTask></addTask>
 
-                        <searchTask :searchList="searchList"></searchTask>
+                        <!-- Search -->
+                        <section>
+                            <p class="content"><b>Selected:</b> {{ selected }}</p>
+                            <b-field>
+                                <b-autocomplete
+                                    rounded
+                                    v-model="searchQuery"
+                                    :data="searchList"
+                                    placeholder="Search for a task"
+                                    icon="magnify"
+                                    @select="option => selected = option">
+                                    <template slot="empty">No results found</template>
+                                </b-autocomplete>
+                            </b-field>
+                        </section>
 
                     </div>
                     <div class="card-content">
@@ -33,19 +47,23 @@
 
     let tiles = require('./Tiles.vue');
     let addTask = require('./AddTask.vue');
-    let searchTask = require('./SearchTask.vue');
+  
 
     export default {
-        components: {tiles, addTask, searchTask},
+        components: {tiles, addTask},
         data() {
             return {
                 list: [],
-                searchList: []
+                searchList: [],
+                
+                data: this.searchList,
+                searchQuery: '',
+                selected: null
             }
         },
         mounted(){
             this.init()
-            },
+        },
         methods: {
             init(){
                 axios.get('getTasks')
@@ -60,7 +78,15 @@
                         console.log(this.searchList);
                     })
                     .catch((error) => this.errors = error.response.data);
-            }
+            },
+            //  filteredDataArray() {
+            //     return this.data.filter((option) => {
+            //         return option
+            //             .toString()
+            //             .toLowerCase()
+            //             .indexOf(this.searchQuery.toLowerCase()) >= 0
+            //     })
+            // }
         }
     }
 </script>

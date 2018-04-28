@@ -44135,18 +44135,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var tiles = __webpack_require__(48);
 var addTask = __webpack_require__(11);
-var searchTask = __webpack_require__(66);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTask: addTask, searchTask: searchTask },
+    components: { tiles: tiles, addTask: addTask },
     data: function data() {
         return {
             list: [],
-            searchList: []
+            searchList: [],
+
+            data: this.searchList,
+            searchQuery: '',
+            selected: null
         };
     },
     mounted: function mounted() {
@@ -44226,10 +44243,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
 //
 //
 //
@@ -44768,7 +44781,52 @@ var render = function() {
                 _vm._v(" "),
                 _c("addTask"),
                 _vm._v(" "),
-                _c("searchTask", { attrs: { searchList: _vm.searchList } })
+                _c(
+                  "section",
+                  [
+                    _c("p", { staticClass: "content" }, [
+                      _c("b", [_vm._v("Selected:")]),
+                      _vm._v(" " + _vm._s(_vm.selected))
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "b-field",
+                      [
+                        _c(
+                          "b-autocomplete",
+                          {
+                            attrs: {
+                              rounded: "",
+                              data: _vm.searchList,
+                              placeholder: "Search for a task",
+                              icon: "magnify"
+                            },
+                            on: {
+                              select: function(option) {
+                                return (_vm.selected = option)
+                              }
+                            },
+                            model: {
+                              value: _vm.searchQuery,
+                              callback: function($$v) {
+                                _vm.searchQuery = $$v
+                              },
+                              expression: "searchQuery"
+                            }
+                          },
+                          [
+                            _c("template", { slot: "empty" }, [
+                              _vm._v("No results found")
+                            ])
+                          ],
+                          2
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
               ],
               1
             ),
@@ -45026,168 +45084,6 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(67)
-/* template */
-var __vue_template__ = __webpack_require__(68)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/SearchTask.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4343da44", Component.options)
-  } else {
-    hotAPI.reload("data-v-4343da44", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 67 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ["searchList"],
-    data: function data() {
-        return {
-            data: this.searchList,
-            name: '',
-            selected: null
-        };
-    },
-
-    computed: {
-        filteredDataArray: function filteredDataArray() {
-            var _this = this;
-
-            return this.data.filter(function (option) {
-                return option.toString().toLowerCase().indexOf(_this.name.toLowerCase()) >= 0;
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 68 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c("p", { staticClass: "content" }, [
-        _c("b", [_vm._v("Selected:")]),
-        _vm._v(" " + _vm._s(_vm.selected))
-      ]),
-      _vm._v(" "),
-      _c(
-        "b-field",
-        { attrs: { label: "Find a JS framework" } },
-        [
-          _c(
-            "b-autocomplete",
-            {
-              attrs: {
-                rounded: "",
-                data: _vm.filteredDataArray,
-                placeholder: "e.g. jQuery",
-                icon: "magnify"
-              },
-              on: {
-                select: function(option) {
-                  return (_vm.selected = option)
-                }
-              },
-              model: {
-                value: _vm.name,
-                callback: function($$v) {
-                  _vm.name = $$v
-                },
-                expression: "name"
-              }
-            },
-            [_c("template", { slot: "empty" }, [_vm._v("No results found")])],
-            2
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4343da44", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
