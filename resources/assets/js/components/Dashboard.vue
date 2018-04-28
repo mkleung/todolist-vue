@@ -19,7 +19,7 @@
                                 <b-autocomplete
                                     rounded
                                     v-model="searchQuery"
-                                    :data="searchList"
+                                    :data="titleList"
                                     placeholder="Search for a task"
                                     icon="magnify"
                                     @select="option => selected = option">
@@ -30,7 +30,7 @@
 
                     </div>
                     <div class="card-content">
-                        <tiles :list="list"></tiles>
+                        <tiles :searchList="searchList"></tiles>
                     </div>
                     
                     
@@ -55,8 +55,9 @@
             return {
                 list: [],
                 searchList: [],
+                titleList: [],
                 
-                data: this.searchList,
+                data: this.titleList,
                 searchQuery: '',
                 selected: null
             }
@@ -64,29 +65,51 @@
         mounted(){
             this.init()
         },
+         watch: {
+            // searchQuery(){
+            //     if (this.searchQuery.length > 0) {
+            //     this.searchList = this.lists.filter((item) => {
+            //         return item.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+            //     });
+            //     } else {
+            //     this.searchList = this.lists;
+            //     }
+            // }
+
+            searchQuery: function () {
+               if (this.searchQuery.length > 0) {
+                    // this.searchList = this.list.filter((item) => {
+                    //     return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+                    // });
+
+                    for (var key in this.list){
+                        var item = this.list[key];
+                        
+                        if (item.title == this.searchQuery) {
+                           
+                        }
+                    }
+                }
+                else {
+
+                }
+            }
+        },
+
         methods: {
             init(){
                 axios.get('getTasks')
                     .then((response)=>{
                         var taskList = response.data;
                         this.list = response.data;
+                        this.searchList = response.data;
 
                         for (var i = 0; i < taskList.length; i++) {
-                            this.searchList.push(taskList[i].title);
+                            this.titleList.push(taskList[i].title);
                         }
-
-                        console.log(this.searchList);
                     })
                     .catch((error) => this.errors = error.response.data);
-            },
-            //  filteredDataArray() {
-            //     return this.data.filter((option) => {
-            //         return option
-            //             .toString()
-            //             .toLowerCase()
-            //             .indexOf(this.searchQuery.toLowerCase()) >= 0
-            //     })
-            // }
+            }
         }
     }
 </script>

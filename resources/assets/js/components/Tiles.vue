@@ -2,7 +2,7 @@
 
 <div class="tile is-ancestor">
     <div class="tile is-vertical is-12">
-          <div class="tile is-parent is-vertical"  v-for="(item, index) in list" :key='index'>
+          <div class="tile is-parent is-vertical"  v-for="(item, index) in searchList" :key='index'>
             <article class="tile is-child notification">
               <div class="title todoTitle__title">
                 
@@ -86,7 +86,7 @@
 
 <script>
 export default {
-  props: ["list"],
+  props: ["searchList"],
   data() {
     return {
       deleting: false,
@@ -134,15 +134,9 @@ export default {
     },
     deleteTask(key, id){
           axios.delete(`task/${id}`)
-              .then((response)=> this.list.splice(key,1))
+              .then((response)=> this.searchList.splice(key,1))
               .catch((error) => this.errors = error.response.data);
     },
-    groupChange() {
-        console.log('impl.groupChange()');
-    },
-    checkChange() {
-        console.log('impl.checkChange()');
-    }
   }
 }
 </script>

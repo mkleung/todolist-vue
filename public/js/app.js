@@ -44160,14 +44160,41 @@ var addTask = __webpack_require__(11);
         return {
             list: [],
             searchList: [],
+            titleList: [],
 
-            data: this.searchList,
+            data: this.titleList,
             searchQuery: '',
             selected: null
         };
     },
     mounted: function mounted() {
         this.init();
+    },
+
+    watch: {
+        // searchQuery(){
+        //     if (this.searchQuery.length > 0) {
+        //     this.searchList = this.lists.filter((item) => {
+        //         return item.name.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+        //     });
+        //     } else {
+        //     this.searchList = this.lists;
+        //     }
+        // }
+
+        searchQuery: function searchQuery() {
+            if (this.searchQuery.length > 0) {
+                // this.searchList = this.list.filter((item) => {
+                //     return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+                // });
+
+                for (var key in this.list) {
+                    var item = this.list[key];
+
+                    if (item.title == this.searchQuery) {}
+                }
+            } else {}
+        }
     },
 
     methods: {
@@ -44177,12 +44204,11 @@ var addTask = __webpack_require__(11);
             axios.get('getTasks').then(function (response) {
                 var taskList = response.data;
                 _this.list = response.data;
+                _this.searchList = response.data;
 
                 for (var i = 0; i < taskList.length; i++) {
-                    _this.searchList.push(taskList[i].title);
+                    _this.titleList.push(taskList[i].title);
                 }
-
-                console.log(_this.searchList);
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
@@ -44331,7 +44357,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["list"],
+  props: ["searchList"],
   data: function data() {
     return {
       deleting: false,
@@ -44384,16 +44410,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this3 = this;
 
       axios.delete("task/" + id).then(function (response) {
-        return _this3.list.splice(key, 1);
+        return _this3.searchList.splice(key, 1);
       }).catch(function (error) {
         return _this3.errors = error.response.data;
       });
-    },
-    groupChange: function groupChange() {
-      console.log('impl.groupChange()');
-    },
-    checkChange: function checkChange() {
-      console.log('impl.checkChange()');
     }
   }
 });
@@ -44410,7 +44430,7 @@ var render = function() {
     _c(
       "div",
       { staticClass: "tile is-vertical is-12" },
-      _vm._l(_vm.list, function(item, index) {
+      _vm._l(_vm.searchList, function(item, index) {
         return _c(
           "div",
           { key: index, staticClass: "tile is-parent is-vertical" },
@@ -44692,7 +44712,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       if (this.$data.task.title !== "") {
         axios.post('task', this.$data.task).then(function (response) {
-          _this.$parent.list.unshift(response.data);
+          _this.$parent.searchList.unshift(response.data);
           _this.$data.task.title = "";
         }).catch(function (error) {
           return _this.errors = error.response.data;
@@ -44797,7 +44817,7 @@ var render = function() {
                           {
                             attrs: {
                               rounded: "",
-                              data: _vm.searchList,
+                              data: _vm.titleList,
                               placeholder: "Search for a task",
                               icon: "magnify"
                             },
@@ -44834,7 +44854,7 @@ var render = function() {
             _c(
               "div",
               { staticClass: "card-content" },
-              [_c("tiles", { attrs: { list: _vm.list } })],
+              [_c("tiles", { attrs: { searchList: _vm.searchList } })],
               1
             )
           ])
