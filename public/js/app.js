@@ -44412,19 +44412,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     updateTask: function updateTask(item, id) {
       var _this2 = this;
 
-      console.log("update task");
-
       axios.patch("task/" + id, item).then(function (response) {
         _this2.editing = false;
       }).catch(function (error) {
         return _this2.errors = error.response.data;
       });
     },
-    deleteTask: function deleteTask(key, id) {
+    deleteTask: function deleteTask(key, item) {
       var _this3 = this;
 
-      axios.delete("task/" + id).then(function (response) {
-        return _this3.searchList.splice(key, 1);
+      axios.delete("task/" + item.id).then(function (response) {
+
+        _this3.$parent.searchList = _this3.$parent.searchList.filter(function (e) {
+          return e !== item;
+        });
+        _this3.$parent.titleList = _this3.$parent.titleList.filter(function (e) {
+          return e !== item.title;
+        });
+        _this3.$parent.list = _this3.$parent.list.filter(function (e) {
+          return e !== item;
+        });
       }).catch(function (error) {
         return _this3.errors = error.response.data;
       });
@@ -44640,7 +44647,7 @@ var render = function() {
                           {
                             on: {
                               click: function($event) {
-                                _vm.deleteTask(index, item.id)
+                                _vm.deleteTask(index, item)
                               }
                             }
                           },
@@ -44714,7 +44721,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       task: {
         title: ''
-
       },
       time: new Date()
     };
@@ -44728,6 +44734,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         axios.post('task', this.$data.task).then(function (response) {
           _this.$parent.searchList.unshift(response.data);
           _this.$data.task.title = "";
+
+          _this.$parent.titleList.push(response.data.title);
         }).catch(function (error) {
           return _this.errors = error.response.data;
         });

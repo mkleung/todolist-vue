@@ -67,7 +67,7 @@
                     </a>
 
                     <span v-if="deleting == item.id">
-                        <a @click ="deleteTask(index, item.id)">
+                        <a @click ="deleteTask(index, item)">
                           <i class="fa fa-check todoTitle__icon todoTitle__icon--green"></i>
                         </a>
                         <a @click="deleting = false">
@@ -124,17 +124,21 @@ export default {
          this.deleting = item.id;
     },
     updateTask(item, id){
-      console.log("update task");
-        
         axios.patch(`task/${id}`, item)
           .then((response)=> {
             this.editing = false;
           })
           .catch((error) => this.errors = error.response.data);
     },
-    deleteTask(key, id){
-          axios.delete(`task/${id}`)
-              .then((response)=> this.searchList.splice(key,1))
+    deleteTask(key, item){
+          axios.delete(`task/${item.id}`)
+              .then((response)=> {
+                  
+
+                  this.$parent.searchList = this.$parent.searchList.filter(function(e) { return e !== item })
+                  this.$parent.titleList = this.$parent.titleList.filter(function(e) { return e !== item.title })
+                 this.$parent.list = this.$parent.list.filter(function(e) { return e !== item })
+              })
               .catch((error) => this.errors = error.response.data);
     },
   }

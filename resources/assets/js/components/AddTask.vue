@@ -17,7 +17,6 @@
         return{
           task: {
             title: '',
-            
           },
           time: new Date()
         }
@@ -29,6 +28,8 @@
             .then((response)=>{
                 this.$parent.searchList.unshift(response.data)
                 this.$data.task.title = "";
+
+                this.$parent.titleList.push(response.data.title);
             })
             .catch((error) => this.errors = error.response.data);
           }
