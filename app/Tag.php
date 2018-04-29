@@ -4,12 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Tag extends Model
 {
     protected $fillable = [
-        'status',
-        'title',
-        'status',
-        'date_due'
+        'title'
     ];
 }
