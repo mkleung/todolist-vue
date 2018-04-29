@@ -99,6 +99,16 @@ php artisan migrate
 > php artisan serve
 
 
+# Errors
+
+The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key lengths.
+
+> php artisan key:generate
+
+> php artisan config:clear
+
+
+
 ### To run the application on your machine, clone and then npm install 
 
 
