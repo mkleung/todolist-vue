@@ -21,7 +21,7 @@ class CreateTasksTable extends Migration
 
             $table->string('title');
             $table->boolean('status');
-            $table->dateTime('date_due');
+            $table->datetime('due_date');
             $table->timestamps();
         });
     }

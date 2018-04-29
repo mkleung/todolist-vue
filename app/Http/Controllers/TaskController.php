@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Task;
+use DateTime;
+
 
 class TaskController extends Controller
 {
@@ -44,7 +46,12 @@ class TaskController extends Controller
 
         $myTask = new Task;
         $myTask->title = $request->title;
+        $myTask->user_id = 1;
         $myTask->status = false;
+
+        $now = new DateTime();
+
+        $myTask->due_date = $now; 
         $myTask->save();
 
         return $myTask;
