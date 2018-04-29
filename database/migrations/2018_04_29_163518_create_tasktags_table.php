@@ -13,11 +13,15 @@ class CreateTasktagsTable extends Migration
      */
     public function up()
     {
-        Schema::table('tasktags', function (Blueprint $table) {
-            $table->unsignedInteger('tasktag_id');
-            
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('tag_id')->references('id')->on('tags');
+        Schema::create('tasktags', function (Blueprint $table) {
+        
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
+            $table->integer('tag_id')->unsigned()->index();
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 
@@ -28,6 +32,8 @@ class CreateTasktagsTable extends Migration
      */
     public function down()
     {
-        //
+        $table->dropForeign('user_id');
+        $table->dropForeign('tag_id');
+        Schema::dropIfExists('tasktags');
     }
 }
