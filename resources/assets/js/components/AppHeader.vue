@@ -30,12 +30,13 @@
                 </a>
             </p>
             <p class="control">
-                <a class="button is-primary" href="">
+                <!-- <a class="button is-primary" href="">
                 <span class="icon">
                     <i class="fa fa-location-arrow"></i>
                 </span>
                 <span>Login</span>
-                </a>
+                </a> -->
+                <login></login>
             </p>
         </div>
       </div>
@@ -43,3 +44,21 @@
   </div>
 </nav>
 </template>
+
+
+<script>
+
+    let login = require('./Login.vue');
+
+    export default {
+        components: {login},
+        data() {
+            return {
+      
+            }
+        },
+        methods: {
+           
+        }
+    }
+</script>
