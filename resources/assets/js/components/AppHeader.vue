@@ -2,7 +2,7 @@
 <nav class="navbar is-transparent">
   <div class="navbar-brand">
     <a class="navbar-item" href="">
-      <i class="fa fa-clock"></i>
+      
     </a>
     <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
       <span></span>
@@ -14,7 +14,7 @@
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="#">
-         To Do List
+        <span>To Do List</span>
       </a>
     </div>
 
