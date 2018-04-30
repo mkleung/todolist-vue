@@ -22,12 +22,13 @@
       <div class="navbar-item">
         <div class="field is-grouped">
             <p class="control">
-                <a class="button is-info" href="">
+                <!-- <a class="button is-info" href="">
                 <span class="icon">
                     <i class="fa fa-thumbs-up"></i>
                 </span>
                 <span>Signup</span>
-                </a>
+                </a> -->
+                <register></register>
             </p>
             <p class="control">
                 <!-- <a class="button is-primary" href="">
@@ -49,9 +50,10 @@
 <script>
 
     let login = require('./Login.vue');
+    let register = require('./Register.vue');
 
     export default {
-        components: {login},
+        components: {login, register},
         data() {
             return {
       
