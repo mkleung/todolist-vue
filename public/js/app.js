@@ -45296,8 +45296,8 @@ var ModalForm = {
         return {
             isComponentModalActive: false,
             formProps: {
-                email: 'evan@you.com',
-                password: 'testing'
+                email: '',
+                password: ''
             }
         };
     }
@@ -45576,23 +45576,31 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
+var ModalForm = {
+    props: ['email', 'password'],
+    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Add a Task</p>\n                </header>\n                <section class="modal-card-body">\n                   <div class="field">\n                        <p class="control has-icons-left has-icons-right">\n                            <input class="input" type="text" placeholder="Text">\n                            <span class="icon is-small is-left">\n                            <i class="fas fa-envelope"></i>\n                            </span>\n                            <span class="icon is-small is-right">\n                            <i class="fas fa-check"></i>\n                            </span>\n                        </p>\n                        </div>\n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Save</button>\n                </footer>\n            </div>\n        </form>\n    '
+};
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    methods: {
-        prompt: function prompt() {
-            var _this = this;
-
-            this.$dialog.prompt({
-                message: 'What\'s your name?',
-                inputAttrs: {
-                    placeholder: 'e.g. Walter',
-                    maxlength: 10
-                },
-                onConfirm: function onConfirm(value) {
-                    return _this.$toast.open('Your name is: ' + value);
-                }
-            });
-        }
+    components: {
+        ModalForm: ModalForm
+    },
+    data: function data() {
+        return {
+            isComponentModalActive: false,
+            formProps: {
+                email: '',
+                password: ''
+            }
+        };
     }
 });
 
@@ -45604,15 +45612,49 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", [
-    _c(
-      "button",
-      { staticClass: "button is-medium is-info", on: { click: _vm.prompt } },
-      [_vm._v("\n        Add Task\n    ")]
-    )
-  ])
+  return _c(
+    "section",
+    [
+      _c(
+        "button",
+        {
+          staticClass: "button is-info",
+          on: {
+            click: function($event) {
+              _vm.isComponentModalActive = true
+            }
+          }
+        },
+        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Add a Task")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
+          on: {
+            "update:active": function($event) {
+              _vm.isComponentModalActive = $event
+            }
+          }
+        },
+        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
+        1
+      )
+    ],
+    1
+  )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fa fa-clock-o" })
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

@@ -66,8 +66,8 @@
             return {
                 isComponentModalActive: false,
                 formProps: {
-                    email: 'evan@you.com',
-                    password: 'testing'
+                    email: '',
+                    password: ''
                 }
             }
         }
