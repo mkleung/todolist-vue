@@ -45583,23 +45583,70 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var ModalForm = {
     props: ['email', 'password'],
-    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Add a Task</p>\n                </header>\n                <section class="modal-card-body">\n                   <div class="field">\n                        <p class="control has-icons-left has-icons-right">\n                            <input class="input" type="text" placeholder="Text">\n                            <span class="icon is-small is-left">\n                            <i class="fas fa-envelope"></i>\n                            </span>\n                            <span class="icon is-small is-right">\n                            <i class="fas fa-check"></i>\n                            </span>\n                        </p>\n                        </div>\n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Save</button>\n                </footer>\n            </div>\n        </form>\n    '
+    template: '#modal-template'
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
         ModalForm: ModalForm
+
     },
     data: function data() {
         return {
+            showModal: false,
             isComponentModalActive: false,
             formProps: {
                 email: '',
                 password: ''
-            }
+            },
+            formatAmPm: false
         };
     }
 });
@@ -45631,7 +45678,11 @@ var render = function() {
       _c(
         "b-modal",
         {
-          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
+          attrs: {
+            active: _vm.isComponentModalActive,
+            width: 640,
+            scroll: "keep"
+          },
           on: {
             "update:active": function($event) {
               _vm.isComponentModalActive = $event
@@ -45640,6 +45691,16 @@ var render = function() {
         },
         [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
         1
+      ),
+      _vm._v(" "),
+      _c(
+        "script",
+        { attrs: { type: "text/x-template", id: "modal-template" } },
+        [
+          _vm._v(
+            '\n     <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Add a Task</p>\n                </header>\n                <section class="modal-card-body">\n                    <div class="field">\n                        <p class="control has-icons-left has-icons-right">\n                            <input class="input" type="text" placeholder="">\n                            <span class="icon is-small is-left">\n                            <i class="fas fa-envelope"></i>\n                            </span>\n                            <span class="icon is-small is-right">\n                            <i class="fas fa-check"></i>\n                            </span>\n                        </p>\n                    </div>\n\n                    \n                         <b-field label="Select time">\n                            <b-timepicker\n                                rounded\n                                placeholder="Click to select..."\n                                icon="clock"\n                                :hour-format="format">\n                            </b-timepicker>\n                        </b-field>\n\n                        <b-field>\n                            <b-switch v-model="formatAmPm">AM/PM</b-switch>\n                        </b-field>\n              \n                           \n                   \n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Save</button>\n                </footer>\n            </div>\n        </form>\n        '
+          )
+        ]
       )
     ],
     1

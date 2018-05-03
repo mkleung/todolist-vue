@@ -70,10 +70,6 @@ body {
 
 /* Add Modal */
 
-.animation-content {
-    min-width: 480px;
-}
-
 .modal-card-head, .modal-card-foot {
     justify-content: flex-end!important;
 }
