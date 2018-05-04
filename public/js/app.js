@@ -45521,7 +45521,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(74)
+var __vue_script__ = null
 /* template */
 var __vue_template__ = __webpack_require__(75)
 /* template functional */
@@ -45562,96 +45562,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 74 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var ModalForm = {
-    props: ['email', 'password'],
-    template: '#modal-template'
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        ModalForm: ModalForm
-
-    },
-    data: function data() {
-        return {
-            showModal: false,
-            isComponentModalActive: false,
-            formProps: {
-                email: '',
-                password: ''
-            },
-            formatAmPm: false
-        };
-    }
-});
-
-/***/ }),
+/* 74 */,
 /* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -45659,60 +45570,36 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c(
-        "button",
-        {
-          staticClass: "button is-info",
-          on: {
-            click: function($event) {
-              _vm.isComponentModalActive = true
-            }
-          }
-        },
-        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Add a Task")])]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          attrs: {
-            active: _vm.isComponentModalActive,
-            width: 640,
-            scroll: "keep"
-          },
-          on: {
-            "update:active": function($event) {
-              _vm.isComponentModalActive = $event
-            }
-          }
-        },
-        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "script",
-        { attrs: { type: "text/x-template", id: "modal-template" } },
-        [
-          _vm._v(
-            '\n     <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Add a Task</p>\n                </header>\n                <section class="modal-card-body">\n                    <div class="field">\n                        <p class="control has-icons-left has-icons-right">\n                            <input class="input" type="text" placeholder="">\n                            <span class="icon is-small is-left">\n                            <i class="fas fa-envelope"></i>\n                            </span>\n                            <span class="icon is-small is-right">\n                            <i class="fas fa-check"></i>\n                            </span>\n                        </p>\n                    </div>\n\n                    \n                         <b-field label="Select time">\n                            <b-timepicker\n                                rounded\n                                placeholder="Click to select..."\n                                icon="clock"\n                                :hour-format="format">\n                            </b-timepicker>\n                        </b-field>\n\n                        <b-field>\n                            <b-switch v-model="formatAmPm">AM/PM</b-switch>\n                        </b-field>\n              \n                           \n                   \n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Save</button>\n                </footer>\n            </div>\n        </form>\n        '
-          )
-        ]
-      )
-    ],
-    1
-  )
+  return _vm._m(0)
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-clock-o" })
+    return _c("div", { staticClass: "modal" }, [
+      _c("div", { staticClass: "modal-background" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal-card" }, [
+        _c("header", { staticClass: "modal-card-head" }, [
+          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")]),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "delete",
+            attrs: { "aria-label": "close" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "modal-card-body" }),
+        _vm._v(" "),
+        _c("footer", { staticClass: "modal-card-foot" }, [
+          _c("button", { staticClass: "button is-success" }, [
+            _vm._v("Save changes")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "button" }, [_vm._v("Cancel")])
+        ])
+      ])
     ])
   }
 ]
