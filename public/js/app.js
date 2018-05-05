@@ -12085,7 +12085,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(13);
-module.exports = __webpack_require__(58);
+module.exports = __webpack_require__(67);
 
 
 /***/ }),
@@ -12124,8 +12124,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 var dashboard = __webpack_require__(46);
 var addTask = __webpack_require__(11);
 
-var appheader = __webpack_require__(54);
-var appfooter = __webpack_require__(56);
+var appheader = __webpack_require__(56);
+var appfooter = __webpack_require__(65);
 
 var routes = [{ path: '/', component: dashboard }];
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
@@ -44060,7 +44060,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(47)
 /* template */
-var __vue_template__ = __webpack_require__(53)
+var __vue_template__ = __webpack_require__(55)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -44162,7 +44162,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var tiles = __webpack_require__(48);
 var addTask = __webpack_require__(11);
-var addModal = __webpack_require__(73);
+var addModal = __webpack_require__(53);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: { tiles: tiles, addTask: addTask, addModal: addModal },
@@ -44823,6 +44823,103 @@ if (false) {
 /* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(54)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/AddModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-62a121c3", Component.options)
+  } else {
+    hotAPI.reload("data-v-62a121c3", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal" }, [
+      _c("div", { staticClass: "modal-background" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal-card" }, [
+        _c("header", { staticClass: "modal-card-head" }, [
+          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")]),
+          _vm._v(" "),
+          _c("button", {
+            staticClass: "delete",
+            attrs: { "aria-label": "close" }
+          })
+        ]),
+        _vm._v(" "),
+        _c("section", { staticClass: "modal-card-body" }),
+        _vm._v(" "),
+        _c("footer", { staticClass: "modal-card-foot" }, [
+          _c("button", { staticClass: "button is-success" }, [
+            _vm._v("Save changes")
+          ]),
+          _vm._v(" "),
+          _c("button", { staticClass: "button" }, [_vm._v("Cancel")])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-62a121c3", module.exports)
+  }
+}
+
+/***/ }),
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -44926,15 +45023,15 @@ if (false) {
 }
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(66)
+var __vue_script__ = __webpack_require__(57)
 /* template */
-var __vue_template__ = __webpack_require__(55)
+var __vue_template__ = __webpack_require__(64)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -44973,7 +45070,377 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 55 */
+/* 57 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var login = __webpack_require__(58);
+var register = __webpack_require__(61);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: { login: login, register: register },
+    data: function data() {
+        return {};
+    },
+
+    methods: {}
+});
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(59)
+/* template */
+var __vue_template__ = __webpack_require__(60)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Login.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3e2ac97c", Component.options)
+  } else {
+    hotAPI.reload("data-v-3e2ac97c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 59 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var ModalForm = {
+    props: ['email', 'password'],
+    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Login</p>\n                </header>\n                <section class="modal-card-body">\n                   <div class="field">\n                        <p class="control has-icons-left has-icons-right">\n                            <input class="input" type="email" placeholder="Email">\n                            <span class="icon is-small is-left">\n                            <i class="fas fa-envelope"></i>\n                            </span>\n                            <span class="icon is-small is-right">\n                            <i class="fas fa-check"></i>\n                            </span>\n                        </p>\n                        </div>\n\n                    <div class="field no-margin-left">\n                        <label class="label">Password</label>\n                        <b-input\n                            type="password"\n                            :value="password"\n                            password-reveal\n                            placeholder="Your password"\n                            required>\n                        </b-input>\n                    </div>\n\n                    <b-checkbox>Remember me</b-checkbox>\n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Login</button>\n                </footer>\n            </div>\n        </form>\n    '
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        ModalForm: ModalForm
+    },
+    data: function data() {
+        return {
+            isComponentModalActive: false,
+            formProps: {
+                email: '',
+                password: ''
+            }
+        };
+    }
+});
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c(
+        "button",
+        {
+          staticClass: "button is-info",
+          on: {
+            click: function($event) {
+              _vm.isComponentModalActive = true
+            }
+          }
+        },
+        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Login")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
+          on: {
+            "update:active": function($event) {
+              _vm.isComponentModalActive = $event
+            }
+          }
+        },
+        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fa fa-location-arrow" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3e2ac97c", module.exports)
+  }
+}
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(62)
+/* template */
+var __vue_template__ = __webpack_require__(63)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Register.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-f88ac34c", Component.options)
+  } else {
+    hotAPI.reload("data-v-f88ac34c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var ModalForm = {
+    props: ['email', 'password'],
+    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Register</p>\n                </header>\n                <section class="modal-card-body">\n                    <div class="field">\n                        <label class="label">Name</label>\n                        <b-input\n                            label=""\n                            type="text"\n                            :value="name"\n                            placeholder="Your Name"\n                            required>\n                        </b-input>\n                    </div>\n                    <div class="field no-margin-left">\n                        <label class="label">Email</label>\n                        <b-input\n                            type="email"\n                            :value="email"\n                            placeholder="Your email"\n                            required>\n                        </b-input>\n                    </div>\n                    <div class="field no-margin-left">\n                        <label class="label">Password</label>\n                        <b-input\n                            type="password"\n                            :value="password"\n                            placeholder="Your Password"\n                            required>\n                        </b-input>\n                     </div>\n                    \n                   \n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Register</button>\n                </footer>\n            </div>\n        </form>\n    '
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        ModalForm: ModalForm
+    },
+    data: function data() {
+        return {
+            isComponentModalActive: false,
+            formProps: {
+                name: '',
+                email: '',
+                password: ''
+            }
+        };
+    }
+});
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c(
+        "button",
+        {
+          staticClass: "button is-info",
+          on: {
+            click: function($event) {
+              _vm.isComponentModalActive = true
+            }
+          }
+        },
+        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Register")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
+          on: {
+            "update:active": function($event) {
+              _vm.isComponentModalActive = $event
+            }
+          }
+        },
+        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fa fa-thumbs-up" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-f88ac34c", module.exports)
+  }
+}
+
+/***/ }),
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -45044,7 +45511,7 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
@@ -45052,7 +45519,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = null
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(66)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -45091,7 +45558,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 57 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -45132,485 +45599,10 @@ if (false) {
 }
 
 /***/ }),
-/* 58 */
+/* 67 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-var login = __webpack_require__(67);
-var register = __webpack_require__(70);
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: { login: login, register: register },
-    data: function data() {
-        return {};
-    },
-
-    methods: {}
-});
-
-/***/ }),
-/* 67 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(68)
-/* template */
-var __vue_template__ = __webpack_require__(69)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Login.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e2ac97c", Component.options)
-  } else {
-    hotAPI.reload("data-v-3e2ac97c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 68 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var ModalForm = {
-    props: ['email', 'password'],
-    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Login</p>\n                </header>\n                <section class="modal-card-body">\n                   <div class="field">\n                        <p class="control has-icons-left has-icons-right">\n                            <input class="input" type="email" placeholder="Email">\n                            <span class="icon is-small is-left">\n                            <i class="fas fa-envelope"></i>\n                            </span>\n                            <span class="icon is-small is-right">\n                            <i class="fas fa-check"></i>\n                            </span>\n                        </p>\n                        </div>\n\n                    <div class="field no-margin-left">\n                        <label class="label">Password</label>\n                        <b-input\n                            type="password"\n                            :value="password"\n                            password-reveal\n                            placeholder="Your password"\n                            required>\n                        </b-input>\n                    </div>\n\n                    <b-checkbox>Remember me</b-checkbox>\n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Login</button>\n                </footer>\n            </div>\n        </form>\n    '
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        ModalForm: ModalForm
-    },
-    data: function data() {
-        return {
-            isComponentModalActive: false,
-            formProps: {
-                email: '',
-                password: ''
-            }
-        };
-    }
-});
-
-/***/ }),
-/* 69 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c(
-        "button",
-        {
-          staticClass: "button is-info",
-          on: {
-            click: function($event) {
-              _vm.isComponentModalActive = true
-            }
-          }
-        },
-        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Login")])]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
-          on: {
-            "update:active": function($event) {
-              _vm.isComponentModalActive = $event
-            }
-          }
-        },
-        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-location-arrow" })
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3e2ac97c", module.exports)
-  }
-}
-
-/***/ }),
-/* 70 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(71)
-/* template */
-var __vue_template__ = __webpack_require__(72)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Register.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f88ac34c", Component.options)
-  } else {
-    hotAPI.reload("data-v-f88ac34c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 71 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var ModalForm = {
-    props: ['email', 'password'],
-    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Register</p>\n                </header>\n                <section class="modal-card-body">\n                    <div class="field">\n                        <label class="label">Name</label>\n                        <b-input\n                            label=""\n                            type="text"\n                            :value="name"\n                            placeholder="Your Name"\n                            required>\n                        </b-input>\n                    </div>\n                    <div class="field no-margin-left">\n                        <label class="label">Email</label>\n                        <b-input\n                            type="email"\n                            :value="email"\n                            placeholder="Your email"\n                            required>\n                        </b-input>\n                    </div>\n                    <div class="field no-margin-left">\n                        <label class="label">Password</label>\n                        <b-input\n                            type="password"\n                            :value="password"\n                            placeholder="Your Password"\n                            required>\n                        </b-input>\n                     </div>\n                    \n                   \n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Register</button>\n                </footer>\n            </div>\n        </form>\n    '
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        ModalForm: ModalForm
-    },
-    data: function data() {
-        return {
-            isComponentModalActive: false,
-            formProps: {
-                name: '',
-                email: '',
-                password: ''
-            }
-        };
-    }
-});
-
-/***/ }),
-/* 72 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c(
-        "button",
-        {
-          staticClass: "button is-info",
-          on: {
-            click: function($event) {
-              _vm.isComponentModalActive = true
-            }
-          }
-        },
-        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Register")])]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
-          on: {
-            "update:active": function($event) {
-              _vm.isComponentModalActive = $event
-            }
-          }
-        },
-        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
-        1
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-thumbs-up" })
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f88ac34c", module.exports)
-  }
-}
-
-/***/ }),
-/* 73 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(75)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/AddModal.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-62a121c3", Component.options)
-  } else {
-    hotAPI.reload("data-v-62a121c3", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 74 */,
-/* 75 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal" }, [
-      _c("div", { staticClass: "modal-background" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "modal-card" }, [
-        _c("header", { staticClass: "modal-card-head" }, [
-          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")]),
-          _vm._v(" "),
-          _c("button", {
-            staticClass: "delete",
-            attrs: { "aria-label": "close" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "modal-card-body" }),
-        _vm._v(" "),
-        _c("footer", { staticClass: "modal-card-foot" }, [
-          _c("button", { staticClass: "button is-success" }, [
-            _vm._v("Save changes")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "button" }, [_vm._v("Cancel")])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-62a121c3", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
