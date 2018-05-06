@@ -45143,14 +45143,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            isComponentModalActive: false
+            isComponentModalActive: false,
+            user: {
+                email: '',
+                password: ''
+            }
         };
+    },
+
+    methods: {
+        login: function login() {
+            console.log("login" + this.user.email + " " + this.user.password);
+        }
     }
 });
 
@@ -45189,94 +45197,109 @@ var render = function() {
           }
         },
         [
-          _c("form", { attrs: { action: "" } }, [
-            _c(
-              "div",
-              { staticClass: "modal-card", staticStyle: { width: "auto" } },
-              [
-                _c("header", { staticClass: "modal-card-head" }, [
-                  _c("p", { staticClass: "modal-card-title" }, [
-                    _vm._v("Login")
-                  ])
+          _c(
+            "div",
+            { staticClass: "modal-card", staticStyle: { width: "auto" } },
+            [
+              _c("header", { staticClass: "modal-card-head" }, [
+                _c("p", { staticClass: "modal-card-title" }, [_vm._v("Login")])
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "modal-card-body" }, [
+                _c("div", { staticClass: "field" }, [
+                  _c(
+                    "p",
+                    { staticClass: "control has-icons-left has-icons-right" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.user.email,
+                            expression: "user.email"
+                          }
+                        ],
+                        staticClass: "input",
+                        attrs: { type: "email", placeholder: "Email" },
+                        domProps: { value: _vm.user.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.user, "email", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-left" }, [
+                        _c("i", { staticClass: "fas fa-envelope" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-right" }, [
+                        _c("i", { staticClass: "fas fa-check" })
+                      ])
+                    ]
+                  )
                 ]),
                 _vm._v(" "),
                 _c(
-                  "section",
-                  { staticClass: "modal-card-body" },
+                  "div",
+                  { staticClass: "field no-margin-left" },
                   [
-                    _c("div", { staticClass: "field" }, [
-                      _c(
-                        "p",
-                        {
-                          staticClass: "control has-icons-left has-icons-right"
+                    _c("label", { staticClass: "label" }, [_vm._v("Password")]),
+                    _vm._v(" "),
+                    _c("b-input", {
+                      attrs: {
+                        type: "password",
+                        "password-reveal": "",
+                        placeholder: "Your password",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.user.password,
+                        callback: function($$v) {
+                          _vm.$set(_vm.user, "password", $$v)
                         },
-                        [
-                          _c("input", {
-                            staticClass: "input",
-                            attrs: { type: "email", placeholder: "Email" }
-                          }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "icon is-small is-left" }, [
-                            _c("i", { staticClass: "fas fa-envelope" })
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "span",
-                            { staticClass: "icon is-small is-right" },
-                            [_c("i", { staticClass: "fas fa-check" })]
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      { staticClass: "field no-margin-left" },
-                      [
-                        _c("label", { staticClass: "label" }, [
-                          _vm._v("Password")
-                        ]),
-                        _vm._v(" "),
-                        _c("b-input", {
-                          attrs: {
-                            type: "password",
-                            value: _vm.password,
-                            "password-reveal": "",
-                            placeholder: "Your password",
-                            required: ""
-                          }
-                        })
-                      ],
-                      1
-                    ),
-                    _vm._v(" "),
-                    _c("b-checkbox", [_vm._v("Remember me")])
+                        expression: "user.password"
+                      }
+                    })
                   ],
                   1
+                )
+              ]),
+              _vm._v(" "),
+              _c("footer", { staticClass: "modal-card-foot" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.$parent.close()
+                      }
+                    }
+                  },
+                  [_vm._v("Close")]
                 ),
                 _vm._v(" "),
-                _c("footer", { staticClass: "modal-card-foot" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "button",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.$parent.close()
-                        }
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-primary",
+                    on: {
+                      click: function($event) {
+                        _vm.login(_vm.user)
                       }
-                    },
-                    [_vm._v("Close")]
-                  ),
-                  _vm._v(" "),
-                  _c("button", { staticClass: "button is-primary" }, [
-                    _vm._v("Login")
-                  ])
-                ])
-              ]
-            )
-          ])
+                    }
+                  },
+                  [_vm._v("Login")]
+                )
+              ])
+            ]
+          )
         ]
       )
     ],
