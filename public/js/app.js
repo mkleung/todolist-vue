@@ -44157,15 +44157,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 var tiles = __webpack_require__(48);
 var addTask = __webpack_require__(11);
-var addModal = __webpack_require__(53);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTask: addTask, addModal: addModal },
+    components: { tiles: tiles, addTask: addTask },
     data: function data() {
         return {
             list: [],
@@ -44820,103 +44818,8 @@ if (false) {
 }
 
 /***/ }),
-/* 53 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = null
-/* template */
-var __vue_template__ = __webpack_require__(54)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/AddModal.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-62a121c3", Component.options)
-  } else {
-    hotAPI.reload("data-v-62a121c3", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 54 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal" }, [
-      _c("div", { staticClass: "modal-background" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "modal-card" }, [
-        _c("header", { staticClass: "modal-card-head" }, [
-          _c("p", { staticClass: "modal-card-title" }, [_vm._v("Modal title")]),
-          _vm._v(" "),
-          _c("button", {
-            staticClass: "delete",
-            attrs: { "aria-label": "close" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("section", { staticClass: "modal-card-body" }),
-        _vm._v(" "),
-        _c("footer", { staticClass: "modal-card-foot" }, [
-          _c("button", { staticClass: "button is-success" }, [
-            _vm._v("Save changes")
-          ]),
-          _vm._v(" "),
-          _c("button", { staticClass: "button" }, [_vm._v("Cancel")])
-        ])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-62a121c3", module.exports)
-  }
-}
-
-/***/ }),
+/* 53 */,
+/* 54 */,
 /* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -44941,9 +44844,7 @@ var render = function() {
                   _vm._v("Add a task below and click save")
                 ]),
                 _vm._v(" "),
-                _c("addTask"),
-                _vm._v(" "),
-                _c("addModal")
+                _c("addTask")
               ],
               1
             ),
@@ -45207,23 +45108,48 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-var ModalForm = {
-    props: ['email', 'password'],
-    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Login</p>\n                </header>\n                <section class="modal-card-body">\n                   <div class="field">\n                        <p class="control has-icons-left has-icons-right">\n                            <input class="input" type="email" placeholder="Email">\n                            <span class="icon is-small is-left">\n                            <i class="fas fa-envelope"></i>\n                            </span>\n                            <span class="icon is-small is-right">\n                            <i class="fas fa-check"></i>\n                            </span>\n                        </p>\n                        </div>\n\n                    <div class="field no-margin-left">\n                        <label class="label">Password</label>\n                        <b-input\n                            type="password"\n                            :value="password"\n                            password-reveal\n                            placeholder="Your password"\n                            required>\n                        </b-input>\n                    </div>\n\n                    <b-checkbox>Remember me</b-checkbox>\n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Login</button>\n                </footer>\n            </div>\n        </form>\n    '
-};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        ModalForm: ModalForm
-    },
     data: function data() {
         return {
-            isComponentModalActive: false,
-            formProps: {
-                email: '',
-                password: ''
-            }
+            isComponentModalActive: false
         };
     }
 });
@@ -45262,8 +45188,96 @@ var render = function() {
             }
           }
         },
-        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
-        1
+        [
+          _c("form", { attrs: { action: "" } }, [
+            _c(
+              "div",
+              { staticClass: "modal-card", staticStyle: { width: "auto" } },
+              [
+                _c("header", { staticClass: "modal-card-head" }, [
+                  _c("p", { staticClass: "modal-card-title" }, [
+                    _vm._v("Login")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c(
+                  "section",
+                  { staticClass: "modal-card-body" },
+                  [
+                    _c("div", { staticClass: "field" }, [
+                      _c(
+                        "p",
+                        {
+                          staticClass: "control has-icons-left has-icons-right"
+                        },
+                        [
+                          _c("input", {
+                            staticClass: "input",
+                            attrs: { type: "email", placeholder: "Email" }
+                          }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "icon is-small is-left" }, [
+                            _c("i", { staticClass: "fas fa-envelope" })
+                          ]),
+                          _vm._v(" "),
+                          _c(
+                            "span",
+                            { staticClass: "icon is-small is-right" },
+                            [_c("i", { staticClass: "fas fa-check" })]
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "field no-margin-left" },
+                      [
+                        _c("label", { staticClass: "label" }, [
+                          _vm._v("Password")
+                        ]),
+                        _vm._v(" "),
+                        _c("b-input", {
+                          attrs: {
+                            type: "password",
+                            value: _vm.password,
+                            "password-reveal": "",
+                            placeholder: "Your password",
+                            required: ""
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c("b-checkbox", [_vm._v("Remember me")])
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c("footer", { staticClass: "modal-card-foot" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "button",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.$parent.close()
+                        }
+                      }
+                    },
+                    [_vm._v("Close")]
+                  ),
+                  _vm._v(" "),
+                  _c("button", { staticClass: "button is-primary" }, [
+                    _vm._v("Login")
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
       )
     ],
     1

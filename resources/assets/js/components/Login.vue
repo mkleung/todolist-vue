@@ -9,15 +9,6 @@
         </button>
 
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
-            <modal-form v-bind="formProps"></modal-form>
-        </b-modal>
-    </section>
-</template>
-
-<script>
-    const ModalForm = {
-        props: ['email', 'password'],
-        template: `
             <form action="">
                 <div class="modal-card" style="width: auto">
                     <header class="modal-card-head">
@@ -55,20 +46,16 @@
                     </footer>
                 </div>
             </form>
-        `
-    }
 
+        </b-modal>
+    </section>
+</template>
+
+<script>
     export default {
-        components: {
-            ModalForm
-        },
         data() {
             return {
                 isComponentModalActive: false,
-                formProps: {
-                    email: '',
-                    password: ''
-                }
             }
         }
     }

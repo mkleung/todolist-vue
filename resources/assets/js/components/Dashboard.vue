@@ -13,7 +13,6 @@
                         <p class="subtitle has-text-black">Add a task below and click save</p>
                         <addTask></addTask>
 
-                        <addModal></addModal>
                     </div>
 
                     <!-- SAERCH -->
@@ -56,10 +55,9 @@
 
     let tiles = require('./Tiles.vue');
     let addTask = require('./AddTask.vue');
-    let addModal = require('./AddModal.vue');
 
     export default {
-        components: {tiles, addTask, addModal},
+        components: {tiles, addTask},
         data() {
             return {
                 list: [],
