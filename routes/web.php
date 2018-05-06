@@ -23,3 +23,6 @@ Route::get('getTasks', 'TaskController@getTasks');
 
 
 Route::post('toggleTask', 'TaskController@toggleTask');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
