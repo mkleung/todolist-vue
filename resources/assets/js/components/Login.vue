@@ -31,6 +31,7 @@
                             <label class="label">Password</label>
                             <b-input
                                 type="password"
+                                
                                 v-model = "user.password"
                                 password-reveal
                                 placeholder="Your password"
@@ -39,7 +40,7 @@
                         </div>
                     </section>
                     <footer class="modal-card-foot">
-                        <button class="button" type="button" @click="$parent.close()">Close</button>
+                        <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
                         <button class="button is-primary" @click="login(user)">Login</button>
                     </footer>
                 </div>
@@ -50,6 +51,7 @@
 </template>
 
 <script>
+
     export default {
         data() {
             return {
@@ -63,7 +65,8 @@
         methods: {
             login() {
                 console.log("login" + this.user.email + " " + this.user.password);
-            }
+            },
+            
         }
     }
 </script>
