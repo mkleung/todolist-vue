@@ -45396,25 +45396,58 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-var ModalForm = {
-    props: ['email', 'password'],
-    template: '\n        <form action="">\n            <div class="modal-card" style="width: auto">\n                <header class="modal-card-head">\n                    <p class="modal-card-title">Register</p>\n                </header>\n                <section class="modal-card-body">\n                    <div class="field">\n                        <label class="label">Name</label>\n                        <b-input\n                            label=""\n                            type="text"\n                            :value="name"\n                            placeholder="Your Name"\n                            required>\n                        </b-input>\n                    </div>\n                    <div class="field no-margin-left">\n                        <label class="label">Email</label>\n                        <b-input\n                            type="email"\n                            :value="email"\n                            placeholder="Your email"\n                            required>\n                        </b-input>\n                    </div>\n                    <div class="field no-margin-left">\n                        <label class="label">Password</label>\n                        <b-input\n                            type="password"\n                            :value="password"\n                            placeholder="Your Password"\n                            required>\n                        </b-input>\n                     </div>\n                    \n                   \n                </section>\n                <footer class="modal-card-foot">\n                    <button class="button" type="button" @click="$parent.close()">Close</button>\n                    <button class="button is-primary">Register</button>\n                </footer>\n            </div>\n        </form>\n    '
-};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: {
-        ModalForm: ModalForm
-    },
     data: function data() {
         return {
             isComponentModalActive: false,
-            formProps: {
-                name: '',
+            user: {
                 email: '',
                 password: ''
             }
         };
+    },
+
+    methods: {
+        register: function register() {
+            console.log("login" + this.user.email + " " + this.user.password);
+        }
     }
 });
 
@@ -45452,8 +45485,113 @@ var render = function() {
             }
           }
         },
-        [_c("modal-form", _vm._b({}, "modal-form", _vm.formProps, false))],
-        1
+        [
+          _c(
+            "div",
+            { staticClass: "modal-card", staticStyle: { width: "auto" } },
+            [
+              _c("header", { staticClass: "modal-card-head" }, [
+                _c("p", { staticClass: "modal-card-title" }, [
+                  _vm._v("Register")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "modal-card-body" }, [
+                _c("div", { staticClass: "field" }, [
+                  _c(
+                    "p",
+                    { staticClass: "control has-icons-left has-icons-right" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.user.email,
+                            expression: "user.email"
+                          }
+                        ],
+                        staticClass: "input",
+                        attrs: { type: "email", placeholder: "Email" },
+                        domProps: { value: _vm.user.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.user, "email", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-left" }, [
+                        _c("i", { staticClass: "fas fa-envelope" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-right" }, [
+                        _c("i", { staticClass: "fas fa-check" })
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "field no-margin-left" },
+                  [
+                    _c("label", { staticClass: "label" }, [_vm._v("Password")]),
+                    _vm._v(" "),
+                    _c("b-input", {
+                      attrs: {
+                        type: "password",
+                        "password-reveal": "",
+                        placeholder: "Your password",
+                        required: ""
+                      },
+                      model: {
+                        value: _vm.user.password,
+                        callback: function($$v) {
+                          _vm.$set(_vm.user, "password", $$v)
+                        },
+                        expression: "user.password"
+                      }
+                    })
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("footer", { staticClass: "modal-card-foot" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.isComponentModalActive = false
+                      }
+                    }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-primary",
+                    on: {
+                      click: function($event) {
+                        _vm.register(_vm.user)
+                      }
+                    }
+                  },
+                  [_vm._v("Register")]
+                )
+              ])
+            ]
+          )
+        ]
       )
     ],
     1
