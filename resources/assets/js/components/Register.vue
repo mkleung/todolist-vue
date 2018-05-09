@@ -10,11 +10,33 @@
 
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
            
+
+
                 <div class="modal-card" style="width: auto">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Register</p>
                     </header>
                     <section class="modal-card-body">
+                        
+                                   <form @submit.prevent="register">
+    <input placeholder="Enter your name" v-model="name" />
+    <input placeholder="Enter your email" v-model="email" />
+    <input placeholder="Enter your password" v-model="password" />
+    <input placeholder="Confirm pw" v-model="confirmpassword" />
+    <input type="submit" value="Submit">
+</form>
+                        <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="text" placeholder="Name" v-model="user.name">
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                                </span>
+                            </p>
+                        </div>
+
                        <div class="field">
                             <p class="control has-icons-left has-icons-right">
                                 <input class="input" type="email" placeholder="Email" v-model="user.email">
@@ -25,7 +47,7 @@
                                 <i class="fas fa-check"></i>
                                 </span>
                             </p>
-                            </div>
+                        </div>
 
                         <div class="field no-margin-left">
                             <label class="label">Password</label>
@@ -41,7 +63,7 @@
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
-                        <button class="button is-primary" @click="register(user)">Register</button>
+                        <button class="button is-primary" @click="register()">Register</button>
                     </footer>
                 </div>
            
@@ -56,14 +78,27 @@
             return {
                 isComponentModalActive: false,
                  user: {
+                    name:'',
                     email: '',
                     password: ''
                 },
+                name: '',
+            username: '',
+            email: '',
+            password: '',
+            confirmpassword: '',
+                
             }
         },
         methods: {
             register() {
-                console.log("login" + this.user.email + " " + this.user.password);
+                
+                axios.post('/register',  this.$data)
+                    .then((response)=>{
+                        console.log(response);
+                    })
+                    .catch((error) => this.errors = error.response.data);
+
             },
             
         }

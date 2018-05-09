@@ -45157,9 +45157,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
+
     methods: {
         login: function login() {
+            var _this = this;
+
             console.log("login" + this.user.email + " " + this.user.password);
+
+            axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
+                console.log("login success");
+            }).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
         }
     }
 });
@@ -45432,21 +45441,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
             isComponentModalActive: false,
             user: {
+                name: '',
                 email: '',
                 password: ''
-            }
+            },
+            name: '',
+            username: '',
+            email: '',
+            password: '',
+            confirmpassword: ''
+
         };
     },
 
     methods: {
         register: function register() {
-            console.log("login" + this.user.email + " " + this.user.password);
+            var _this = this;
+
+            axios.post('/register', this.$data).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
         }
     }
 });
@@ -45497,6 +45541,143 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("section", { staticClass: "modal-card-body" }, [
+                _c(
+                  "form",
+                  {
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.register($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.name,
+                          expression: "name"
+                        }
+                      ],
+                      attrs: { placeholder: "Enter your name" },
+                      domProps: { value: _vm.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.name = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.email,
+                          expression: "email"
+                        }
+                      ],
+                      attrs: { placeholder: "Enter your email" },
+                      domProps: { value: _vm.email },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.email = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.password,
+                          expression: "password"
+                        }
+                      ],
+                      attrs: { placeholder: "Enter your password" },
+                      domProps: { value: _vm.password },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.password = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.confirmpassword,
+                          expression: "confirmpassword"
+                        }
+                      ],
+                      attrs: { placeholder: "Confirm pw" },
+                      domProps: { value: _vm.confirmpassword },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.confirmpassword = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", { attrs: { type: "submit", value: "Submit" } })
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "field" }, [
+                  _c(
+                    "p",
+                    { staticClass: "control has-icons-left has-icons-right" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.user.name,
+                            expression: "user.name"
+                          }
+                        ],
+                        staticClass: "input",
+                        attrs: { type: "text", placeholder: "Name" },
+                        domProps: { value: _vm.user.name },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.user, "name", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-left" }, [
+                        _c("i", { staticClass: "fas fa-envelope" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-right" }, [
+                        _c("i", { staticClass: "fas fa-check" })
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "field" }, [
                   _c(
                     "p",
@@ -45582,7 +45763,7 @@ var render = function() {
                     staticClass: "button is-primary",
                     on: {
                       click: function($event) {
-                        _vm.register(_vm.user)
+                        _vm.register()
                       }
                     }
                   },
