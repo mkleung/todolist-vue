@@ -10,21 +10,12 @@
 
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
            
-
-
                 <div class="modal-card" style="width: auto">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Register</p>
                     </header>
                     <section class="modal-card-body">
                         
-                                   <form @submit.prevent="register">
-    <input placeholder="Enter your name" v-model="name" />
-    <input placeholder="Enter your email" v-model="email" />
-    <input placeholder="Enter your password" v-model="password" />
-    <input placeholder="Confirm pw" v-model="confirmpassword" />
-    <input type="submit" value="Submit">
-</form>
                         <div class="field">
                             <p class="control has-icons-left has-icons-right">
                                 <input class="input" type="text" placeholder="Name" v-model="user.name">
@@ -49,16 +40,16 @@
                             </p>
                         </div>
 
-                        <div class="field no-margin-left">
-                            <label class="label">Password</label>
-                            <b-input
-                                type="password"
-                                
-                                v-model = "user.password"
-                                password-reveal
-                                placeholder="Your password"
-                                required>
-                            </b-input>
+                          <div class="field">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="Password" v-model="user.password">
+                                <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                                </span>
+                                <span class="icon is-small is-right">
+                                <i class="fas fa-check"></i>
+                                </span>
+                            </p>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
@@ -82,12 +73,6 @@
                     email: '',
                     password: ''
                 },
-                name: '',
-            username: '',
-            email: '',
-            password: '',
-            confirmpassword: '',
-                
             }
         },
         methods: {

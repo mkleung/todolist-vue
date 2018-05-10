@@ -22,22 +22,12 @@
       <div class="navbar-item">
         <div class="field is-grouped">
             <p class="control">
-                <!-- <a class="button is-info" href="">
-                <span class="icon">
-                    <i class="fa fa-thumbs-up"></i>
-                </span>
-                <span>Signup</span>
-                </a> -->
                 <register></register>
             </p>
             <p class="control">
-                <!-- <a class="button is-primary" href="">
-                <span class="icon">
-                    <i class="fa fa-location-arrow"></i>
-                </span>
-                <span>Login</span>
-                </a> -->
                 <login></login>
+
+                <button @click="check">check</button>
             </p>
         </div>
       </div>
@@ -60,7 +50,15 @@
             }
         },
         methods: {
-           
+           check() {
+              axios.get('/sessionStatus')
+              .then(response => {
+                  console.log(response.data.user);
+              })
+              .catch(error => {
+                  console.log(error.response.data);
+              });
+           }
         }
     }
 </script>
