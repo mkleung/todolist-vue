@@ -23,7 +23,7 @@
         <div class="field is-grouped" v-if="userLogin">
             <p class="control">
                 {{userLogin.name}}
-                <button>Logout</button>
+                <button class="button is-info">Logout</button>
             </p>
 
         </div>

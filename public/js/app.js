@@ -45735,7 +45735,9 @@ var render = function() {
                         _vm._s(_vm.userLogin.name) +
                         "\n                "
                     ),
-                    _c("button", [_vm._v("Logout")])
+                    _c("button", { staticClass: "button is-info" }, [
+                      _vm._v("Logout")
+                    ])
                   ])
                 ])
               : _c("div", { staticClass: "field is-grouped" }, [
