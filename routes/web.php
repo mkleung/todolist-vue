@@ -29,5 +29,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //https://laracasts.com/discuss/channels/vue/how-do-i-handle-loginregistration-and-sessions-with-vue-router-and-axios-for-an-spa?page=1
 Route::get('/sessionStatus', function() {
-    return ['user' => Auth::user() ? Auth::user()->load('profile') : null];
+    return ['user' => Auth::user() ? Auth::user() : null];
 });

@@ -20,16 +20,22 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="field is-grouped">
+        <div class="field is-grouped" v-if="userLogin">
             <p class="control">
-                <register></register>
+                {{userLogin.name}}
+                <button>Logout</button>
             </p>
-            <p class="control">
-                <login></login>
 
-                <button @click="check">check</button>
-            </p>
         </div>
+        <div  class="field is-grouped" v-else>
+              <p class="control">
+                  <register></register>
+              </p>
+              <p class="control">
+                  <login></login>
+              </p>
+        </div>
+
       </div>
     </div>
   </div>
@@ -46,19 +52,26 @@
         components: {login, register},
         data() {
             return {
-      
+              userLogin: false
             }
         },
-        methods: {
-           check() {
+        mounted: function() {
+          console.log("test");
+          
               axios.get('/sessionStatus')
               .then(response => {
-                  console.log(response.data.user);
+                  if (response.data.user) {
+                    this.userLogin = response.data.user;
+                  }
               })
               .catch(error => {
                   console.log(error.response.data);
               });
-           }
+           
+
+        },
+        methods: {
+           
         }
     }
 </script>
