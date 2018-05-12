@@ -4,10 +4,23 @@
   <div class="hero-body">
         <div class="container">
             <div class="column is-6 is-offset-3">
+                <h1 class="title has-text-centered">My Tasks</h1>
+               <div class=" has-text-centered">{{ new Date().getMonth() }}/{{ new Date().getDate() }}/{{ new Date().getFullYear() }} </div>
                 
-                <h1 class="title has-text-centered">To Do List</h1>
-               
+            </div>
+            <div class="column is-6 is-offset-3">
                 <div class="card">
+                  
+                    
+
+                    <!-- SAERCH -->
+                    <div class="card-content">
+                        <div class="has-text-centered">
+                            <a class="button is-primary is-rounded h">Add a Task</a>
+                        </div>
+                     </div>
+
+
                     <!-- ADD TASK -->
                     <div class="card-content">
                         <p class="subtitle has-text-black">Add a task below and click save</p>
@@ -15,10 +28,9 @@
 
                     </div>
 
-                    <!-- SAERCH -->
                     <div class="card-content">
                         <section>
-                            <p class="content"><b>Search {{ selected }}</b></p>
+                           
                             <b-field>
                                 <b-autocomplete
                                     rounded
@@ -31,9 +43,6 @@
                                 </b-autocomplete>
                             </b-field>
                         </section>
-                     </div>
-
-                    <div  v-if = "searchQuery && !selected" class="card-content">
                     </div>
 
                     <!-- LIST -->
