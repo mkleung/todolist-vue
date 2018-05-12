@@ -45018,7 +45018,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 var login = __webpack_require__(56);
@@ -45049,6 +45048,14 @@ var register = __webpack_require__(59);
 
             axios.get('/logoutUser').then(function (response) {
                 _this2.userLogin = false;
+
+                _this2.$snackbar.open({
+                    message: 'You have been logged out',
+                    type: 'is-success',
+                    position: 'is-top',
+                    duration: 3000,
+                    indefinite: false
+                });
             }).catch(function (error) {
                 console.log(error.response.data);
             });
@@ -45181,6 +45188,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
+
+                _this.$parent.userLogin = true;
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
@@ -45736,11 +45745,6 @@ var render = function() {
             _vm.userLogin
               ? _c("div", { staticClass: "field is-grouped" }, [
                   _c("p", { staticClass: "control" }, [
-                    _vm._v(
-                      "\n                " +
-                        _vm._s(_vm.userLogin.name) +
-                        "\n                "
-                    ),
                     _c(
                       "button",
                       {

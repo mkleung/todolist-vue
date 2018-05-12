@@ -22,7 +22,6 @@
       <div class="navbar-item">
         <div class="field is-grouped" v-if="userLogin">
             <p class="control">
-                {{userLogin.name}}
                 <button class="button is-info" @click="logoutUser">Logout</button>
             </p>
 
@@ -74,6 +73,15 @@
              axios.get('/logoutUser')
               .then(response => {
                   this.userLogin = false;
+
+                  this.$snackbar.open({
+                      message: 'You have been logged out',
+                      type: 'is-success',
+                      position: 'is-top',
+                      duration: 3000,
+                      indefinite: false
+                  })
+
               })
               .catch(error => {
                   console.log(error.response.data);

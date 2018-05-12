@@ -68,6 +68,8 @@
                 axios.post('login', {email:this.user.email, password:this.user.password})
                     .then((response)=>{
                         this.isComponentModalActive = false;
+
+                        this.$parent.userLogin = true;
                     })
                     .catch((error) => this.errors = error.response.data);
 
