@@ -56,8 +56,7 @@
             }
         },
         mounted: function() {
-          console.log("test");
-          
+       
               axios.get('/sessionStatus')
               .then(response => {
                   if (response.data.user) {
@@ -74,7 +73,7 @@
            logoutUser: function() {
              axios.get('/logoutUser')
               .then(response => {
-                  console.log("User logged out");
+                  this.userLogin = false;
               })
               .catch(error => {
                   console.log(error.response.data);

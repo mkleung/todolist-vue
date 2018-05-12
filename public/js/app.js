@@ -45035,8 +45035,6 @@ var register = __webpack_require__(59);
     mounted: function mounted() {
         var _this = this;
 
-        console.log("test");
-
         axios.get('/sessionStatus').then(function (response) {
             if (response.data.user) {
                 _this.userLogin = response.data.user;
@@ -45047,8 +45045,10 @@ var register = __webpack_require__(59);
     },
     methods: {
         logoutUser: function logoutUser() {
+            var _this2 = this;
+
             axios.get('/logoutUser').then(function (response) {
-                console.log("User logged out");
+                _this2.userLogin = false;
             }).catch(function (error) {
                 console.log(error.response.data);
             });
@@ -45178,8 +45178,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         login: function login() {
             var _this = this;
-
-            console.log("login" + this.user.email + " " + this.user.password);
 
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;

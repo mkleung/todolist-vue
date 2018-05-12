@@ -65,8 +65,6 @@
         
         methods: {
             login() {
-                console.log("login" + this.user.email + " " + this.user.password);
-
                 axios.post('login', {email:this.user.email, password:this.user.password})
                     .then((response)=>{
                         this.isComponentModalActive = false;
