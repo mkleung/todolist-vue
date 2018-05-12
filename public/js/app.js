@@ -45045,7 +45045,15 @@ var register = __webpack_require__(59);
             console.log(error.response.data);
         });
     },
-    methods: {}
+    methods: {
+        logoutUser: function logoutUser() {
+            axios.get('/logoutUser').then(function (response) {
+                console.log("User logged out");
+            }).catch(function (error) {
+                console.log(error.response.data);
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -45174,7 +45182,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             console.log("login" + this.user.email + " " + this.user.password);
 
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
-                console.log("login success");
+                _this.isComponentModalActive = false;
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
@@ -45735,9 +45743,14 @@ var render = function() {
                         _vm._s(_vm.userLogin.name) +
                         "\n                "
                     ),
-                    _c("button", { staticClass: "button is-info" }, [
-                      _vm._v("Logout")
-                    ])
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button is-info",
+                        on: { click: _vm.logoutUser }
+                      },
+                      [_vm._v("Logout")]
+                    )
                   ])
                 ])
               : _c("div", { staticClass: "field is-grouped" }, [

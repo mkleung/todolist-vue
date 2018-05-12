@@ -111,4 +111,9 @@ class TaskController extends Controller
         $toggleTask->status = !$toggleTask->status;
         $toggleTask->save();
     }
+
+
+    public function logoutUser(Request $request){
+        $request->session()->flush();
+    }
 }

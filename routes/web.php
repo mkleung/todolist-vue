@@ -31,3 +31,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/sessionStatus', function() {
     return ['user' => Auth::user() ? Auth::user() : null];
 });
+
+Route::get('logoutUser', 'TaskController@logoutUser');

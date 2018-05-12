@@ -23,7 +23,7 @@
         <div class="field is-grouped" v-if="userLogin">
             <p class="control">
                 {{userLogin.name}}
-                <button class="button is-info">Logout</button>
+                <button class="button is-info" @click="logoutUser">Logout</button>
             </p>
 
         </div>
@@ -71,7 +71,15 @@
 
         },
         methods: {
-           
+           logoutUser: function() {
+             axios.get('/logoutUser')
+              .then(response => {
+                  console.log("User logged out");
+              })
+              .catch(error => {
+                  console.log(error.response.data);
+              });
+           }
         }
     }
 </script>
