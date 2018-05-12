@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Task;
 use DateTime;
-
+use Auth;
 
 class TaskController extends Controller
 {
@@ -46,7 +46,7 @@ class TaskController extends Controller
 
         $myTask = new Task;
         $myTask->title = $request->title;
-        $myTask->user_id = 1;
+        $myTask->user_id = Auth::id();
         $myTask->status = false;
 
         $now = new DateTime();
