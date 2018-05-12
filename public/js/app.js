@@ -45495,8 +45495,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         register: function register() {
             var _this = this;
 
-            axios.post('/register', this.$data).then(function (response) {
-                console.log(response);
+            axios.post('register', { name: this.user.name, email: this.user.email, password: this.user.password }).then(function (response) {
+                _this.isComponentModalActive = false;
+
+                _this.$parent.userLogin = true;
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
@@ -45641,7 +45643,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "input",
-                        attrs: { type: "email", placeholder: "Password" },
+                        attrs: { type: "password", placeholder: "Password" },
                         domProps: { value: _vm.user.password },
                         on: {
                           input: function($event) {
@@ -45684,11 +45686,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "button is-primary",
-                    on: {
-                      click: function($event) {
-                        _vm.register()
-                      }
-                    }
+                    on: { click: _vm.register }
                   },
                   [_vm._v("Register")]
                 )

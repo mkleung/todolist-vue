@@ -42,7 +42,7 @@
 
                           <div class="field">
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="email" placeholder="Password" v-model="user.password">
+                                <input class="input" type="password" placeholder="Password" v-model="user.password">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                                 </span>
@@ -54,7 +54,7 @@
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
-                        <button class="button is-primary" @click="register()">Register</button>
+                        <button class="button is-primary" @click="register">Register</button>
                     </footer>
                 </div>
            
@@ -78,11 +78,15 @@
         methods: {
             register() {
                 
-                axios.post('/register',  this.$data)
+       
+                axios.post('register', {name: this.user.name, email:this.user.email, password:this.user.password})
                     .then((response)=>{
-                        console.log(response);
+                        this.isComponentModalActive = false;
+
+                        this.$parent.userLogin = true;
                     })
                     .catch((error) => this.errors = error.response.data);
+
 
             },
             
