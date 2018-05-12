@@ -44170,9 +44170,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 var tiles = __webpack_require__(48);
 var addTask = __webpack_require__(11);
+var addTaskModal = __webpack_require__(73);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTask: addTask },
+    components: { tiles: tiles, addTask: addTask, addTaskModal: addTaskModal },
     data: function data() {
         return {
             list: [],
@@ -44856,7 +44857,14 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "column is-6 is-offset-3" }, [
           _c("div", { staticClass: "card" }, [
-            _vm._m(0),
+            _c("div", { staticClass: "card-content" }, [
+              _c(
+                "div",
+                { staticClass: "has-text-centered" },
+                [_c("addTaskModal")],
+                1
+              )
+            ]),
             _vm._v(" "),
             _c(
               "div",
@@ -44927,20 +44935,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-content" }, [
-      _c("div", { staticClass: "has-text-centered" }, [
-        _c("a", { staticClass: "button is-primary is-rounded h" }, [
-          _vm._v("Add a Task")
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -45924,6 +45919,268 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/AddTaskModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-13da7a84", Component.options)
+  } else {
+    hotAPI.reload("data-v-13da7a84", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 74 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            isComponentModalActive: false,
+            task: {
+                title: ''
+            }
+        };
+    },
+
+
+    methods: {
+        // login() {
+        //     axios.post('login', {email:this.user.email, password:this.user.password})
+        //         .then((response)=>{
+        //             this.isComponentModalActive = false;
+
+        //             this.$parent.userLogin = true;
+        //         })
+        //         .catch((error) => this.errors = error.response.data);
+
+
+        // },
+
+    }
+});
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c(
+        "button",
+        {
+          staticClass: "button is-primary is-rounded ",
+          on: {
+            click: function($event) {
+              _vm.isComponentModalActive = true
+            }
+          }
+        },
+        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Add a task")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
+          on: {
+            "update:active": function($event) {
+              _vm.isComponentModalActive = $event
+            }
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-card", staticStyle: { width: "auto" } },
+            [
+              _c("header", { staticClass: "modal-card-head" }, [
+                _c("p", { staticClass: "modal-card-title" }, [
+                  _vm._v("Add Task")
+                ])
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "modal-card-body" }, [
+                _c("div", { staticClass: "field" }, [
+                  _c(
+                    "p",
+                    { staticClass: "control has-icons-left has-icons-right" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.task.title,
+                            expression: "task.title"
+                          }
+                        ],
+                        staticClass: "input",
+                        attrs: { type: "text", placeholder: "task" },
+                        domProps: { value: _vm.task.title },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.task, "title", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-left" }, [
+                        _c("i", { staticClass: "fas fa-envelope" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-right" }, [
+                        _c("i", { staticClass: "fas fa-check" })
+                      ])
+                    ]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("footer", { staticClass: "modal-card-foot" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.isComponentModalActive = false
+                      }
+                    }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "button is-primary" }, [
+                  _vm._v("Add")
+                ])
+              ])
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fa fa-location-arrow" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-13da7a84", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

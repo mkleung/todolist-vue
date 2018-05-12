@@ -16,7 +16,7 @@
                     <!-- SAERCH -->
                     <div class="card-content">
                         <div class="has-text-centered">
-                            <a class="button is-primary is-rounded h">Add a Task</a>
+                            <addTaskModal></addTaskModal>
                         </div>
                      </div>
 
@@ -64,9 +64,10 @@
 
     let tiles = require('./Tiles.vue');
     let addTask = require('./AddTask.vue');
+    let addTaskModal = require('./AddTaskModal.vue');
 
     export default {
-        components: {tiles, addTask},
+        components: {tiles, addTask, addTaskModal},
         data() {
             return {
                 list: [],
