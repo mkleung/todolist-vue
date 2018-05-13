@@ -8,7 +8,7 @@
             <span>Add a task</span>
         </button>
 
-        <b-modal :active.sync="isComponentModalActive" has-modal-card>
+        <b-modal :active.sync="isComponentModalActive" has-modal-card :width="380">
            
                 <div class="modal-card" style="width: auto">
                     <header class="modal-card-head">
@@ -17,13 +17,10 @@
                     <section class="modal-card-body">
                        <div class="field">
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="text" placeholder="task" v-model="task.title">
-                                <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                                </span>
+                            
+                                    <b-input maxlength="100" type="textarea" v-model="task.title"></b-input>
+                               
+
                             </p>
                             </div>
 

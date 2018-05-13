@@ -46019,9 +46019,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -46078,7 +46075,11 @@ var render = function() {
       _c(
         "b-modal",
         {
-          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
+          attrs: {
+            active: _vm.isComponentModalActive,
+            "has-modal-card": "",
+            width: 380
+          },
           on: {
             "update:active": function($event) {
               _vm.isComponentModalActive = $event
@@ -46102,36 +46103,18 @@ var render = function() {
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },
                     [
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.task.title,
-                            expression: "task.title"
-                          }
-                        ],
-                        staticClass: "input",
-                        attrs: { type: "text", placeholder: "task" },
-                        domProps: { value: _vm.task.title },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.task, "title", $event.target.value)
-                          }
+                      _c("b-input", {
+                        attrs: { maxlength: "100", type: "textarea" },
+                        model: {
+                          value: _vm.task.title,
+                          callback: function($$v) {
+                            _vm.$set(_vm.task, "title", $$v)
+                          },
+                          expression: "task.title"
                         }
-                      }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "icon is-small is-left" }, [
-                        _c("i", { staticClass: "fas fa-envelope" })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "icon is-small is-right" }, [
-                        _c("i", { staticClass: "fas fa-check" })
-                      ])
-                    ]
+                      })
+                    ],
+                    1
                   )
                 ])
               ]),
