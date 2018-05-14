@@ -8,9 +8,9 @@
             <span>Add a task</span>
         </button>
 
-        <b-modal :active.sync="isComponentModalActive" has-modal-card :width="380">
+        <b-modal :active.sync="isComponentModalActive" has-modal-card>
            
-                <div class="modal-card" style="width: auto">
+                <div class="modal-card" style="width: 600px">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Add Task</p>
                     </header>
