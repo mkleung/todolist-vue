@@ -28,7 +28,7 @@
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
-                        <button class="button is-primary">Add</button>
+                        <button class="button is-primary" @click="addTask()">Add</button>
                     </footer>
                 </div>
            
@@ -50,18 +50,19 @@
         },
         
         methods: {
-            // login() {
-            //     axios.post('login', {email:this.user.email, password:this.user.password})
-            //         .then((response)=>{
-            //             this.isComponentModalActive = false;
+            addTask() {
+                this.isComponentModalActive = false;
+                if (this.$data.task.title !== "") {
+                    axios.post('task', this.$data.task)
+                    .then((response)=>{
+                        this.$parent.searchList.unshift(response.data)
+                        this.$parent.titleList.push(response.data.title);
+                    })
+                    .catch((error) => this.errors = error.response.data);
+                }
 
-            //             this.$parent.userLogin = true;
-            //         })
-            //         .catch((error) => this.errors = error.response.data);
 
-
-            // },
-            
+            }
         }
     }
 </script>

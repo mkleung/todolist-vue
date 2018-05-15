@@ -44159,13 +44159,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 var tiles = __webpack_require__(48);
@@ -44933,18 +44926,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        // login() {
-        //     axios.post('login', {email:this.user.email, password:this.user.password})
-        //         .then((response)=>{
-        //             this.isComponentModalActive = false;
+        addTask: function addTask() {
+            var _this = this;
 
-        //             this.$parent.userLogin = true;
-        //         })
-        //         .catch((error) => this.errors = error.response.data);
-
-
-        // },
-
+            this.isComponentModalActive = false;
+            if (this.$data.task.title !== "") {
+                axios.post('task', this.$data.task).then(function (response) {
+                    _this.$parent.searchList.unshift(response.data);
+                    _this.$parent.titleList.push(response.data.title);
+                }).catch(function (error) {
+                    return _this.errors = error.response.data;
+                });
+            }
+        }
     }
 });
 
@@ -45030,9 +45024,18 @@ var render = function() {
                   [_vm._v("Close")]
                 ),
                 _vm._v(" "),
-                _c("button", { staticClass: "button is-primary" }, [
-                  _vm._v("Add")
-                ])
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-primary",
+                    on: {
+                      click: function($event) {
+                        _vm.addTask()
+                      }
+                    }
+                  },
+                  [_vm._v("Add")]
+                )
               ])
             ]
           )
@@ -45099,19 +45102,6 @@ var render = function() {
                 1
               )
             ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "card-content" },
-              [
-                _c("p", { staticClass: "subtitle has-text-black" }, [
-                  _vm._v("Add a task below and click save")
-                ]),
-                _vm._v(" "),
-                _c("addTask")
-              ],
-              1
-            ),
             _vm._v(" "),
             _c("div", { staticClass: "card-content" }, [
               _c(
@@ -45445,12 +45435,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
-                _this.isComponentModalActive = false;
-
                 _this.$parent.userLogin = true;
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
+            this.isComponentModalActive = false;
         }
     }
 });
@@ -45582,11 +45571,7 @@ var render = function() {
                   "button",
                   {
                     staticClass: "button is-primary",
-                    on: {
-                      click: function($event) {
-                        _vm.login(_vm.user)
-                      }
-                    }
+                    on: { click: _vm.login }
                   },
                   [_vm._v("Login")]
                 )

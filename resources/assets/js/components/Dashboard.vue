@@ -21,13 +21,6 @@
                      </div>
 
 
-                    <!-- ADD TASK -->
-                    <div class="card-content">
-                        <p class="subtitle has-text-black">Add a task below and click save</p>
-                        <addTask></addTask>
-
-                    </div>
-
                     <div class="card-content">
                         <section>
                            

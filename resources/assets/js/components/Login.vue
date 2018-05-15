@@ -41,7 +41,7 @@
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
-                        <button class="button is-primary" @click="login(user)">Login</button>
+                        <button class="button is-primary" @click="login">Login</button>
                     </footer>
                 </div>
            
@@ -67,15 +67,12 @@
             login() {
                 axios.post('login', {email:this.user.email, password:this.user.password})
                     .then((response)=>{
-                        this.isComponentModalActive = false;
-
                         this.$parent.userLogin = true;
                     })
                     .catch((error) => this.errors = error.response.data);
-
+                this.isComponentModalActive = false;
 
             },
-            
         }
     }
 </script>
