@@ -44909,9 +44909,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45416,6 +45413,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45489,6 +45488,8 @@ var render = function() {
               _vm._v(" "),
               _c("section", { staticClass: "modal-card-body" }, [
                 _c("div", { staticClass: "field" }, [
+                  _c("label", { staticClass: "label" }, [_vm._v("Email")]),
+                  _vm._v(" "),
                   _c(
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },
@@ -45721,6 +45722,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45796,6 +45800,8 @@ var render = function() {
               _vm._v(" "),
               _c("section", { staticClass: "modal-card-body" }, [
                 _c("div", { staticClass: "field" }, [
+                  _c("label", { staticClass: "label" }, [_vm._v("Enter Name")]),
+                  _vm._v(" "),
                   _c(
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },
@@ -45833,7 +45839,11 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "field" }, [
+                _c("div", { staticClass: "field no-margin-left" }, [
+                  _c("label", { staticClass: "label" }, [
+                    _vm._v("Enter Email")
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },
@@ -45871,7 +45881,11 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "field" }, [
+                _c("div", { staticClass: "field no-margin-left" }, [
+                  _c("label", { staticClass: "label" }, [
+                    _vm._v("Enter Password")
+                  ]),
+                  _vm._v(" "),
                   _c(
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },

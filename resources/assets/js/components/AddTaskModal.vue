@@ -14,18 +14,15 @@
                     <header class="modal-card-head">
                         <p class="modal-card-title">Add Task</p>
                     </header>
+                    
                     <section class="modal-card-body">
                        <div class="field">
                             <p class="control has-icons-left has-icons-right">
-                            
-                                    <b-input maxlength="100" type="textarea" v-model="task.title"></b-input>
-                               
-
+                                <b-input maxlength="100" type="textarea" v-model="task.title"></b-input>
                             </p>
-                            </div>
-
-                        
+                        </div>
                     </section>
+
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
                         <button class="button is-primary" @click="addTask()">Add</button>

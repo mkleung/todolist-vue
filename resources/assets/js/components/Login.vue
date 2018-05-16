@@ -16,7 +16,9 @@
                     </header>
                     <section class="modal-card-body">
                        <div class="field">
+                           <label class="label">Email</label>
                             <p class="control has-icons-left has-icons-right">
+                                 
                                 <input class="input" type="email" placeholder="Email" v-model="user.email">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>

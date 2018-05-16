@@ -17,6 +17,7 @@
                     <section class="modal-card-body">
                         
                         <div class="field">
+                            <label class="label">Enter Name</label>
                             <p class="control has-icons-left has-icons-right">
                                 <input class="input" type="text" placeholder="Name" v-model="user.name">
                                 <span class="icon is-small is-left">
@@ -28,7 +29,8 @@
                             </p>
                         </div>
 
-                       <div class="field">
+                       <div class="field no-margin-left">
+                           <label class="label">Enter Email</label>
                             <p class="control has-icons-left has-icons-right">
                                 <input class="input" type="email" placeholder="Email" v-model="user.email">
                                 <span class="icon is-small is-left">
@@ -40,7 +42,8 @@
                             </p>
                         </div>
 
-                          <div class="field">
+                          <div class="field no-margin-left">
+                              <label class="label">Enter Password</label>
                             <p class="control has-icons-left has-icons-right">
                                 <input class="input" type="password" placeholder="Password" v-model="user.password">
                                 <span class="icon is-small is-left">
