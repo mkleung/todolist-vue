@@ -24,7 +24,8 @@
     <body>
       <div id="app">
         <appheader></appheader>
-        <dashboard></dashboard>
+        
+        <router-view></router-view>
         <appfooter></appfooter>
       </div>
       <script src="{{ asset('js/app.js')}}"></script>

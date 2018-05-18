@@ -27,7 +27,8 @@ let appheader = require('./components/AppHeader.vue');
 let appfooter = require('./components/AppFooter.vue');
 
 const routes = [
-  { path: '/', component: dashboard },
+  { path: '/', component: welcome },
+  { path: '/dashboard', component: dashboard }
 ]
 const router = new VueRouter({
   mode: 'history',
