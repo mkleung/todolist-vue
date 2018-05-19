@@ -37,7 +37,9 @@
                                 v-model = "user.password"
                                 password-reveal
                                 placeholder="Your password"
-                                required>
+                                required
+                                @keydown.native.enter="login()"
+                                >
                             </b-input>
                         </div>
                     </section>

@@ -46151,6 +46151,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -46278,6 +46280,23 @@ var render = function() {
                         "password-reveal": "",
                         placeholder: "Your password",
                         required: ""
+                      },
+                      nativeOn: {
+                        keydown: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          _vm.login()
+                        }
                       },
                       model: {
                         value: _vm.user.password,
