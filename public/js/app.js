@@ -45532,9 +45532,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.$parent.userLogin = true;
+
+                _this.$router.replace('/dashboard');
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
+
             this.isComponentModalActive = false;
         }
     }

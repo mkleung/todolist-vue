@@ -70,10 +70,13 @@
                 axios.post('login', {email:this.user.email, password:this.user.password})
                     .then((response)=>{
                         this.$parent.userLogin = true;
+
+                        this.$router.replace('/dashboard')
                     })
                     .catch((error) => this.errors = error.response.data);
+                
                 this.isComponentModalActive = false;
-
+            
             },
         }
     }

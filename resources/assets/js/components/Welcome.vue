@@ -7,9 +7,7 @@
           
             <div class="column is-6 is-offset-3">
                 <div class="card">
-                  
-                    
-
+        
                     <!-- SAERCH -->
                     <div class="card-content">
                         <div class="has-text-centered">
@@ -17,9 +15,6 @@
                             <router-link class="button is-large is-danger" to="/dashboard">Dashboard</router-link>
                         </div>
                      </div>
-
-
-                    
                     
                 </div>
                     
