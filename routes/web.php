@@ -33,3 +33,8 @@ Route::get('/sessionStatus', function() {
 });
 
 Route::get('logoutUser', 'TaskController@logoutUser');
+
+
+Route::get('/{vue_capture?}', function () {
+    return view('welcome');
+})->where('vue_capture', '[\/\w\.-]*');
