@@ -45224,7 +45224,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("div", { staticClass: "hero is-large is-bold" }, [
+    _c("div", { staticClass: "hero is-medium is-bold" }, [
       _c("div", { staticClass: "hero-body" }, [
         _c("div", { staticClass: "container" }, [
           _c(
@@ -45239,7 +45239,7 @@ var render = function() {
               _vm._v(" "),
               _c("h2", { staticClass: "subtitle " }, [
                 _vm._v(
-                  "\n                        Meet over coffee and to do list\n                    "
+                  "\n                        Coffee dates with people who love to do lists\n                    "
                 )
               ]),
               _vm._v(" "),
@@ -45278,7 +45278,7 @@ var render = function() {
             _c("div", { staticClass: "column is-4  has-text-centered" }, [
               _c("p", { staticClass: "title" }, [
                 _vm._v(
-                  "\n                           Meet with other coffee lovers\n                        "
+                  "\n                          With other people\n                        "
                 )
               ]),
               _vm._v(" "),
@@ -45287,10 +45287,100 @@ var render = function() {
           ])
         ])
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "hero is-bold" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container is-fluid" }, [
+          _c("div", { staticClass: "columns " }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-3" }, [
+              _c("figure", { staticClass: "image " }, [
+                _c("img", { attrs: { src: "/img/coffee4.jpg" } })
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "hero is-light" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container is-fluid" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c("div", { staticClass: "column is-3 is-offset-3" }, [
+              _c("figure", { staticClass: "image " }, [
+                _c("img", { attrs: { src: "/img/coffee5.jpg" } })
+              ])
+            ]),
+            _vm._v(" "),
+            _vm._m(1)
+          ])
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "hero is-small is-bold" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            { staticClass: "column is-6 is-offset-3 has-text-centered " },
+            [
+              _c("h1", { staticClass: "title" }, [
+                _vm._v(
+                  "\n                            It's free forever\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("h2", { staticClass: "subtitle " }, [
+                _vm._v(
+                  "\n                            Meet someone over coffee and get things done\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("register", { attrs: { welcome: _vm.welcome } })
+            ],
+            1
+          )
+        ])
+      ])
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column is-6 has-text-right" }, [
+      _c("h1", { staticClass: "title" }, [
+        _vm._v(
+          "\n                                    Anyone can join in\n                                "
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Productivity junkies who want to meet similarly minded people")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "column is-6" }, [
+      _c("h1", { staticClass: "title" }, [
+        _vm._v(
+          "\n                                You need help in something?\n                            "
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Collaborate and do things")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -45914,7 +46004,16 @@ var render = function() {
             }
           }
         },
-        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Register")])]
+        [
+          _c("span", { staticClass: "icon" }, [
+            _c("i", {
+              staticClass: "fa",
+              class: [_vm.welcome ? "fa-heart" : "fa-thumbs-up"]
+            })
+          ]),
+          _vm._v(" "),
+          _c("span", [_vm._v("Register")])
+        ]
       ),
       _vm._v(" "),
       _c(
@@ -46089,16 +46188,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-thumbs-up" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -46304,6 +46394,72 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //

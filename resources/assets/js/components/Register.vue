@@ -4,7 +4,7 @@
          <button class="button "  :class="[  welcome ? 'is-success is-outlined' : 'is-info'  ]"
             @click="isComponentModalActive = true">
             <span class="icon">
-                    <i class="fa fa-thumbs-up"></i>
+                    <i class="fa"  :class="[  welcome ? 'fa-heart' : 'fa-thumbs-up'  ]"></i>
                 </span>
             <span>Register</span>
         </button>
