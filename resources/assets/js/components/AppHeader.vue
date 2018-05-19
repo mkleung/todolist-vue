@@ -83,6 +83,8 @@
                       indefinite: false
                   })
 
+                  this.$router.replace('/')
+
               })
               .catch(error => {
                   console.log(error.response.data);

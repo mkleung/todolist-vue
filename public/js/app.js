@@ -45532,6 +45532,8 @@ var register = __webpack_require__(64);
                     duration: 3000,
                     indefinite: false
                 });
+
+                _this2.$router.replace('/');
             }).catch(function (error) {
                 console.log(error.response.data);
             });
