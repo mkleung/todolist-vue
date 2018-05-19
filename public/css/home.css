@@ -79,3 +79,7 @@ body {
 footer {
     background: #fff!important;
 }
+
+footer .icon {
+    margin: 20px 10px;
+}
