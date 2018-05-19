@@ -53,7 +53,7 @@
                 <div class="container is-fluid">
                     <div class="columns ">
 
-                            <div class="column is-6 has-text-right">
+                            <div class="column is-3 is-offset-3 has-text-right">
                                 <h1 class="title">
                                     Anyone can join in
                                 </h1>
@@ -83,7 +83,7 @@
                             </figure>
                         </div>
 
-                        <div class="column is-6">
+                        <div class="column is-3">
                             <h1 class="title">
                                 You need help in something?
                             </h1>

@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar is-transparent">
+<nav class="navbar is-fixed-top has-shadow">
   <div class="navbar-brand">
     <a class="navbar-item" href="">
       
@@ -14,7 +14,7 @@
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="#">
-        <span>To Do List</span>
+        <h1>Coffee To Do</h1>
       </a>
     </div>
 

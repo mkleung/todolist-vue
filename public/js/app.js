@@ -45354,23 +45354,29 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-6 has-text-right" }, [
-      _c("h1", { staticClass: "title" }, [
-        _vm._v(
-          "\n                                    Anyone can join in\n                                "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [
-        _vm._v("Productivity junkies who want to meet similarly minded people")
-      ])
-    ])
+    return _c(
+      "div",
+      { staticClass: "column is-3 is-offset-3 has-text-right" },
+      [
+        _c("h1", { staticClass: "title" }, [
+          _vm._v(
+            "\n                                    Anyone can join in\n                                "
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "Productivity junkies who want to meet similarly minded people"
+          )
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-6" }, [
+    return _c("div", { staticClass: "column is-3" }, [
       _c("h1", { staticClass: "title" }, [
         _vm._v(
           "\n                                You need help in something?\n                            "
@@ -46206,7 +46212,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("nav", { staticClass: "navbar is-transparent" }, [
+  return _c("nav", { staticClass: "navbar is-fixed-top has-shadow" }, [
     _vm._m(0),
     _vm._v(" "),
     _c(
@@ -46273,7 +46279,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "navbar-start" }, [
       _c("a", { staticClass: "navbar-item", attrs: { href: "#" } }, [
-        _c("span", [_vm._v("To Do List")])
+        _c("h1", [_vm._v("Coffee To Do")])
       ])
     ])
   }
