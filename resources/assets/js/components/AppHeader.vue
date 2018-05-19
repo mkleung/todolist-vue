@@ -28,7 +28,7 @@
         </div>
         <div  class="field is-grouped" v-else>
               <p class="control">
-                  <register></register>
+                  <register :welcome="welcome"></register>
               </p>
               <p class="control">
                   <login></login>
@@ -51,7 +51,8 @@
         components: {login, register},
         data() {
             return {
-              userLogin: false
+              userLogin: false,
+              welcome: false
             }
         },
         mounted: function() {

@@ -1,12 +1,15 @@
 <template>
      <section>
-        <button class="button is-info"
+       
+         <button class="button "  :class="[  welcome ? 'is-success is-outlined' : 'is-info'  ]"
             @click="isComponentModalActive = true">
             <span class="icon">
                     <i class="fa fa-thumbs-up"></i>
                 </span>
             <span>Register</span>
         </button>
+    
+
 
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
            
@@ -17,9 +20,8 @@
                     <section class="modal-card-body">
                         
                         <div class="field">
-                            <label class="label">Enter Name</label>
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="text" placeholder="Name" v-model="user.name">
+                                <input class="input" type="text" placeholder="Enter Name" v-model="user.name">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                                 </span>
@@ -30,9 +32,8 @@
                         </div>
 
                        <div class="field no-margin-left">
-                           <label class="label">Enter Email</label>
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="email" placeholder="Email" v-model="user.email">
+                                <input class="input" type="email" placeholder="Enter Email" v-model="user.email">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                                 </span>
@@ -43,9 +44,8 @@
                         </div>
 
                           <div class="field no-margin-left">
-                              <label class="label">Enter Password</label>
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="password" placeholder="Password" v-model="user.password">
+                                <input class="input" type="password" placeholder="Enter Password" v-model="user.password">
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                                 </span>
@@ -68,6 +68,7 @@
 
 <script>
     export default {
+        props: ["welcome"],
         data() {
             return {
                 isComponentModalActive: false,

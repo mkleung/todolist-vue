@@ -45175,7 +45175,7 @@ if (false) {
 var disposed = false
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(78)
 /* template */
 var __vue_template__ = __webpack_require__(58)
 /* template functional */
@@ -45223,29 +45223,66 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("section", { staticClass: "hero is-primary is-bold" }, [
-    _c("div", { staticClass: "hero-body" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "column is-6 is-offset-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-content" }, [
-              _c(
-                "div",
-                { staticClass: "has-text-centered" },
-                [
-                  _c("h1", [_vm._v("Welcome")]),
-                  _vm._v(" "),
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "button is-large is-danger",
-                      attrs: { to: "/dashboard" }
-                    },
-                    [_vm._v("Dashboard")]
-                  )
-                ],
-                1
-              )
+  return _c("section", [
+    _c("div", { staticClass: "hero is-large is-bold" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c(
+            "div",
+            { staticClass: "column is-6 is-offset-3 has-text-centered " },
+            [
+              _c("h1", { staticClass: "title" }, [
+                _vm._v(
+                  "\n                        CoffeeToDo\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("h2", { staticClass: "subtitle " }, [
+                _vm._v(
+                  "\n                        Meet over coffee and to do list\n                    "
+                )
+              ]),
+              _vm._v(" "),
+              _c("register", { attrs: { welcome: _vm.welcome } })
+            ],
+            1
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "hero is-primary" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "columns" }, [
+            _c("div", { staticClass: "column is-4  has-text-centered" }, [
+              _c("p", { staticClass: "title" }, [
+                _vm._v(
+                  "\n                            For work addicts\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("img", { attrs: { src: "/img/coffee1.jpg" } })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-4  has-text-centered" }, [
+              _c("p", { staticClass: "title" }, [
+                _vm._v(
+                  "\n                            Who need to get things done\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("img", { attrs: { src: "/img/coffee2.jpg" } })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-4  has-text-centered" }, [
+              _c("p", { staticClass: "title" }, [
+                _vm._v(
+                  "\n                           Meet with other coffee lovers\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("img", { attrs: { src: "/img/coffee3.jpg" } })
             ])
           ])
         ])
@@ -45369,7 +45406,8 @@ var register = __webpack_require__(64);
     components: { login: login, register: register },
     data: function data() {
         return {
-            userLogin: false
+            userLogin: false,
+            welcome: false
         };
     },
 
@@ -45827,6 +45865,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["welcome"],
     data: function data() {
         return {
             isComponentModalActive: false,
@@ -45867,7 +45906,8 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "button is-info",
+          staticClass: "button ",
+          class: [_vm.welcome ? "is-success is-outlined" : "is-info"],
           on: {
             click: function($event) {
               _vm.isComponentModalActive = true
@@ -45900,8 +45940,6 @@ var render = function() {
               _vm._v(" "),
               _c("section", { staticClass: "modal-card-body" }, [
                 _c("div", { staticClass: "field" }, [
-                  _c("label", { staticClass: "label" }, [_vm._v("Enter Name")]),
-                  _vm._v(" "),
                   _c(
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },
@@ -45916,7 +45954,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "input",
-                        attrs: { type: "text", placeholder: "Name" },
+                        attrs: { type: "text", placeholder: "Enter Name" },
                         domProps: { value: _vm.user.name },
                         on: {
                           input: function($event) {
@@ -45940,10 +45978,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "field no-margin-left" }, [
-                  _c("label", { staticClass: "label" }, [
-                    _vm._v("Enter Email")
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },
@@ -45958,7 +45992,7 @@ var render = function() {
                           }
                         ],
                         staticClass: "input",
-                        attrs: { type: "email", placeholder: "Email" },
+                        attrs: { type: "email", placeholder: "Enter Email" },
                         domProps: { value: _vm.user.email },
                         on: {
                           input: function($event) {
@@ -45982,10 +46016,6 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "field no-margin-left" }, [
-                  _c("label", { staticClass: "label" }, [
-                    _vm._v("Enter Password")
-                  ]),
-                  _vm._v(" "),
                   _c(
                     "p",
                     { staticClass: "control has-icons-left has-icons-right" },
@@ -46000,7 +46030,10 @@ var render = function() {
                           }
                         ],
                         staticClass: "input",
-                        attrs: { type: "password", placeholder: "Password" },
+                        attrs: {
+                          type: "password",
+                          placeholder: "Enter Password"
+                        },
                         domProps: { value: _vm.user.password },
                         on: {
                           input: function($event) {
@@ -46111,7 +46144,12 @@ var render = function() {
                   ])
                 ])
               : _c("div", { staticClass: "field is-grouped" }, [
-                  _c("p", { staticClass: "control" }, [_c("register")], 1),
+                  _c(
+                    "p",
+                    { staticClass: "control" },
+                    [_c("register", { attrs: { welcome: _vm.welcome } })],
+                    1
+                  ),
                   _vm._v(" "),
                   _c("p", { staticClass: "control" }, [_c("login")], 1)
                 ])
@@ -46225,7 +46263,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "content has-text-centered" }, [
           _c("p", [
-            _c("strong", [_vm._v("To Do List")]),
+            _c("strong", [_vm._v("Coffee To Do")]),
             _vm._v(" by "),
             _c(
               "a",
@@ -46252,6 +46290,90 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+var register = __webpack_require__(64);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: { register: register },
+  data: function data() {
+    return {
+      userLogin: false,
+      welcome: true
+    };
+  },
+
+  methods: {}
+});
 
 /***/ })
 /******/ ]);
