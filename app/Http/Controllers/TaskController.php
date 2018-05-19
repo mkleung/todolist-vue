@@ -21,8 +21,17 @@ class TaskController extends Controller
     }
 
     public function getTasks(){
-        $allTasks = Task::orderBy('created_at', 'DESC')->get();
-        return $allTasks;
+        
+        if (Auth::check()){
+            $allTasks = Task::orderBy('created_at', 'DESC')->get();
+            return $allTasks;
+        }
+        else {
+            return "invalid";
+        }
+            
+           
+        
     }
 
     /**

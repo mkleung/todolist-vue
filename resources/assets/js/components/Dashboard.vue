@@ -13,7 +13,7 @@
                   
                     
 
-                    <!-- SAERCH -->
+                    <!-- SEARCH -->
                     <div class="card-content">
                         <div class="has-text-centered">
                             <addTaskModal></addTaskModal>
@@ -56,11 +56,10 @@
 <script>
 
     let tiles = require('./Tiles.vue');
-    let addTask = require('./AddTask.vue');
     let addTaskModal = require('./AddTaskModal.vue');
 
     export default {
-        components: {tiles, addTask, addTaskModal},
+        components: {tiles, addTaskModal},
         data() {
             return {
                 list: [],
@@ -91,16 +90,6 @@
                     this.searchList = this.list.filter((item) => {
                         return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
                     });
-
-                    // for (var key in this.list){
-                       
-                    //     var taskTitle = this.list[key].title.toLowerCase();
-                    //     if (taskTitle.includes(this.searchQuery.toLowerCase())) {
-                    //        this.searchList = this.list.filter(function(element) {
-                    //             return element.title.toLowerCase() == taskTitle;
-                    //         });
-                    //     }
-                    // }
                 }
                 else {
                      this.searchList = this.list;
@@ -115,13 +104,20 @@
             init(){
                 axios.get('getTasks')
                     .then((response)=>{
-                        var taskList = response.data;
-                        this.list = response.data;
-                        this.searchList = response.data;
-
-                        for (var i = 0; i < taskList.length; i++) {
-                            this.titleList.push(taskList[i].title);
+                        console.log(response);
+                        if (response.data == "invalid"){
+                            this.$router.replace('/')
                         }
+                        else {
+                            var taskList = response.data;
+                            this.list = response.data;
+                            this.searchList = response.data;
+
+                             for (var i = 0; i < taskList.length; i++) {
+                                 this.titleList.push(taskList[i].title);
+                             }
+                        }
+                            
                     })
                     .catch((error) => this.errors = error.response.data);
             }
