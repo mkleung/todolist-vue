@@ -45,10 +45,9 @@
                             
                         </div>
                         <p v-if="errors.length">
-                                <b>Please correct the following error(s):</b>
-                                <ul>
-                                 <li v-for="(error, index) in errors" :key='index'>{{ error }}</li>
-                                </ul>
+                                <b-notification type="is-danger" v-for="(error, index) in errors" :key='index'>
+                                    {{error}}
+                                </b-notification>
                             </p>
 
                     </section>

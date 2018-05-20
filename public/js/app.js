@@ -46160,7 +46160,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -46322,20 +46321,22 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _vm.errors.length
-                  ? _c("p", [
-                      _c("b", [
-                        _vm._v("Please correct the following error(s):")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        _vm._l(_vm.errors, function(error, index) {
-                          return _c("li", { key: index }, [
-                            _vm._v(_vm._s(error))
-                          ])
-                        })
-                      )
-                    ])
+                  ? _c(
+                      "p",
+                      _vm._l(_vm.errors, function(error, index) {
+                        return _c(
+                          "b-notification",
+                          { key: index, attrs: { type: "is-danger" } },
+                          [
+                            _vm._v(
+                              "\n                                " +
+                                _vm._s(error) +
+                                "\n                            "
+                            )
+                          ]
+                        )
+                      })
+                    )
                   : _vm._e()
               ]),
               _vm._v(" "),
