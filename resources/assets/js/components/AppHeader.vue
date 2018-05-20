@@ -23,6 +23,7 @@
         <div class="field is-grouped" v-if="userLogin">
             <p class="control">
                 <button class="button is-info" @click="logoutUser">Logout</button>
+    
             </p>
 
         </div>

@@ -45993,6 +45993,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 //let login = require('./Login.vue');
@@ -46367,14 +46368,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -46388,17 +46381,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             errors: [],
             name: null,
             age: null,
-            movie: null
+            movie: null,
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
         };
     },
 
 
     methods: {
+
         checkForm: function checkForm(e) {
-            if (this.name && this.age) return true;
+            if (this.user.email && this.user.password) return true;
             this.errors = [];
-            if (!this.name) this.errors.push("Name required.");
-            if (!this.age) this.errors.push("Age required.");
+            if (!this.user.email) this.errors.push("Email required.");
+            if (!this.user.password) this.errors.push("Password required.");
+
+            this.$parent.userLogin = true;
+            this.isComponentModalActive = false;
+
             e.preventDefault();
         }
     }
@@ -46465,11 +46464,7 @@ var render = function() {
                 _c(
                   "form",
                   {
-                    attrs: {
-                      id: "app",
-                      action: "https://vuejs.org/",
-                      method: "post"
-                    },
+                    attrs: { id: "app", action: "login", method: "post" },
                     on: { submit: _vm.checkForm }
                   },
                   [
@@ -46491,102 +46486,67 @@ var render = function() {
                       : _vm._e(),
                     _vm._v(" "),
                     _c("p", [
-                      _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+                      _c("label", { attrs: { for: "email" } }, [
+                        _vm._v("Email")
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.name,
-                            expression: "name"
+                            value: _vm.user.email,
+                            expression: "user.email"
                           }
                         ],
-                        attrs: { type: "text", name: "name", id: "name" },
-                        domProps: { value: _vm.name },
+                        attrs: { type: "email", name: "email", id: "email" },
+                        domProps: { value: _vm.user.email },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.name = $event.target.value
+                            _vm.$set(_vm.user, "email", $event.target.value)
                           }
                         }
                       })
                     ]),
                     _vm._v(" "),
                     _c("p", [
-                      _c("label", { attrs: { for: "age" } }, [_vm._v("Age")]),
+                      _c("label", { attrs: { for: "password" } }, [
+                        _vm._v("Password")
+                      ]),
                       _vm._v(" "),
                       _c("input", {
                         directives: [
                           {
                             name: "model",
                             rawName: "v-model",
-                            value: _vm.age,
-                            expression: "age"
+                            value: _vm.user.password,
+                            expression: "user.password"
                           }
                         ],
                         attrs: {
-                          type: "number",
-                          name: "age",
-                          id: "age",
-                          min: "0"
+                          type: "password",
+                          name: "password",
+                          id: "password"
                         },
-                        domProps: { value: _vm.age },
+                        domProps: { value: _vm.user.password },
                         on: {
                           input: function($event) {
                             if ($event.target.composing) {
                               return
                             }
-                            _vm.age = $event.target.value
+                            _vm.$set(_vm.user, "password", $event.target.value)
                           }
                         }
                       })
                     ]),
                     _vm._v(" "),
-                    _c("p", [
-                      _c("label", { attrs: { for: "movie" } }, [
-                        _vm._v("Favorite Movie")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "select",
-                        {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.movie,
-                              expression: "movie"
-                            }
-                          ],
-                          attrs: { name: "movie", id: "movie" },
-                          on: {
-                            change: function($event) {
-                              var $$selectedVal = Array.prototype.filter
-                                .call($event.target.options, function(o) {
-                                  return o.selected
-                                })
-                                .map(function(o) {
-                                  var val = "_value" in o ? o._value : o.value
-                                  return val
-                                })
-                              _vm.movie = $event.target.multiple
-                                ? $$selectedVal
-                                : $$selectedVal[0]
-                            }
-                          }
-                        },
-                        [
-                          _c("option", [_vm._v("Star Wars")]),
-                          _vm._v(" "),
-                          _c("option", [_vm._v("Vanilla Sky")]),
-                          _vm._v(" "),
-                          _c("option", [_vm._v("Atomic Blonde")])
-                        ]
-                      )
-                    ]),
+                    _c("input", {
+                      attrs: { type: "hidden", name: "_token" },
+                      domProps: { value: _vm.csrf }
+                    }),
                     _vm._v(" "),
                     _c("p", [
                       _c("input", {

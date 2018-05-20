@@ -16,7 +16,7 @@
                     </header>
                     <section class="modal-card-body">
                        
-                       <form id="app" @submit="checkForm" action="https://vuejs.org/" method="post">
+                       <form id="app" @submit="checkForm" action="login" method="post">
   
                             <p v-if="errors.length">
                                 <b>Please correct the following error(s):</b>
@@ -26,24 +26,16 @@
                             </p>
                             
                             <p>
-                                <label for="name">Name</label>
-                                <input type="text" name="name" id="name" v-model="name">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" v-model="user.email">
                             </p>
 
                             <p>
-                                <label for="age">Age</label>
-                                <input type="number" name="age" id="age" v-model="age" min="0">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" v-model="user.password">
                             </p>
 
-                            <p>
-                                <label for="movie">Favorite Movie</label>
-                                <select name="movie" id="movie" v-model="movie">
-                                <option>Star Wars</option>
-                                <option>Vanilla Sky</option>
-                                <option>Atomic Blonde</option>
-                                </select>
-                            </p>
-
+                             <input type="hidden" name="_token" :value="csrf">
                             <p>
                                 <input type="submit" value="Submit">  
                             </p>
@@ -74,16 +66,22 @@
                 errors:[],
                 name:null,
                 age:null,
-                movie:null
+                movie:null,
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
             }
         },
         
         methods: {
+            
              checkForm:function(e) {
-                if(this.name && this.age) return true;
+                if(this.user.email && this.user.password) return true;
                 this.errors = [];
-                if(!this.name) this.errors.push("Name required.");
-                if(!this.age) this.errors.push("Age required.");
+                if(!this.user.email) this.errors.push("Email required.");
+                if(!this.user.password) this.errors.push("Password required.");
+
+                this.$parent.userLogin = true;
+                this.isComponentModalActive = false;
+
                 e.preventDefault();
                 }
             },

@@ -123,6 +123,7 @@ class TaskController extends Controller
 
 
     public function logoutUser(Request $request){
-        $request->session()->flush();
+        Auth::logout();
+         return view('welcome');
     }
 }
