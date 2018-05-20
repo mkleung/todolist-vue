@@ -41,7 +41,16 @@
                                 @keydown.native.enter="login()"
                                 >
                             </b-input>
+
+                            
                         </div>
+                        <p v-if="errors.length">
+                                <b>Please correct the following error(s):</b>
+                                <ul>
+                                 <li v-for="(error, index) in errors" :key='index'>{{ error }}</li>
+                                </ul>
+                            </p>
+
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
@@ -60,7 +69,8 @@
         data() {
             return {
                 isComponentModalActive: false,
-                 user: {
+                errors:[],
+                user: {
                     email: '',
                     password: ''
                 },
@@ -69,15 +79,20 @@
         
         methods: {
             login() {
+            this.errors = [];
+
                 axios.post('login', {email:this.user.email, password:this.user.password})
                     .then((response)=>{
-                        this.$parent.userLogin = true;
-
-                        this.$router.replace('/dashboard')
+                            
+                            this.isComponentModalActive = false;
                     })
-                    .catch((error) => this.errors = error.response.data);
+                    // .catch((error) => this.errors = error.response.data);
+                    .catch((error) => {
+                       
+                        this.errors.push(error.response.data);
+                    });
                 
-                this.isComponentModalActive = false;
+                
             
             },
         }

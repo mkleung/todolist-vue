@@ -32,7 +32,7 @@
                   <register :welcome="welcome"></register>
               </p>
               <p class="control">
-                  <login2></login2>
+                  <login></login>
               </p>
         </div>
 
@@ -45,12 +45,12 @@
 
 <script>
 
-    //let login = require('./Login.vue');
-    let login2 = require('./Login2.vue');
+    let login = require('./Login.vue');
+    //let login2 = require('./Login2.vue');
     let register = require('./Register.vue');
 
     export default {
-        components: {register, login2},
+        components: {register, login},
         data() {
             return {
               userLogin: false,

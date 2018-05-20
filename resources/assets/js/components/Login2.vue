@@ -74,17 +74,24 @@
         methods: {
             
              checkForm:function(e) {
-                if(this.user.email && this.user.password) return true;
                 this.errors = [];
-                if(!this.user.email) this.errors.push("Email required.");
+               
+                if(!this.user.email) {
+                    this.errors.push("Email required.");
+                } else if(!this.validEmail(this.user.email)) {
+                    this.errors.push("Valid email required.");        
+                }
+                if(!this.errors.length) return true;
+
                 if(!this.user.password) this.errors.push("Password required.");
 
-                this.$parent.userLogin = true;
-                this.isComponentModalActive = false;
-
                 e.preventDefault();
-                }
             },
+            validEmail:function(email) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+        },
             // login() {
             //     axios.post('login', {email:this.user.email, password:this.user.password})
             //         .then((response)=>{

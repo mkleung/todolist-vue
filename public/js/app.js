@@ -45996,12 +45996,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
-//let login = require('./Login.vue');
-var login2 = __webpack_require__(79);
+var login = __webpack_require__(65);
+//let login2 = require('./Login2.vue');
 var register = __webpack_require__(11);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { register: register, login2: login2 },
+    components: { register: register, login: login },
     data: function data() {
         return {
             userLogin: false,
@@ -46044,9 +46044,353 @@ var register = __webpack_require__(11);
 });
 
 /***/ }),
-/* 65 */,
-/* 66 */,
-/* 67 */,
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(66)
+/* template */
+var __vue_template__ = __webpack_require__(67)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Login.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3e2ac97c", Component.options)
+  } else {
+    hotAPI.reload("data-v-3e2ac97c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 66 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            isComponentModalActive: false,
+            errors: [],
+            user: {
+                email: '',
+                password: ''
+            }
+        };
+    },
+
+
+    methods: {
+        login: function login() {
+            var _this = this;
+
+            this.errors = [];
+
+            axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
+
+                _this.isComponentModalActive = false;
+            })
+            // .catch((error) => this.errors = error.response.data);
+            .catch(function (error) {
+
+                _this.errors.push(error.response.data);
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c(
+        "button",
+        {
+          staticClass: "button is-info",
+          on: {
+            click: function($event) {
+              _vm.isComponentModalActive = true
+            }
+          }
+        },
+        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Login")])]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-modal",
+        {
+          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
+          on: {
+            "update:active": function($event) {
+              _vm.isComponentModalActive = $event
+            }
+          }
+        },
+        [
+          _c(
+            "div",
+            { staticClass: "modal-card", staticStyle: { width: "auto" } },
+            [
+              _c("header", { staticClass: "modal-card-head" }, [
+                _c("p", { staticClass: "modal-card-title" }, [_vm._v("Login")])
+              ]),
+              _vm._v(" "),
+              _c("section", { staticClass: "modal-card-body" }, [
+                _c("div", { staticClass: "field" }, [
+                  _c("label", { staticClass: "label" }, [_vm._v("Email")]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    { staticClass: "control has-icons-left has-icons-right" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.user.email,
+                            expression: "user.email"
+                          }
+                        ],
+                        staticClass: "input",
+                        attrs: { type: "email", placeholder: "Email" },
+                        domProps: { value: _vm.user.email },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.user, "email", $event.target.value)
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-left" }, [
+                        _c("i", { staticClass: "fas fa-envelope" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-right" }, [
+                        _c("i", { staticClass: "fas fa-check" })
+                      ])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "field no-margin-left" },
+                  [
+                    _c("label", { staticClass: "label" }, [_vm._v("Password")]),
+                    _vm._v(" "),
+                    _c("b-input", {
+                      attrs: {
+                        type: "password",
+                        "password-reveal": "",
+                        placeholder: "Your password",
+                        required: ""
+                      },
+                      nativeOn: {
+                        keydown: function($event) {
+                          if (
+                            !("button" in $event) &&
+                            _vm._k(
+                              $event.keyCode,
+                              "enter",
+                              13,
+                              $event.key,
+                              "Enter"
+                            )
+                          ) {
+                            return null
+                          }
+                          _vm.login()
+                        }
+                      },
+                      model: {
+                        value: _vm.user.password,
+                        callback: function($$v) {
+                          _vm.$set(_vm.user, "password", $$v)
+                        },
+                        expression: "user.password"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _vm.errors.length
+                  ? _c("p", [
+                      _c("b", [
+                        _vm._v("Please correct the following error(s):")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "ul",
+                        _vm._l(_vm.errors, function(error, index) {
+                          return _c("li", { key: index }, [
+                            _vm._v(_vm._s(error))
+                          ])
+                        })
+                      )
+                    ])
+                  : _vm._e()
+              ]),
+              _vm._v(" "),
+              _c("footer", { staticClass: "modal-card-foot" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "button",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.isComponentModalActive = false
+                      }
+                    }
+                  },
+                  [_vm._v("Close")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "button is-primary",
+                    on: { click: _vm.login }
+                  },
+                  [_vm._v("Login")]
+                )
+              ])
+            ]
+          )
+        ]
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "icon" }, [
+      _c("i", { staticClass: "fa fa-location-arrow" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3e2ac97c", module.exports)
+  }
+}
+
+/***/ }),
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -46089,7 +46433,7 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
-                  _c("p", { staticClass: "control" }, [_c("login2")], 1)
+                  _c("p", { staticClass: "control" }, [_c("login")], 1)
                 ])
           ])
         ])
@@ -46252,352 +46596,6 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(80)
-/* template */
-var __vue_template__ = __webpack_require__(81)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Login2.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3c807660", Component.options)
-  } else {
-    hotAPI.reload("data-v-3c807660", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 80 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            isComponentModalActive: false,
-            user: {
-                email: '',
-                password: ''
-            },
-            errors: [],
-            name: null,
-            age: null,
-            movie: null,
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        };
-    },
-
-
-    methods: {
-
-        checkForm: function checkForm(e) {
-            if (this.user.email && this.user.password) return true;
-            this.errors = [];
-            if (!this.user.email) this.errors.push("Email required.");
-            if (!this.user.password) this.errors.push("Password required.");
-
-            this.$parent.userLogin = true;
-            this.isComponentModalActive = false;
-
-            e.preventDefault();
-        }
-    }
-    // login() {
-    //     axios.post('login', {email:this.user.email, password:this.user.password})
-    //         .then((response)=>{
-
-
-    //             this.$parent.userLogin = true;
-    //             this.$router.replace('/dashboard')
-    //         })
-    //         .catch((error) => this.errors = error.response.data);
-
-    //     this.isComponentModalActive = false;
-
-    // },
-
-});
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    [
-      _c(
-        "button",
-        {
-          staticClass: "button is-info",
-          on: {
-            click: function($event) {
-              _vm.isComponentModalActive = true
-            }
-          }
-        },
-        [_vm._m(0), _vm._v(" "), _c("span", [_vm._v("Login")])]
-      ),
-      _vm._v(" "),
-      _c(
-        "b-modal",
-        {
-          attrs: { active: _vm.isComponentModalActive, "has-modal-card": "" },
-          on: {
-            "update:active": function($event) {
-              _vm.isComponentModalActive = $event
-            }
-          }
-        },
-        [
-          _c(
-            "div",
-            { staticClass: "modal-card", staticStyle: { width: "auto" } },
-            [
-              _c("header", { staticClass: "modal-card-head" }, [
-                _c("p", { staticClass: "modal-card-title" }, [_vm._v("Login")])
-              ]),
-              _vm._v(" "),
-              _c("section", { staticClass: "modal-card-body" }, [
-                _c(
-                  "form",
-                  {
-                    attrs: { id: "app", action: "login", method: "post" },
-                    on: { submit: _vm.checkForm }
-                  },
-                  [
-                    _vm.errors.length
-                      ? _c("p", [
-                          _c("b", [
-                            _vm._v("Please correct the following error(s):")
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "ul",
-                            _vm._l(_vm.errors, function(error, index) {
-                              return _c("li", { key: index }, [
-                                _vm._v(_vm._s(error))
-                              ])
-                            })
-                          )
-                        ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("label", { attrs: { for: "email" } }, [
-                        _vm._v("Email")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.email,
-                            expression: "user.email"
-                          }
-                        ],
-                        attrs: { type: "email", name: "email", id: "email" },
-                        domProps: { value: _vm.user.email },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "email", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("label", { attrs: { for: "password" } }, [
-                        _vm._v("Password")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        directives: [
-                          {
-                            name: "model",
-                            rawName: "v-model",
-                            value: _vm.user.password,
-                            expression: "user.password"
-                          }
-                        ],
-                        attrs: {
-                          type: "password",
-                          name: "password",
-                          id: "password"
-                        },
-                        domProps: { value: _vm.user.password },
-                        on: {
-                          input: function($event) {
-                            if ($event.target.composing) {
-                              return
-                            }
-                            _vm.$set(_vm.user, "password", $event.target.value)
-                          }
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("input", {
-                      attrs: { type: "hidden", name: "_token" },
-                      domProps: { value: _vm.csrf }
-                    }),
-                    _vm._v(" "),
-                    _c("p", [
-                      _c("input", {
-                        attrs: { type: "submit", value: "Submit" }
-                      })
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("footer", { staticClass: "modal-card-foot" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "button",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        _vm.isComponentModalActive = false
-                      }
-                    }
-                  },
-                  [_vm._v("Close")]
-                )
-              ])
-            ]
-          )
-        ]
-      )
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "icon" }, [
-      _c("i", { staticClass: "fa fa-location-arrow" })
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3c807660", module.exports)
-  }
-}
 
 /***/ })
 /******/ ]);
