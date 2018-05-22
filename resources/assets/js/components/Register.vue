@@ -54,6 +54,13 @@
                                 </span>
                             </p>
                         </div>
+
+                         <p v-if="errors.length">
+                                <b-notification type="is-danger" v-for="(error, index) in errors" :key='index'>
+                                    {{error}}
+                                </b-notification>
+                            </p>
+
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
@@ -72,7 +79,8 @@
         data() {
             return {
                 isComponentModalActive: false,
-                 user: {
+                errors:[],
+                user: {
                     name:'',
                     email: '',
                     password: ''
