@@ -94,8 +94,8 @@
                 axios.post('register', {name: this.user.name, email:this.user.email, password:this.user.password})
                     .then((response)=>{
                         this.isComponentModalActive = false;
-
                         this.$parent.userLogin = true;
+                        this.$router.push('dashboard');
                     })
                     .catch((error) => this.errors = error.response.data);
 

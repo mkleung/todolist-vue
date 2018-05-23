@@ -45498,8 +45498,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             axios.post('register', { name: this.user.name, email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
-
                 _this.$parent.userLogin = true;
+                _this.$router.push('dashboard');
             }).catch(function (error) {
                 return _this.errors = error.response.data;
             });
@@ -46209,8 +46209,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.errors = [];
 
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
-
                 _this.isComponentModalActive = false;
+                _this.$parent.userLogin = true;
+                _this.$router.push('dashboard');
             })
             // .catch((error) => this.errors = error.response.data);
             .catch(function (error) {
