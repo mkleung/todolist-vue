@@ -1,16 +1,5 @@
 <template>
 <nav class="navbar is-fixed-top has-shadow">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="">
-      
-    </a>
-    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </div>
-
   <div id="navbarExampleTransparentExample" class="navbar-menu">
     <div class="navbar-start">
       <a class="navbar-item" href="#">
@@ -18,15 +7,14 @@
       </a>
     </div>
 
-    <div class="navbar-end">
+  
       <div class="navbar-item">
         <div class="field is-grouped" v-if="userLogin">
             <p class="control">
                 <button class="button is-info" @click="logoutUser">Logout</button>
-    
             </p>
-
         </div>
+        
         <div  class="field is-grouped" v-else>
               <p class="control">
                   <register :welcome="welcome"></register>
@@ -37,7 +25,7 @@
         </div>
 
       </div>
-    </div>
+    
   </div>
 </nav>
 </template>

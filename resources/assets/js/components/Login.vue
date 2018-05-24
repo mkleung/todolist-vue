@@ -10,7 +10,7 @@
 
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
            
-                <div class="modal-card" style="width: auto">
+                <div class="modal-card" style="min-width: 480px;">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Login</p>
                     </header>

@@ -12127,6 +12127,7 @@ var addTask = __webpack_require__(55);
 var welcome = __webpack_require__(58);
 
 var appheader = __webpack_require__(63);
+var appheader2 = __webpack_require__(79);
 var appfooter = __webpack_require__(69);
 
 var routes = [{ path: '/', component: welcome }, { path: '/dashboard', component: dashboard }];
@@ -12138,7 +12139,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
   router: router,
-  components: { appheader: appheader, dashboard: dashboard, addTask: addTask, appfooter: appfooter }
+  components: { appheader2: appheader2, dashboard: dashboard, addTask: addTask, appfooter: appfooter }
 });
 
 /***/ }),
@@ -46009,18 +46010,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 var login = __webpack_require__(65);
@@ -46259,7 +46248,10 @@ var render = function() {
         [
           _c(
             "div",
-            { staticClass: "modal-card", staticStyle: { width: "auto" } },
+            {
+              staticClass: "modal-card",
+              staticStyle: { "min-width": "480px" }
+            },
             [
               _c("header", { staticClass: "modal-card-head" }, [
                 _c("p", { staticClass: "modal-card-title" }, [_vm._v("Login")])
@@ -46428,8 +46420,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "navbar is-fixed-top has-shadow" }, [
-    _vm._m(0),
-    _vm._v(" "),
     _c(
       "div",
       {
@@ -46437,57 +46427,38 @@ var render = function() {
         attrs: { id: "navbarExampleTransparentExample" }
       },
       [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
-        _c("div", { staticClass: "navbar-end" }, [
-          _c("div", { staticClass: "navbar-item" }, [
-            _vm.userLogin
-              ? _c("div", { staticClass: "field is-grouped" }, [
-                  _c("p", { staticClass: "control" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "button is-info",
-                        on: { click: _vm.logoutUser }
-                      },
-                      [_vm._v("Logout")]
-                    )
-                  ])
-                ])
-              : _c("div", { staticClass: "field is-grouped" }, [
+        _c("div", { staticClass: "navbar-item" }, [
+          _vm.userLogin
+            ? _c("div", { staticClass: "field is-grouped" }, [
+                _c("p", { staticClass: "control" }, [
                   _c(
-                    "p",
-                    { staticClass: "control" },
-                    [_c("register", { attrs: { welcome: _vm.welcome } })],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticClass: "control" }, [_c("login")], 1)
+                    "button",
+                    {
+                      staticClass: "button is-info",
+                      on: { click: _vm.logoutUser }
+                    },
+                    [_vm._v("Logout")]
+                  )
                 ])
-          ])
+              ])
+            : _c("div", { staticClass: "field is-grouped" }, [
+                _c(
+                  "p",
+                  { staticClass: "control" },
+                  [_c("register", { attrs: { welcome: _vm.welcome } })],
+                  1
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "control" }, [_c("login")], 1)
+              ])
         ])
       ]
     )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "navbar-brand" }, [
-      _c("a", { staticClass: "navbar-item", attrs: { href: "" } }),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "navbar-burger burger",
-          attrs: { "data-target": "navbarExampleTransparentExample" }
-        },
-        [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -46625,6 +46596,741 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = null
+/* template */
+var __vue_template__ = __webpack_require__(80)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/AppHeader2.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-62905d4a", Component.options)
+  } else {
+    hotAPI.reload("data-v-62905d4a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("nav", { staticClass: "navbar " }, [
+      _c("div", { staticClass: "navbar-brand" }, [
+        _c(
+          "a",
+          { staticClass: "navbar-item", attrs: { href: "http://bulma.io" } },
+          [
+            _c("img", {
+              attrs: {
+                src: "http://bulma.io/images/bulma-logo.png",
+                alt: "Bulma: a modern CSS framework based on Flexbox",
+                width: "112",
+                height: "28"
+              }
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "navbar-item is-hidden-desktop",
+            attrs: { href: "https://github.com/jgthms/bulma", target: "_blank" }
+          },
+          [
+            _c(
+              "span",
+              { staticClass: "icon", staticStyle: { color: "#333" } },
+              [_c("i", { staticClass: "fa fa-github" })]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "navbar-item is-hidden-desktop",
+            attrs: { href: "https://twitter.com/jgthms", target: "_blank" }
+          },
+          [
+            _c(
+              "span",
+              { staticClass: "icon", staticStyle: { color: "#55acee" } },
+              [_c("i", { staticClass: "fa fa-twitter" })]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "navbar-burger burger",
+            attrs: { "data-target": "navMenubd-example" }
+          },
+          [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "navbar-menu", attrs: { id: "navMenubd-example" } },
+        [
+          _c("div", { staticClass: "navbar-start" }, [
+            _c(
+              "div",
+              { staticClass: "navbar-item has-dropdown is-hoverable" },
+              [
+                _c(
+                  "a",
+                  {
+                    staticClass: "navbar-link  is-active",
+                    attrs: { href: "/documentation/overview/start/" }
+                  },
+                  [_vm._v("\n          Docs\n        ")]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "navbar-dropdown " }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "navbar-item ",
+                      attrs: { href: "/documentation/overview/start/" }
+                    },
+                    [_vm._v("\n            Overview\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "navbar-item ",
+                      attrs: {
+                        href: "http://bulma.io/documentation/modifiers/syntax/"
+                      }
+                    },
+                    [_vm._v("\n            Modifiers\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "navbar-item ",
+                      attrs: {
+                        href: "http://bulma.io/documentation/columns/basics/"
+                      }
+                    },
+                    [_vm._v("\n            Columns\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "navbar-item ",
+                      attrs: {
+                        href: "http://bulma.io/documentation/layout/container/"
+                      }
+                    },
+                    [_vm._v("\n            Layout\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "navbar-item ",
+                      attrs: {
+                        href: "http://bulma.io/documentation/form/general/"
+                      }
+                    },
+                    [_vm._v("\n            Form\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "navbar-item ",
+                      attrs: {
+                        href: "http://bulma.io/documentation/elements/box/"
+                      }
+                    },
+                    [_vm._v("\n            Elements\n          ")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      staticClass: "navbar-item is-active",
+                      attrs: {
+                        href:
+                          "http://bulma.io/documentation/components/breadcrumb/"
+                      }
+                    },
+                    [_vm._v("\n              Components\n            ")]
+                  ),
+                  _vm._v(" "),
+                  _c("hr", { staticClass: "navbar-divider" }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "navbar-item" }, [
+                    _c("div", [
+                      _c("p", { staticClass: "is-size-6-desktop" }, [
+                        _c("strong", { staticClass: "has-text-info" }, [
+                          _vm._v("0.5.1")
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("small", [
+                        _c(
+                          "a",
+                          {
+                            staticClass: "bd-view-all-versions",
+                            attrs: { href: "/versions" }
+                          },
+                          [_vm._v("View all versions")]
+                        )
+                      ])
+                    ])
+                  ])
+                ])
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "navbar-item has-dropdown is-hoverable is-mega" },
+              [
+                _c("div", { staticClass: "navbar-link" }, [
+                  _vm._v("\n          Blog\n        ")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "navbar-dropdown ",
+                    attrs: { id: "blogDropdown", "data-style": "width: 18rem;" }
+                  },
+                  [
+                    _c("div", { staticClass: "container is-fluid" }, [
+                      _c("div", { staticClass: "columns" }, [
+                        _c("div", { staticClass: "column" }, [
+                          _c(
+                            "h1",
+                            { staticClass: "title is-6 is-mega-menu-title" },
+                            [_vm._v("Sub Menu Title")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item",
+                              attrs: { href: "/2017/08/03/list-of-tags/" }
+                            },
+                            [
+                              _c("div", { staticClass: "navbar-content" }, [
+                                _c("p", [
+                                  _c(
+                                    "small",
+                                    { staticClass: "has-text-info" },
+                                    [_vm._v("03 Aug 2017")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("New feature: list of tags")])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item",
+                              attrs: { href: "/2017/08/03/list-of-tags/" }
+                            },
+                            [
+                              _c("div", { staticClass: "navbar-content" }, [
+                                _c("p", [
+                                  _c(
+                                    "small",
+                                    { staticClass: "has-text-info" },
+                                    [_vm._v("03 Aug 2017")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("New feature: list of tags")])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item",
+                              attrs: { href: "/2017/08/03/list-of-tags/" }
+                            },
+                            [
+                              _c("div", { staticClass: "navbar-content" }, [
+                                _c("p", [
+                                  _c(
+                                    "small",
+                                    { staticClass: "has-text-info" },
+                                    [_vm._v("03 Aug 2017")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("New feature: list of tags")])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "column" }, [
+                          _c(
+                            "h1",
+                            { staticClass: "title is-6 is-mega-menu-title" },
+                            [_vm._v("Sub Menu Title")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item",
+                              attrs: { href: "/2017/08/03/list-of-tags/" }
+                            },
+                            [
+                              _c("div", { staticClass: "navbar-content" }, [
+                                _c("p", [
+                                  _c(
+                                    "small",
+                                    { staticClass: "has-text-info" },
+                                    [_vm._v("03 Aug 2017")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("New feature: list of tags")])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item ",
+                              attrs: { href: "/documentation/overview/start/" }
+                            },
+                            [_vm._v("\n            Overview\n          ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item ",
+                              attrs: {
+                                href:
+                                  "http://bulma.io/documentation/modifiers/syntax/"
+                              }
+                            },
+                            [_vm._v("\n            Modifiers\n          ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item ",
+                              attrs: {
+                                href:
+                                  "http://bulma.io/documentation/columns/basics/"
+                              }
+                            },
+                            [_vm._v("\n            Columns\n          ")]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "column" }, [
+                          _c(
+                            "h1",
+                            { staticClass: "title is-6 is-mega-menu-title" },
+                            [_vm._v("Sub Menu Title")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item",
+                              attrs: { href: "/2017/08/03/list-of-tags/" }
+                            },
+                            [
+                              _c("div", { staticClass: "navbar-content" }, [
+                                _c("p", [
+                                  _c(
+                                    "small",
+                                    { staticClass: "has-text-info" },
+                                    [_vm._v("03 Aug 2017")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("New feature: list of tags")])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item",
+                              attrs: { href: "/2017/08/03/list-of-tags/" }
+                            },
+                            [
+                              _c("div", { staticClass: "navbar-content" }, [
+                                _c("p", [
+                                  _c(
+                                    "small",
+                                    { staticClass: "has-text-info" },
+                                    [_vm._v("03 Aug 2017")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("New feature: list of tags")])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item",
+                              attrs: { href: "/2017/08/03/list-of-tags/" }
+                            },
+                            [
+                              _c("div", { staticClass: "navbar-content" }, [
+                                _c("p", [
+                                  _c(
+                                    "small",
+                                    { staticClass: "has-text-info" },
+                                    [_vm._v("03 Aug 2017")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("p", [_vm._v("New feature: list of tags")])
+                              ])
+                            ]
+                          )
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "column" }, [
+                          _c(
+                            "h1",
+                            { staticClass: "title is-6 is-mega-menu-title" },
+                            [_vm._v("Sub Menu Title")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item ",
+                              attrs: { href: "/documentation/overview/start/" }
+                            },
+                            [_vm._v("\n            Overview\n          ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item ",
+                              attrs: {
+                                href:
+                                  "http://bulma.io/documentation/modifiers/syntax/"
+                              }
+                            },
+                            [_vm._v("\n            Modifiers\n          ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item ",
+                              attrs: {
+                                href:
+                                  "http://bulma.io/documentation/columns/basics/"
+                              }
+                            },
+                            [_vm._v("\n            Columns\n          ")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              staticClass: "navbar-item ",
+                              attrs: {
+                                href:
+                                  "http://bulma.io/documentation/layout/container/"
+                              }
+                            },
+                            [_vm._v("\n            Layout\n          ")]
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("hr", { staticClass: "navbar-divider" }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "navbar-item" }, [
+                      _c("div", { staticClass: "navbar-content" }, [
+                        _c("div", { staticClass: "level is-mobile" }, [
+                          _c("div", { staticClass: "level-left" }, [
+                            _c("div", { staticClass: "level-item" }, [
+                              _c("strong", [_vm._v("Stay up to date!")])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "level-right" }, [
+                            _c("div", { staticClass: "level-item" }, [
+                              _c(
+                                "a",
+                                {
+                                  staticClass: "button bd-is-rss is-small",
+                                  attrs: { href: "http://bulma.io/atom.xml" }
+                                },
+                                [
+                                  _c("span", { staticClass: "icon is-small" }, [
+                                    _c("i", { staticClass: "fa fa-rss" })
+                                  ]),
+                                  _vm._v(" "),
+                                  _c("span", [_vm._v("Subscribe")])
+                                ]
+                              )
+                            ])
+                          ])
+                        ])
+                      ])
+                    ])
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "navbar-item has-dropdown is-hoverable" },
+              [
+                _c("div", { staticClass: "navbar-link" }, [
+                  _vm._v("\n          More\n        ")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "navbar-dropdown ",
+                    attrs: { id: "moreDropdown" }
+                  },
+                  [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "navbar-item ",
+                        attrs: { href: "http://bulma.io/extensions/" }
+                      },
+                      [
+                        _c("div", { staticClass: "level is-mobile" }, [
+                          _c("div", { staticClass: "level-left" }, [
+                            _c("div", { staticClass: "level-item" }, [
+                              _c("p", [
+                                _c("strong", [_vm._v("Extensions")]),
+                                _vm._v(" "),
+                                _c("br"),
+                                _vm._v(" "),
+                                _c("small", [
+                                  _vm._v("Side projects to enhance Bulma")
+                                ])
+                              ])
+                            ])
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "level-right" }, [
+                            _c("div", { staticClass: "level-item" }, [
+                              _c(
+                                "span",
+                                { staticClass: "icon has-text-info" },
+                                [_c("i", { staticClass: "fa fa-plug" })]
+                              )
+                            ])
+                          ])
+                        ])
+                      ]
+                    )
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "navbar-item ",
+                attrs: { href: "http://bulma.io/expo/" }
+              },
+              [
+                _c("span", { staticClass: "bd-emoji" }, [_vm._v("🎨")]),
+                _vm._v("  Expo\n      ")
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "navbar-item ",
+                attrs: { href: "http://bulma.io/love/" }
+              },
+              [
+                _c("span", { staticClass: "bd-emoji" }, [_vm._v("❤️")]),
+                _vm._v("  Love\n      ")
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "navbar-end" }, [
+            _c(
+              "a",
+              {
+                staticClass: "navbar-item is-hidden-desktop-only",
+                attrs: {
+                  href: "https://github.com/jgthms/bulma",
+                  target: "_blank"
+                }
+              },
+              [
+                _c(
+                  "span",
+                  { staticClass: "icon", staticStyle: { color: "#333" } },
+                  [_c("i", { staticClass: "fa fa-github" })]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "navbar-item is-hidden-desktop-only",
+                attrs: { href: "https://twitter.com/jgthms", target: "_blank" }
+              },
+              [
+                _c(
+                  "span",
+                  { staticClass: "icon", staticStyle: { color: "#55acee" } },
+                  [_c("i", { staticClass: "fa fa-twitter" })]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "navbar-item" }, [
+              _c("div", { staticClass: "field is-grouped" }, [
+                _c("p", { staticClass: "control" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "bd-tw-button button",
+                      attrs: {
+                        "data-social-network": "Twitter",
+                        "data-social-action": "tweet",
+                        "data-social-target": "http://bulma.io",
+                        target: "_blank",
+                        href:
+                          "https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&hashtags=bulmaio&url=http://bulma.io&via=jgthms"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon" }, [
+                        _c("i", { staticClass: "fa fa-twitter" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("\n    Tweet\n  ")])
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "control" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "button is-primary",
+                      attrs: {
+                        href:
+                          "https://github.com/jgthms/bulma/archive/0.5.1.zip"
+                      }
+                    },
+                    [
+                      _c("span", { staticClass: "icon" }, [
+                        _c("i", { staticClass: "fa fa-download" })
+                      ]),
+                      _vm._v(" "),
+                      _c("span", [_vm._v("Download")])
+                    ]
+                  )
+                ])
+              ])
+            ])
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-62905d4a", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
