@@ -46686,28 +46686,39 @@ var render = function() {
         class: { "is-active": _vm.navIsActive },
         attrs: { id: "mainNav" }
       },
-      [_vm._m(0)]
+      [
+        _c("div", { staticClass: "navbar-end" }, [
+          _c("div", { staticClass: "navbar-item" }, [
+            _vm.userLogin
+              ? _c("div", { staticClass: "field is-grouped" }, [
+                  _c("p", { staticClass: "control" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "button is-info",
+                        on: { click: _vm.logoutUser }
+                      },
+                      [_vm._v("Logout")]
+                    )
+                  ])
+                ])
+              : _c("div", { staticClass: "field is-grouped" }, [
+                  _c(
+                    "p",
+                    { staticClass: "control" },
+                    [_c("register", { attrs: { welcome: _vm.welcome } })],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "control" }, [_c("login")], 1)
+                ])
+          ])
+        ])
+      ]
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "navbar-end" }, [
-      _c(
-        "a",
-        { staticClass: "navbar-item", attrs: { href: "https://bulma.io/" } },
-        [_vm._v("\n        Home\n      ")]
-      ),
-      _vm._v(" "),
-      _c("a", { staticClass: "navbar-item", attrs: { href: "" } }, [
-        _vm._v("\n          Test\n      ")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -46749,18 +46760,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var login = __webpack_require__(65);
+var register = __webpack_require__(11);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'navbar',
+  components: { register: register, login: login },
   data: function data() {
     return {
-      navIsActive: false
+      navIsActive: false,
+      userLogin: false,
+      welcome: false
     };
   },
 
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/sessionStatus').then(function (response) {
+      if (response.data.user) {
+        _this.userLogin = response.data.user;
+      }
+    }).catch(function (error) {
+      console.log(error.response.data);
+    });
+  },
   methods: {
     toggleMenu: function toggleMenu() {
       this.navIsActive = !this.navIsActive;
+    },
+    logoutUser: function logoutUser() {
+      var _this2 = this;
+
+      axios.get('/logoutUser').then(function (response) {
+        _this2.userLogin = false;
+
+        _this2.$snackbar.open({
+          message: 'You have been logged out',
+          type: 'is-success',
+          position: 'is-top',
+          duration: 3000,
+          indefinite: false
+        });
+
+        _this2.$router.replace('/');
+      }).catch(function (error) {
+        console.log(error.response.data);
+      });
     }
   }
 });
