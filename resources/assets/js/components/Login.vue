@@ -27,7 +27,7 @@
                                 <i class="fas fa-check"></i>
                                 </span>
                             </p>
-                            </div>
+                        </div>
 
                         <div class="field no-margin-left">
                             <label class="label">Password</label>
@@ -41,14 +41,13 @@
                                 @keydown.native.enter="login()"
                                 >
                             </b-input>
-
-                            
                         </div>
-                        <p v-if="errors.length">
-                                <b-notification type="is-danger" v-for="(error, index) in errors" :key='index'>
-                                    {{error}}
-                                </b-notification>
-                            </p>
+
+                        <div class="field no-margin-left">
+                            <span class="message is-danger"  v-if="error.length">{{error}}</span>
+                             <span  v-else>&nbsp;</span>
+                        </div>
+                        
 
                     </section>
                     <footer class="modal-card-foot">
@@ -68,7 +67,7 @@
         data() {
             return {
                 isComponentModalActive: false,
-                errors:[],
+                error:"",
                 user: {
                     email: '',
                     password: ''
@@ -78,7 +77,10 @@
         
         methods: {
             login() {
-            this.errors = [];
+                if (this.user.password == "") {
+                    this.error = "Invalid Password";
+                }
+
 
                 axios.post('login', {email:this.user.email, password:this.user.password})
                     .then((response)=>{
@@ -88,10 +90,10 @@
 
                             
                     })
-                    // .catch((error) => this.errors = error.response.data);
                     .catch((error) => {
-                       
-                        this.errors.push(error.response.data);
+                        
+                        this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
+                        //this.errors.push(error.response.data);
                     });
                 
                 

@@ -57,7 +57,7 @@
 
                          <p v-if="errors.length">
                                 <b-notification type="is-danger" v-for="(error, index) in errors" :key='index'>
-                                    {{error}}
+                                    {{error.email}}
                                 </b-notification>
                             </p>
 
@@ -97,8 +97,9 @@
                         this.$parent.userLogin = true;
                         this.$router.push('dashboard');
                     })
-                    .catch((error) => this.errors = error.response.data);
-
+                    .catch((error) => {
+                        this.errors = error.response.data;
+                    });
 
             },
             
