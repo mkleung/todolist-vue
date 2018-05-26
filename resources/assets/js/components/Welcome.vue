@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-
+<!--
     <div class="hero is-primary">
         <div class="hero-body">
             <div class="container">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     
 </section>
 

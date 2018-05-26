@@ -45496,6 +45496,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         register: function register() {
             var _this = this;
 
+            if (this.user.password == "") {
+                this.error = "Invalid Password";
+            }
+            if (this.user.email == "") {
+                this.error = "Invalid Email";
+            }
+            if (this.user.name == "") {
+                this.error = "Invalid Name";
+            }
+
             axios.post('register', { name: this.user.name, email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
@@ -45768,144 +45778,10 @@ var render = function() {
           )
         ])
       ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "hero is-primary" }, [
-      _c("div", { staticClass: "hero-body" }, [
-        _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "columns" }, [
-            _c("div", { staticClass: "column is-4  has-text-centered" }, [
-              _c("p", { staticClass: "title" }, [
-                _vm._v(
-                  "\n                            For work addicts\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("img", { attrs: { src: "/img/coffee1.jpg" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "column is-4  has-text-centered" }, [
-              _c("p", { staticClass: "title" }, [
-                _vm._v(
-                  "\n                            Who need to get things done\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("img", { attrs: { src: "/img/coffee2.jpg" } })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "column is-4  has-text-centered" }, [
-              _c("p", { staticClass: "title" }, [
-                _vm._v(
-                  "\n                          With other people\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("img", { attrs: { src: "/img/coffee3.jpg" } })
-            ])
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "hero is-bold" }, [
-      _c("div", { staticClass: "hero-body" }, [
-        _c("div", { staticClass: "container is-fluid" }, [
-          _c("div", { staticClass: "columns " }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c("div", { staticClass: "column is-3" }, [
-              _c("figure", { staticClass: "image " }, [
-                _c("img", { attrs: { src: "/img/coffee4.jpg" } })
-              ])
-            ])
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "hero is-light" }, [
-      _c("div", { staticClass: "hero-body" }, [
-        _c("div", { staticClass: "container is-fluid" }, [
-          _c("div", { staticClass: "columns" }, [
-            _c("div", { staticClass: "column is-3 is-offset-3" }, [
-              _c("figure", { staticClass: "image " }, [
-                _c("img", { attrs: { src: "/img/coffee5.jpg" } })
-              ])
-            ]),
-            _vm._v(" "),
-            _vm._m(1)
-          ])
-        ])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "hero is-small is-bold" }, [
-      _c("div", { staticClass: "hero-body" }, [
-        _c("div", { staticClass: "container" }, [
-          _c(
-            "div",
-            { staticClass: "column is-6 is-offset-3 has-text-centered " },
-            [
-              _c("h1", { staticClass: "title" }, [
-                _vm._v(
-                  "\n                            It's free forever\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("h2", { staticClass: "subtitle " }, [
-                _vm._v(
-                  "\n                            Meet someone over coffee and get things done\n                        "
-                )
-              ]),
-              _vm._v(" "),
-              _c("register", { attrs: { welcome: _vm.welcome } })
-            ],
-            1
-          )
-        ])
-      ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "column is-3 is-offset-3 has-text-right" },
-      [
-        _c("h1", { staticClass: "title" }, [
-          _vm._v(
-            "\n                                    Anyone can join in\n                                "
-          )
-        ]),
-        _vm._v(" "),
-        _c("p", [
-          _vm._v(
-            "Productivity junkies who want to meet similarly minded people"
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "column is-3" }, [
-      _c("h1", { staticClass: "title" }, [
-        _vm._v(
-          "\n                                You need help in something?\n                            "
-        )
-      ]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Collaborate and do things")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

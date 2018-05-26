@@ -88,6 +88,18 @@
         },
         methods: {
             register() {
+                if (this.user.password == "") {
+                    this.error = "Invalid Password";
+                }
+                if (this.user.email == "") {
+                    this.error = "Invalid Email";
+                }
+                if (this.user.name == "") {
+                    this.error = "Invalid Name";
+                }
+                
+                
+
                 
                 axios.post('register', {name: this.user.name, email:this.user.email, password:this.user.password})
                     .then((response)=>{
