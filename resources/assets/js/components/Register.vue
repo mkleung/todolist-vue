@@ -93,7 +93,7 @@
         },
         methods: {
             register() {
-              
+                this.errors = [];
                 axios.post('register', {name: this.user.name, email:this.user.email, password:this.user.password})
                     .then((response)=>{
                         this.isComponentModalActive = false;
@@ -101,15 +101,11 @@
                         this.$router.push('dashboard');
                     })
                     .catch((error) => {
-                        console.log(error.response.data);
                         var errorData = error.response.data;
-
                         for (var key in errorData) {
-                            var error = errorData[key];
-                            //this.errors.push(error.replace(/[^a-zA-Z ]/g, ""));
+                            var errorDescription = errorData[key];
+                            this.errors.push(errorDescription[0]);
                         }
-                        //this.errors = error.response.data;
-                        // this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
                     });
 
             },
