@@ -44208,13 +44208,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 var tiles = __webpack_require__(49);
 var addTaskModal = __webpack_require__(52);
+var mytable = __webpack_require__(85);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTaskModal: addTaskModal },
+    components: { mytable: mytable, tiles: tiles, addTaskModal: addTaskModal },
     data: function data() {
         return {
             list: [],
@@ -45090,7 +45092,11 @@ var render = function() {
             _c(
               "div",
               { staticClass: "card-content" },
-              [_c("tiles", { attrs: { searchList: _vm.searchList } })],
+              [
+                _c("tiles", { attrs: { searchList: _vm.searchList } }),
+                _vm._v(" "),
+                _c("mytable")
+              ],
               1
             )
           ])
@@ -46385,6 +46391,161 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(86)
+/* template */
+var __vue_template__ = __webpack_require__(87)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/MyTable.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1e48749b", Component.options)
+  } else {
+    hotAPI.reload("data-v-1e48749b", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 86 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            data: [{ 'id': 1, 'first_name': 'Jesse', 'last_name': 'Simmons', 'date': '2016-10-15 13:43:27', 'gender': 'Male' }, { 'id': 2, 'first_name': 'John', 'last_name': 'Jacobs', 'date': '2016-12-15 06:00:53', 'gender': 'Male' }, { 'id': 3, 'first_name': 'Tina', 'last_name': 'Gilbert', 'date': '2016-04-26 06:26:28', 'gender': 'Female' }, { 'id': 4, 'first_name': 'Clarence', 'last_name': 'Flores', 'date': '2016-04-10 10:28:46', 'gender': 'Male' }, { 'id': 5, 'first_name': 'Anne', 'last_name': 'Lee', 'date': '2016-12-06 14:38:38', 'gender': 'Female' }],
+
+            columns: [{
+                field: 'id',
+                label: 'ID',
+                width: '40',
+                numeric: true
+            }, {
+                field: 'first_name',
+                label: 'First Name'
+            }, {
+                field: 'last_name',
+                label: 'Last Name'
+            }, {
+                field: 'date',
+                label: 'Date',
+                centered: true
+            }, {
+                field: 'gender',
+                label: 'Gender'
+            }]
+        };
+    }
+});
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c("b-table", {
+        attrs: {
+          columns: _vm.columns,
+          "checked-rows": _vm.checkedRows,
+          checkable: ""
+        },
+        on: {
+          "update:checkedRows": function($event) {
+            _vm.checkedRows = $event
+          }
+        }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1e48749b", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
