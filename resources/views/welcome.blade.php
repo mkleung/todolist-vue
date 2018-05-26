@@ -23,7 +23,7 @@
     </head>
     <body>
       <div id="app">
-        <appheader2></appheader2>
+        <appheader></appheader>
         
         <router-view></router-view>
         <appfooter></appfooter>

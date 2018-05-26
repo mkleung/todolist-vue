@@ -24,7 +24,6 @@ let addTask = require('./components/AddTask.vue');
 let welcome  = require('./components/Welcome.vue');
 
 let appheader = require('./components/AppHeader.vue');
-let appheader2 = require('./components/AppHeader2.vue');
 let appfooter = require('./components/AppFooter.vue');
 
 const routes = [
@@ -39,5 +38,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    components:{appheader2, dashboard, addTask, appfooter}
+    components:{appheader, dashboard, addTask, appfooter}
 });

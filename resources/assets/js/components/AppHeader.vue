@@ -1,14 +1,19 @@
 <template>
-<nav class="navbar is-fixed-top has-shadow">
-  <div id="navbarExampleTransparentExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="#">
-        <h1>Coffee To Do</h1>
-      </a>
+  <nav class="navbar is-transparent is-fixed-top">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+            Coffee To Do
+        </a>
+      <div class="navbar-burger burger" @click="toggleMenu" :class="{'is-active': navIsActive}" data-target="mainNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
 
-  
-      <div class="navbar-item">
+    <div id="mainNav" class="navbar-menu" :class="{'is-active': navIsActive}">
+      <div class="navbar-end">
+        <div class="navbar-item">
         <div class="field is-grouped" v-if="userLogin">
             <p class="control">
                 <button class="button is-info" @click="logoutUser">Logout</button>
@@ -25,27 +30,26 @@
         </div>
 
       </div>
-    
-  </div>
-</nav>
+      </div>
+    </div>
+  </nav>
 </template>
 
-
 <script>
-
     let login = require('./Login.vue');
-    //let login2 = require('./Login2.vue');
     let register = require('./Register.vue');
 
-    export default {
-        components: {register, login},
-        data() {
-            return {
-              userLogin: false,
-              welcome: false
-            }
-        },
-        mounted: function() {
+  export default {
+    name: 'navbar',
+    components: {register, login},
+    data () {
+      return {
+        navIsActive: false,
+        userLogin: false,
+        welcome: false
+      }
+    },
+      mounted: function() {
        
               axios.get('/sessionStatus')
               .then(response => {
@@ -59,8 +63,11 @@
            
 
         },
-        methods: {
-           logoutUser: function() {
+    methods: {
+      toggleMenu: function () {
+        this.navIsActive = !this.navIsActive
+      },
+      logoutUser: function() {
              axios.get('/logoutUser')
               .then(response => {
                   this.userLogin = false;
@@ -80,6 +87,6 @@
                   console.log(error.response.data);
               });
            }
-        }
     }
+  }
 </script>
