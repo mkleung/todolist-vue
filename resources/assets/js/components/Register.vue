@@ -56,8 +56,13 @@
                         </div>
 
                          <div class="field no-margin-left">
-                            <span class="message is-danger"  v-if="error.length">{{error}}</span>
-                             <span  v-else>&nbsp;</span>
+                            <!-- <span class="message is-danger"  v-if="error.length">{{error}}</span>
+                             <span  v-else>&nbsp;</span> -->
+                             <ul class="message is-danger">
+                                 <li v-for="error in errors" :key="error.id">
+                                     {{error}}
+                                 </li>
+                             </ul>
                         </div>
 
                     </section>
@@ -78,7 +83,7 @@
         data() {
             return {
                 isComponentModalActive: false,
-                error:"",
+                errors:[],
                 user: {
                     name:'',
                     email: '',
@@ -88,19 +93,7 @@
         },
         methods: {
             register() {
-                if (this.user.password == "") {
-                    this.error = "Invalid Password";
-                }
-                if (this.user.email == "") {
-                    this.error = "Invalid Email";
-                }
-                if (this.user.name == "") {
-                    this.error = "Invalid Name";
-                }
-                
-                
-
-                
+              
                 axios.post('register', {name: this.user.name, email:this.user.email, password:this.user.password})
                     .then((response)=>{
                         this.isComponentModalActive = false;
@@ -108,7 +101,15 @@
                         this.$router.push('dashboard');
                     })
                     .catch((error) => {
-                        this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
+                        console.log(error.response.data);
+                        var errorData = error.response.data;
+
+                        for (var key in errorData) {
+                            var error = errorData[key];
+                            //this.errors.push(error.replace(/[^a-zA-Z ]/g, ""));
+                        }
+                        //this.errors = error.response.data;
+                        // this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
                     });
 
             },

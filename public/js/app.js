@@ -45477,13 +45477,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["welcome"],
     data: function data() {
         return {
             isComponentModalActive: false,
-            error: "",
+            errors: [],
             user: {
                 name: '',
                 email: '',
@@ -45496,22 +45501,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         register: function register() {
             var _this = this;
 
-            if (this.user.password == "") {
-                this.error = "Invalid Password";
-            }
-            if (this.user.email == "") {
-                this.error = "Invalid Email";
-            }
-            if (this.user.name == "") {
-                this.error = "Invalid Name";
-            }
-
             axios.post('register', { name: this.user.name, email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
                 _this.$router.push('dashboard');
             }).catch(function (error) {
-                _this.error = error.response.data.email.replace(/[^a-zA-Z ]/g, "");
+                console.log(error.response.data);
+                var errorData = error.response.data;
+
+                for (var key in errorData) {
+                    var error = errorData[key];
+                    //this.errors.push(error.replace(/[^a-zA-Z ]/g, ""));
+                }
+                //this.errors = error.response.data;
+                // this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
             });
         }
     }
@@ -45694,11 +45697,19 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "field no-margin-left" }, [
-                  _vm.error.length
-                    ? _c("span", { staticClass: "message is-danger" }, [
-                        _vm._v(_vm._s(_vm.error))
+                  _c(
+                    "ul",
+                    { staticClass: "message is-danger" },
+                    _vm._l(_vm.errors, function(error) {
+                      return _c("li", { key: error.id }, [
+                        _vm._v(
+                          "\n                                 " +
+                            _vm._s(error) +
+                            "\n                             "
+                        )
                       ])
-                    : _c("span", [_vm._v(" ")])
+                    })
+                  )
                 ])
               ]),
               _vm._v(" "),
