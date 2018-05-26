@@ -13,7 +13,7 @@
 
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
            
-                <div class="modal-card" style="width: auto">
+                <div class="modal-card" style="min-width: 480px;">
                     <header class="modal-card-head">
                         <p class="modal-card-title">Register</p>
                     </header>
@@ -55,11 +55,10 @@
                             </p>
                         </div>
 
-                         <p v-if="errors.length">
-                                <b-notification type="is-danger" v-for="(error, index) in errors" :key='index'>
-                                    {{error.email}}
-                                </b-notification>
-                            </p>
+                         <div class="field no-margin-left">
+                            <span class="message is-danger"  v-if="error.length">{{error}}</span>
+                             <span  v-else>&nbsp;</span>
+                        </div>
 
                     </section>
                     <footer class="modal-card-foot">
@@ -79,7 +78,7 @@
         data() {
             return {
                 isComponentModalActive: false,
-                errors:[],
+                error:"",
                 user: {
                     name:'',
                     email: '',
@@ -90,7 +89,6 @@
         methods: {
             register() {
                 
-       
                 axios.post('register', {name: this.user.name, email:this.user.email, password:this.user.password})
                     .then((response)=>{
                         this.isComponentModalActive = false;
@@ -98,7 +96,7 @@
                         this.$router.push('dashboard');
                     })
                     .catch((error) => {
-                        this.errors = error.response.data;
+                        this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
                     });
 
             },
