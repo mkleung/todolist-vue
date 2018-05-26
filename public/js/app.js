@@ -45334,99 +45334,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 var register = __webpack_require__(4);
@@ -45807,7 +45714,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", [
-    _c("div", { staticClass: "hero is-medium is-bold" }, [
+    _c("div", { staticClass: "hero is-large is-bold" }, [
       _c("div", { staticClass: "hero-body" }, [
         _c("div", { staticClass: "container" }, [
           _c(
@@ -45822,7 +45729,7 @@ var render = function() {
               _vm._v(" "),
               _c("h2", { staticClass: "subtitle " }, [
                 _vm._v(
-                  "\n                        Coffee dates with people who love to do lists\n                    "
+                  "\n                        To Do List over coffee\n                    "
                 )
               ]),
               _vm._v(" "),
