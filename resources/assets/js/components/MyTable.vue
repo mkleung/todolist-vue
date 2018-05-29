@@ -8,8 +8,7 @@
             <b-table
                 :data="data"
                 :columns="columns"
-                :checked-rows.sync="checkedRows"
-            
+    
                 checkable>
             </b-table>
 

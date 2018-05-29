@@ -41,7 +41,7 @@
                     <!-- LIST -->
                     <div class="card-content">
                         <tiles :searchList="searchList"></tiles>
-                        <mytable></mytable>
+                   
                     </div>
                     
                     
@@ -58,10 +58,10 @@
 
     let tiles = require('./Tiles.vue');
     let addTaskModal = require('./AddTaskModal.vue');
-    let mytable = require('./MyTable.vue');
+   
 
     export default {
-        components: {mytable, tiles, addTaskModal},
+        components: {tiles, addTaskModal},
         data() {
             return {
                 list: [],

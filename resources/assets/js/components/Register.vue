@@ -98,7 +98,7 @@
                     .then((response)=>{
                         this.isComponentModalActive = false;
                         this.$parent.userLogin = true;
-                        this.$router.push('dashboard');
+                       
                     })
                     .catch((error) => {
                         var errorData = error.response.data;
