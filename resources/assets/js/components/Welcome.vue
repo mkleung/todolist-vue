@@ -25,10 +25,11 @@
 
 <script>
 
+    let loginVue = require('./Login.vue');
     let register = require('./Register.vue');
 
     export default {
-        components: {register},
+        components: {register, loginVue},
         data() {
             return {
               userLogin: false,

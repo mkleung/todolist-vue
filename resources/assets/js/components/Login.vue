@@ -86,7 +86,7 @@
                     .then((response)=>{
                             this.isComponentModalActive = false;
                             this.$parent.userLogin = true;
-                            this.$router.push('dashboard');
+                            this.$router.push('/dashboard');
                           
                             
                     })

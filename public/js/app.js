@@ -44196,38 +44196,36 @@ var addTaskModal = __webpack_require__(51);
     },
     watch: {
         searchQuery: function searchQuery() {
-            var _this2 = this;
-
-            if (this.searchQuery.length > 0) {
-                this.searchList = this.list.filter(function (item) {
-                    return item.title.toLowerCase().indexOf(_this2.searchQuery.toLowerCase()) > -1;
-                });
-            } else {
-                this.searchList = this.list;
-            }
-        },
-        checkSearchQuery: function checkSearchQuery() {}
+            //    if (this.searchQuery.length > 0) {
+            //         this.searchList = this.list.filter((item) => {
+            //             return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+            //         });
+            //     }
+            //     else {
+            //          this.searchList = this.list;
+            //     }
+        }
     },
 
     methods: {
         init: function init() {
-            var _this3 = this;
+            var _this2 = this;
 
             axios.get('getTasks').then(function (response) {
                 console.log(response);
                 if (response.data == "invalid") {
-                    _this3.$router.replace('/');
+                    _this2.$router.replace('/');
                 } else {
                     var taskList = response.data;
-                    _this3.list = response.data;
-                    _this3.searchList = response.data;
+                    _this2.list = response.data;
+                    _this2.searchList = response.data;
 
                     for (var i = 0; i < taskList.length; i++) {
-                        _this3.titleList.push(taskList[i].title);
+                        _this2.titleList.push(taskList[i].title);
                     }
                 }
             }).catch(function (error) {
-                return _this3.errors = error.response.data;
+                return _this2.errors = error.response.data;
             });
         }
     }
@@ -45294,10 +45292,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 
+var loginVue = __webpack_require__(68);
 var register = __webpack_require__(11);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: { register: register },
+  components: { register: register, loginVue: loginVue },
   data: function data() {
     return {
       userLogin: false,
@@ -45993,7 +45992,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
-                _this.$router.push('dashboard');
+                _this.$router.push('/dashboard');
             }).catch(function (error) {
 
                 _this.error = error.response.data.email.replace(/[^a-zA-Z ]/g, "");

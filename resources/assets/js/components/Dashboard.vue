@@ -88,18 +88,15 @@
         },
          watch: {
             searchQuery: function () {
-               if (this.searchQuery.length > 0) {
-                    this.searchList = this.list.filter((item) => {
-                        return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
-                    });
-                }
-                else {
-                     this.searchList = this.list;
-                }
+            //    if (this.searchQuery.length > 0) {
+            //         this.searchList = this.list.filter((item) => {
+            //             return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
+            //         });
+            //     }
+            //     else {
+            //          this.searchList = this.list;
+            //     }
             },
-            checkSearchQuery: function () {
-
-            }
         },
 
         methods: {
