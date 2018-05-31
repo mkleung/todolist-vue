@@ -13,30 +13,8 @@
                   
                     
 
-                    <!-- SEARCH -->
-                    <div class="card-content">
-                        <div class="has-text-centered">
-                            <addTaskModal></addTaskModal>
-                        </div>
-                     </div>
-
-
-                    <div class="card-content">
-                        <section>
-                           
-                            <b-field>
-                                <b-autocomplete
-                                    rounded
-                                    v-model="searchQuery"
-                                    :data="fillSearchOptions"
-                                    placeholder="Search for a task"
-                                    icon="magnify"
-                                    @select="option => selected = option">
-                                    <template slot="empty">No results found</template>
-                                </b-autocomplete>
-                            </b-field>
-                        </section>
-                    </div>
+                 
+          
 
                     <!-- LIST -->
                     <div class="card-content">
