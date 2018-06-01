@@ -1,7 +1,14 @@
 <template>
 
 <section class="hero is-primary is-bold">
-  <div class="hero-body">
+  
+    <div v-if="userLogin">
+        <welcome></welcome>
+    </div>
+
+
+  
+  <div class="hero-body" v-else>
         <div class="container">
             <div class="column is-6 is-offset-3">
                 <h1 class="title has-text-centered">My Tasks</h1>
@@ -11,14 +18,25 @@
             <div class="column is-6 is-offset-3">
                 <div class="card">
                   
-                    
+                    <addTaskModal></addTaskModal>
 
                  
           
 
                     <!-- LIST -->
                     <div class="card-content">
-                        <tiles :searchList="searchList"></tiles>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
+                        <p>Test</p>
                    
                     </div>
                     
@@ -36,10 +54,10 @@
 
     let tiles = require('./Tiles.vue');
     let addTaskModal = require('./AddTaskModal.vue');
-   
+     let welcome = require('./Welcome.vue');
 
     export default {
-        components: {tiles, addTaskModal},
+        components: {tiles, addTaskModal, welcome},
         data() {
             return {
                 list: [],
@@ -48,7 +66,8 @@
                 
                 data: this.titleList,
                 searchQuery: '',
-                selected: null
+                selected: null,
+                userLogin: false,
             }
         },
         mounted(){

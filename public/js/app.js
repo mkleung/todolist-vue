@@ -44188,13 +44188,32 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 var tiles = __webpack_require__(49);
 var addTaskModal = __webpack_require__(52);
+var welcome = __webpack_require__(59);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTaskModal: addTaskModal },
+    components: { tiles: tiles, addTaskModal: addTaskModal, welcome: welcome },
     data: function data() {
         return {
             list: [],
@@ -44203,7 +44222,8 @@ var addTaskModal = __webpack_require__(52);
 
             data: this.titleList,
             searchQuery: '',
-            selected: null
+            selected: null,
+            userLogin: false
         };
     },
     mounted: function mounted() {
@@ -44820,40 +44840,71 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("section", { staticClass: "hero is-primary is-bold" }, [
-    _c("div", { staticClass: "hero-body" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "column is-6 is-offset-3" }, [
-          _c("h1", { staticClass: "title has-text-centered" }, [
-            _vm._v("My Tasks")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: " has-text-centered" }, [
-            _vm._v(
-              _vm._s(new Date().getMonth()) +
-                "/" +
-                _vm._s(new Date().getDate()) +
-                "/" +
-                _vm._s(new Date().getFullYear()) +
-                " "
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "column is-6 is-offset-3" }, [
-          _c("div", { staticClass: "card" }, [
-            _c(
-              "div",
-              { staticClass: "card-content" },
-              [_c("tiles", { attrs: { searchList: _vm.searchList } })],
-              1
-            )
+    _vm.userLogin
+      ? _c("div", [_c("welcome")], 1)
+      : _c("div", { staticClass: "hero-body" }, [
+          _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "column is-6 is-offset-3" }, [
+              _c("h1", { staticClass: "title has-text-centered" }, [
+                _vm._v("My Tasks")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: " has-text-centered" }, [
+                _vm._v(
+                  _vm._s(new Date().getMonth()) +
+                    "/" +
+                    _vm._s(new Date().getDate()) +
+                    "/" +
+                    _vm._s(new Date().getFullYear()) +
+                    " "
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-6 is-offset-3" }, [
+              _c(
+                "div",
+                { staticClass: "card" },
+                [_c("addTaskModal"), _vm._v(" "), _vm._m(0)],
+                1
+              )
+            ])
           ])
         ])
-      ])
-    ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-content" }, [
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Test")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -45200,6 +45251,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
+
                 _this.$router.push('/dashboard');
             }).catch(function (error) {
 
