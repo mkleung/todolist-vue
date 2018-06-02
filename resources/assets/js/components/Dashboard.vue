@@ -2,13 +2,7 @@
 
 <section class="hero is-primary is-bold">
   
-    <div v-if="userLogin">
-        <welcome></welcome>
-    </div>
-
-
-  
-  <div class="hero-body" v-else>
+  <div class="hero-body">
         <div class="container">
             <div class="column is-6 is-offset-3">
                 <h1 class="title has-text-centered">My Tasks</h1>

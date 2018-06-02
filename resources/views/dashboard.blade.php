@@ -25,6 +25,7 @@
       <div id="app">
         <appheader></appheader>
         
+        <router-view></router-view>
         <appfooter></appfooter>
       </div>
       <script src="{{ asset('js/app.js')}}"></script>
