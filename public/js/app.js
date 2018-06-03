@@ -45016,7 +45016,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
 
-                _this.$router.push('/dashboard');
+                window.location = "/dashboard";
             }).catch(function (error) {
 
                 _this.error = error.response.data.email.replace(/[^a-zA-Z ]/g, "");

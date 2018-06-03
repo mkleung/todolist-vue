@@ -87,7 +87,7 @@
                             this.isComponentModalActive = false;
                             this.$parent.userLogin = true;
                            
-                            this.$router.push('/dashboard');
+                           window.location = "/dashboard";
                     })
                     .catch((error) => {
                         
