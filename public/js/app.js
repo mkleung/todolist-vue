@@ -45323,6 +45323,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('register', { name: this.user.name, email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
+
+                window.location = "/dashboard";
             }).catch(function (error) {
                 var errorData = error.response.data;
                 for (var key in errorData) {

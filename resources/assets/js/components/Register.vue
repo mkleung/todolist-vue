@@ -99,6 +99,7 @@
                         this.isComponentModalActive = false;
                         this.$parent.userLogin = true;
                        
+                       window.location = "/dashboard";
                     })
                     .catch((error) => {
                         var errorData = error.response.data;
