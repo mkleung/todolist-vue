@@ -24,6 +24,7 @@
     <body>
       <div id="app">
         <appheader></appheader>
+        
         <router-view></router-view>
         <appfooter></appfooter>
       </div>

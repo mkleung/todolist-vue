@@ -44242,19 +44242,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 var tiles = __webpack_require__(50);
 var addTaskModal = __webpack_require__(53);
-var welcome = __webpack_require__(11);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTaskModal: addTaskModal, welcome: welcome },
+    components: { tiles: tiles, addTaskModal: addTaskModal },
     data: function data() {
         return {
             list: [],
@@ -44263,8 +44257,7 @@ var welcome = __webpack_require__(11);
 
             data: this.titleList,
             searchQuery: '',
-            selected: null,
-            userLogin: false
+            selected: null
         };
     },
     mounted: function mounted() {
@@ -44447,7 +44440,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["searchList"],
   data: function data() {
-    return {};
+    return {
+      deleting: false,
+      editing: false,
+      value: [String, Number, Boolean, Function, Object, Array, Symbol],
+      nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
+      disabled: Boolean,
+      name: String,
+      size: String,
+      trueValue: {
+        type: [String, Number, Boolean, Function, Object, Array, Symbol],
+        default: true
+      },
+      falseValue: {
+        type: [String, Number, Boolean, Function, Object, Array, Symbol],
+        default: false
+      }
+
+    };
   },
 
 
@@ -45015,7 +45025,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
-
                 window.location = "/dashboard";
             }).catch(function (error) {
 
@@ -45323,7 +45332,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.post('register', { name: this.user.name, email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
-
                 window.location = "/dashboard";
             }).catch(function (error) {
                 var errorData = error.response.data;
@@ -45647,49 +45655,29 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "column is-6 is-offset-3" }, [
-          _c(
-            "div",
-            { staticClass: "card" },
-            [_c("addTaskModal"), _vm._v(" "), _vm._m(0)],
-            1
-          )
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-content" }, [
+              _c(
+                "div",
+                { staticClass: "has-text-centered" },
+                [_c("addTaskModal")],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-content" },
+              [_c("tiles", { attrs: { searchList: _vm.searchList } })],
+              1
+            )
+          ])
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-content" }, [
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")]),
-      _vm._v(" "),
-      _c("p", [_vm._v("Test")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

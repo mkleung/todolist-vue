@@ -98,8 +98,8 @@
                     .then((response)=>{
                         this.isComponentModalActive = false;
                         this.$parent.userLogin = true;
+                        window.location = "/dashboard";
                        
-                       window.location = "/dashboard";
                     })
                     .catch((error) => {
                         var errorData = error.response.data;

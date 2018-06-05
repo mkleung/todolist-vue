@@ -76,6 +76,22 @@ export default {
   props: ["searchList"],
   data() {
     return {
+      deleting: false,
+      editing: false,
+      value: [String, Number, Boolean, Function, Object, Array, Symbol],
+            nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
+            disabled: Boolean,
+            name: String,
+            size: String,
+            trueValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: true
+            },
+            falseValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: false
+            }
+
     }
   },
 
