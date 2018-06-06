@@ -29,7 +29,7 @@
             
               <!-- Edit -->
               <span>
-                     <!-- <b-tooltip label="Edit"
+                    <b-tooltip label="Edit"
                         position="is-bottom">
                         <a v-if="editing != item.id" @click='toggleEdit(item)'>
                           <i class="fa fa-pencil todoTitle__icon"></i>
@@ -43,10 +43,10 @@
                       <a @click="editing = false">
                         <i class="fa fa-times todoTitle__icon todoTitle__icon--red"></i>
                       </a>
-                    </span> -->
+                    </span>
 
                     <!-- Delete -->
-                    <!-- <b-tooltip label="Delete"
+                    <b-tooltip label="Delete"
                         position="is-bottom">
                         <a  v-if="deleting != item.id" @click="toggleDelete(item)">
                           <i class="fa fa-trash todoTitle__icon"></i>
@@ -60,7 +60,7 @@
                         <a @click="deleting = false">
                           <i class="fa fa-times todoTitle__icon todoTitle__icon--red"></i>
                         </a>
-                    </span> -->
+                    </span> 
 
                 </span>
 
@@ -96,37 +96,37 @@ export default {
   },
 
   methods: {
-    // toggleTask: function(item) {
-    //     console.log("toggle task");
-    //     axios.post('toggleTask', item)
-    //       .then((response)=> {
+    toggleTask: function(item) {
+        console.log("toggle task");
+        axios.post('toggleTask', item)
+          .then((response)=> {
            
-    //       })
-    //       .catch((error) => this.errors = error.response.data);
-    // },
-    // toggleEdit: function (item) {
-    //     this.editing = item.id;
-    // },
-    // toggleDelete: function (item) {
-    //      this.deleting = item.id;
-    // },
-    // updateTask(item, id){
-    //     axios.patch(`task/${id}`, item)
-    //       .then((response)=> {
-    //           this.editing = false;
+          })
+          .catch((error) => this.errors = error.response.data);
+    },
+    toggleEdit: function (item) {
+        this.editing = item.id;
+    },
+    toggleDelete: function (item) {
+         this.deleting = item.id;
+    },
+    updateTask(item, id){
+        axios.patch(`task/${id}`, item)
+          .then((response)=> {
+              this.editing = false;
 
-    //       })
-    //       .catch((error) => this.errors = error.response.data);
-    // },
-    // deleteTask(key, item){
-    //       axios.delete(`task/${item.id}`)
-    //           .then((response)=> {
-    //               this.$parent.searchList = this.$parent.searchList.filter(function(e) { return e !== item })
-    //               this.$parent.titleList = this.$parent.titleList.filter(function(e) { return e !== item.title })
-    //               this.$parent.list = this.$parent.list.filter(function(e) { return e !== item })
-    //           })
-    //           .catch((error) => this.errors = error.response.data);
-    // },
+          })
+          .catch((error) => this.errors = error.response.data);
+    },
+    deleteTask(key, item){
+          axios.delete(`task/${item.id}`)
+              .then((response)=> {
+                  this.$parent.searchList = this.$parent.searchList.filter(function(e) { return e !== item })
+                  this.$parent.titleList = this.$parent.titleList.filter(function(e) { return e !== item.title })
+                  this.$parent.list = this.$parent.list.filter(function(e) { return e !== item })
+              })
+              .catch((error) => this.errors = error.response.data);
+    },
   }
 }
 </script>

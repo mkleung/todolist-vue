@@ -44231,30 +44231,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 var tiles = __webpack_require__(50);
 var addTaskModal = __webpack_require__(53);
+var search = __webpack_require__(79);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    components: { tiles: tiles, addTaskModal: addTaskModal },
+    components: { tiles: tiles, addTaskModal: addTaskModal, search: search },
     data: function data() {
         return {
             list: [],
             searchList: [],
             titleList: [],
-
             data: this.titleList,
             searchQuery: '',
             selected: null
@@ -44275,36 +44263,37 @@ var addTaskModal = __webpack_require__(53);
     },
     watch: {
         searchQuery: function searchQuery() {
-            //    if (this.searchQuery.length > 0) {
-            //         this.searchList = this.list.filter((item) => {
-            //             return item.title.toLowerCase().indexOf(this.searchQuery.toLowerCase()) > -1;
-            //         });
-            //     }
-            //     else {
-            //          this.searchList = this.list;
-            //     }
+            var _this2 = this;
+
+            if (this.searchQuery.length > 0) {
+                this.searchList = this.list.filter(function (item) {
+                    return item.title.toLowerCase().indexOf(_this2.searchQuery.toLowerCase()) > -1;
+                });
+            } else {
+                this.searchList = this.list;
+            }
         }
     },
 
     methods: {
         init: function init() {
-            var _this2 = this;
+            var _this3 = this;
 
             axios.get('getTasks').then(function (response) {
                 console.log(response);
                 if (response.data == "invalid") {
-                    _this2.$router.replace('/');
+                    _this3.$router.replace('/');
                 } else {
                     var taskList = response.data;
-                    _this2.list = response.data;
-                    _this2.searchList = response.data;
+                    _this3.list = response.data;
+                    _this3.searchList = response.data;
 
                     for (var i = 0; i < taskList.length; i++) {
-                        _this2.titleList.push(taskList[i].title);
+                        _this3.titleList.push(taskList[i].title);
                     }
                 }
             }).catch(function (error) {
-                return _this2.errors = error.response.data;
+                return _this3.errors = error.response.data;
             });
         }
     }
@@ -44438,62 +44427,71 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["searchList"],
-  data: function data() {
-    return {
-      deleting: false,
-      editing: false,
-      value: [String, Number, Boolean, Function, Object, Array, Symbol],
-      nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
-      disabled: Boolean,
-      name: String,
-      size: String,
-      trueValue: {
-        type: [String, Number, Boolean, Function, Object, Array, Symbol],
-        default: true
-      },
-      falseValue: {
-        type: [String, Number, Boolean, Function, Object, Array, Symbol],
-        default: false
-      }
+    props: ["searchList"],
+    data: function data() {
+        return {
+            deleting: false,
+            editing: false,
+            value: [String, Number, Boolean, Function, Object, Array, Symbol],
+            nativeValue: [String, Number, Boolean, Function, Object, Array, Symbol],
+            disabled: Boolean,
+            name: String,
+            size: String,
+            trueValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: true
+            },
+            falseValue: {
+                type: [String, Number, Boolean, Function, Object, Array, Symbol],
+                default: false
+            }
 
-    };
-  },
+        };
+    },
 
 
-  methods: {
-    // toggleTask: function(item) {
-    //     console.log("toggle task");
-    //     axios.post('toggleTask', item)
-    //       .then((response)=> {
+    methods: {
+        toggleTask: function toggleTask(item) {
+            var _this = this;
 
-    //       })
-    //       .catch((error) => this.errors = error.response.data);
-    // },
-    // toggleEdit: function (item) {
-    //     this.editing = item.id;
-    // },
-    // toggleDelete: function (item) {
-    //      this.deleting = item.id;
-    // },
-    // updateTask(item, id){
-    //     axios.patch(`task/${id}`, item)
-    //       .then((response)=> {
-    //           this.editing = false;
+            console.log("toggle task");
+            axios.post('toggleTask', item).then(function (response) {}).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
+        },
+        toggleEdit: function toggleEdit(item) {
+            this.editing = item.id;
+        },
+        toggleDelete: function toggleDelete(item) {
+            this.deleting = item.id;
+        },
+        updateTask: function updateTask(item, id) {
+            var _this2 = this;
 
-    //       })
-    //       .catch((error) => this.errors = error.response.data);
-    // },
-    // deleteTask(key, item){
-    //       axios.delete(`task/${item.id}`)
-    //           .then((response)=> {
-    //               this.$parent.searchList = this.$parent.searchList.filter(function(e) { return e !== item })
-    //               this.$parent.titleList = this.$parent.titleList.filter(function(e) { return e !== item.title })
-    //               this.$parent.list = this.$parent.list.filter(function(e) { return e !== item })
-    //           })
-    //           .catch((error) => this.errors = error.response.data);
-    // },
-  }
+            axios.patch("task/" + id, item).then(function (response) {
+                _this2.editing = false;
+            }).catch(function (error) {
+                return _this2.errors = error.response.data;
+            });
+        },
+        deleteTask: function deleteTask(key, item) {
+            var _this3 = this;
+
+            axios.delete("task/" + item.id).then(function (response) {
+                _this3.$parent.searchList = _this3.$parent.searchList.filter(function (e) {
+                    return e !== item;
+                });
+                _this3.$parent.titleList = _this3.$parent.titleList.filter(function (e) {
+                    return e !== item.title;
+                });
+                _this3.$parent.list = _this3.$parent.list.filter(function (e) {
+                    return e !== item;
+                });
+            }).catch(function (error) {
+                return _this3.errors = error.response.data;
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -44622,7 +44620,135 @@ var render = function() {
                   ]
                 ),
                 _vm._v(" "),
-                _c("span")
+                _c(
+                  "span",
+                  [
+                    _c(
+                      "b-tooltip",
+                      { attrs: { label: "Edit", position: "is-bottom" } },
+                      [
+                        _vm.editing != item.id
+                          ? _c(
+                              "a",
+                              {
+                                on: {
+                                  click: function($event) {
+                                    _vm.toggleEdit(item)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-pencil todoTitle__icon"
+                                })
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.editing == item.id
+                      ? _c("span", [
+                          _c(
+                            "a",
+                            {
+                              on: {
+                                click: function($event) {
+                                  _vm.updateTask(item, index)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "fa fa-check todoTitle__icon todoTitle__icon--green"
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              on: {
+                                click: function($event) {
+                                  _vm.editing = false
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "fa fa-times todoTitle__icon todoTitle__icon--red"
+                              })
+                            ]
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c(
+                      "b-tooltip",
+                      { attrs: { label: "Delete", position: "is-bottom" } },
+                      [
+                        _vm.deleting != item.id
+                          ? _c(
+                              "a",
+                              {
+                                on: {
+                                  click: function($event) {
+                                    _vm.toggleDelete(item)
+                                  }
+                                }
+                              },
+                              [
+                                _c("i", {
+                                  staticClass: "fa fa-trash todoTitle__icon"
+                                })
+                              ]
+                            )
+                          : _vm._e()
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.deleting == item.id
+                      ? _c("span", [
+                          _c(
+                            "a",
+                            {
+                              on: {
+                                click: function($event) {
+                                  _vm.deleteTask(index, item)
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "fa fa-check todoTitle__icon todoTitle__icon--green"
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "a",
+                            {
+                              on: {
+                                click: function($event) {
+                                  _vm.deleting = false
+                                }
+                              }
+                            },
+                            [
+                              _c("i", {
+                                staticClass:
+                                  "fa fa-times todoTitle__icon todoTitle__icon--red"
+                              })
+                            ]
+                          )
+                        ])
+                      : _vm._e()
+                  ],
+                  1
+                )
               ])
             ])
           ]
@@ -44989,17 +45115,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45013,7 +45128,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
 
-
     methods: {
         login: function login() {
             var _this = this;
@@ -45021,7 +45135,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (this.user.password == "") {
                 this.error = "Invalid Password";
             }
-
             axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
                 _this.isComponentModalActive = false;
                 _this.$parent.userLogin = true;
@@ -45113,10 +45226,6 @@ var render = function() {
                       _vm._v(" "),
                       _c("span", { staticClass: "icon is-small is-left" }, [
                         _c("i", { staticClass: "fas fa-envelope" })
-                      ]),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "icon is-small is-right" }, [
-                        _c("i", { staticClass: "fas fa-check" })
                       ])
                     ]
                   )
@@ -45230,16 +45339,6 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -45527,9 +45626,9 @@ var render = function() {
                     _vm._l(_vm.errors, function(error) {
                       return _c("li", { key: error.id }, [
                         _vm._v(
-                          "\n                                 " +
+                          "\n                            " +
                             _vm._s(error) +
-                            "\n                             "
+                            "\n                        "
                         )
                       ])
                     })
@@ -45660,7 +45759,7 @@ var render = function() {
               _c(
                 "div",
                 { staticClass: "has-text-centered" },
-                [_c("addTaskModal")],
+                [_c("addTaskModal"), _vm._v(" "), _c("search")],
                 1
               )
             ]),
@@ -46170,6 +46269,167 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(80)
+/* template */
+var __vue_template__ = __webpack_require__(81)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SearchTask.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4343da44", Component.options)
+  } else {
+    hotAPI.reload("data-v-4343da44", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 80 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["searchList"],
+    data: function data() {
+        return {
+            data: this.searchList,
+            nsearchQueryame: '',
+            selected: null
+        };
+    },
+
+    computed: {
+        filteredDataArray: function filteredDataArray() {
+            var _this = this;
+
+            return this.data.filter(function (option) {
+                return option.toString().toLowerCase().indexOf(_this.searchQuery.toLowerCase()) >= 0;
+            });
+        }
+    }
+});
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "section",
+    [
+      _c("p", { staticClass: "content" }, [
+        _c("b", [_vm._v("Selected:")]),
+        _vm._v(" " + _vm._s(_vm.selected))
+      ]),
+      _vm._v(" "),
+      _c(
+        "b-field",
+        [
+          _c(
+            "b-autocomplete",
+            {
+              attrs: {
+                rounded: "",
+                data: _vm.filteredDataArray,
+                placeholder: "Search for a task",
+                icon: "magnify"
+              },
+              on: {
+                select: function(option) {
+                  return (_vm.selected = option)
+                }
+              },
+              model: {
+                value: _vm.searchQuery,
+                callback: function($$v) {
+                  _vm.searchQuery = $$v
+                },
+                expression: "searchQuery"
+              }
+            },
+            [_c("template", { slot: "empty" }, [_vm._v("No results found")])],
+            2
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4343da44", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
