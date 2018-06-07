@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="field no-margin-left">
-                            <span class="message is-danger"  v-if="error.length">{{error}}</span>
+                            <span class="message"  v-if="error.length">{{error}}</span>
                              <span  v-else>&nbsp;</span>
                         </div>
                     </section>

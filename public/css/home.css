@@ -7,7 +7,10 @@ body {
     margin-left: 0!important;
 }
 
-
+.message {
+    background: transparent!important;
+    color: #00d1b2;
+}
 
 .todoTitle__title {
     display: flex;
@@ -81,6 +84,7 @@ body {
 
 .modal-card-foot {
     justify-content: flex-end!important;
+    border: none!important;
 }
 
 
