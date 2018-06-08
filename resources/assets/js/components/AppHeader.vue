@@ -29,6 +29,21 @@
               </p>
         </div>
 
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="/documentation/overview/start/">
+          Profile
+        </a>
+        <div class="navbar-dropdown is-boxed">
+          <a class="navbar-item" href="/documentation/overview/start/">
+            Settings
+          </a>
+          <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+            Logout
+          </a>
+        </div>
+      </div>
+
+
       </div>
       </div>
     </div>

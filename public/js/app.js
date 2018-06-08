@@ -46177,6 +46177,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var login = __webpack_require__(11);
 var register = __webpack_require__(12);
@@ -46289,14 +46304,52 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("p", { staticClass: "control" }, [_c("login")], 1)
-                ])
+                ]),
+            _vm._v(" "),
+            _vm._m(0)
           ])
         ])
       ]
     )
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "navbar-item has-dropdown is-hoverable" }, [
+      _c(
+        "a",
+        {
+          staticClass: "navbar-link",
+          attrs: { href: "/documentation/overview/start/" }
+        },
+        [_vm._v("\n        Profile\n      ")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "navbar-dropdown is-boxed" }, [
+        _c(
+          "a",
+          {
+            staticClass: "navbar-item",
+            attrs: { href: "/documentation/overview/start/" }
+          },
+          [_vm._v("\n          Settings\n        ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "navbar-item",
+            attrs: { href: "https://bulma.io/documentation/modifiers/syntax/" }
+          },
+          [_vm._v("\n          Logout\n        ")]
+        )
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
