@@ -14,10 +14,27 @@
     <div id="mainNav" class="navbar-menu" :class="{'is-active': navIsActive}">
       <div class="navbar-end">
         <div class="navbar-item">
+        
         <div class="field is-grouped" v-if="userLogin">
-            <p class="control">
+            <!-- <p class="control">
                 <button class="button is-info" @click="logoutUser">Logout</button>
-            </p>
+            </p> -->
+
+             <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="/documentation/overview/start/">
+                  Profile
+                </a>
+                <div class="navbar-dropdown is-boxed">
+                  <a class="navbar-item" >
+                    Settings
+                  </a>
+                  <a class="navbar-item"  @click="logoutUser">
+                    Logout
+                  </a>
+                </div>
+              </div>
+
+
         </div>
         
         <div  class="field is-grouped" v-else>
@@ -29,20 +46,7 @@
               </p>
         </div>
 
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link" href="/documentation/overview/start/">
-          Profile
-        </a>
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="/documentation/overview/start/">
-            Settings
-          </a>
-          <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
-            Logout
-          </a>
-        </div>
-      </div>
-
+     
 
       </div>
       </div>
