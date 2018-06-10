@@ -46186,16 +46186,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var login = __webpack_require__(11);
 var register = __webpack_require__(12);
@@ -46285,56 +46275,41 @@ var render = function() {
       },
       [
         _c("div", { staticClass: "navbar-end" }, [
-          _c("div", { staticClass: "navbar-item" }, [
-            _vm.userLogin
-              ? _c("div", { staticClass: "field is-grouped" }, [
-                  _c(
-                    "div",
-                    { staticClass: "navbar-item has-dropdown is-hoverable" },
-                    [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "navbar-link",
-                          attrs: { href: "/documentation/overview/start/" }
-                        },
-                        [_vm._v("\n                Profile\n              ")]
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "navbar-dropdown is-boxed" }, [
-                        _c("a", { staticClass: "navbar-item" }, [
-                          _vm._v(
-                            "\n                  Settings\n                "
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "a",
-                          {
-                            staticClass: "navbar-item",
-                            on: { click: _vm.logoutUser }
-                          },
-                          [
-                            _vm._v(
-                              "\n                  Logout\n                "
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                ])
-              : _c("div", { staticClass: "field is-grouped" }, [
-                  _c(
-                    "p",
-                    { staticClass: "control" },
-                    [_c("register", { attrs: { welcome: _vm.welcome } })],
-                    1
-                  ),
+          _vm.userLogin
+            ? _c(
+                "div",
+                { staticClass: "navbar-item has-dropdown is-hoverable" },
+                [
+                  _c("a", { staticClass: "navbar-link" }, [
+                    _vm._v("\n            Profile\n          ")
+                  ]),
                   _vm._v(" "),
-                  _c("p", { staticClass: "control" }, [_c("login")], 1)
-                ])
-          ])
+                  _c("div", { staticClass: "navbar-dropdown" }, [
+                    _c("a", { staticClass: "navbar-item" }, [
+                      _vm._v("\n              Settings\n            ")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "navbar-item",
+                        on: { click: _vm.logoutUser }
+                      },
+                      [_vm._v("\n              Logout\n            ")]
+                    )
+                  ])
+                ]
+              )
+            : _c("div", { staticClass: "field is-grouped" }, [
+                _c(
+                  "p",
+                  { staticClass: "control" },
+                  [_c("register", { attrs: { welcome: _vm.welcome } })],
+                  1
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "control" }, [_c("login")], 1)
+              ])
         ])
       ]
     )
