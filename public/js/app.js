@@ -45401,13 +45401,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
-var loginVue = __webpack_require__(11);
+var login = __webpack_require__(11);
 var register = __webpack_require__(12);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: { register: register, loginVue: loginVue },
+  components: { register: register, login: login },
   data: function data() {
     return {
       userLogin: false,
@@ -46054,7 +46063,7 @@ var render = function() {
         _c("div", { staticClass: "container" }, [
           _c(
             "div",
-            { staticClass: "column is-6 is-offset-3 has-text-centered " },
+            { staticClass: "column is-4 is-offset-4 has-text-centered " },
             [
               _c("h1", { staticClass: "title" }, [
                 _vm._v(
@@ -46068,9 +46077,17 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("register", { attrs: { welcome: _vm.welcome } })
-            ],
-            1
+              _c("div", { staticClass: "columns is-mobile" }, [
+                _c(
+                  "div",
+                  { staticClass: "column" },
+                  [_c("register", { attrs: { welcome: _vm.welcome } })],
+                  1
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "column" }, [_c("login")], 1)
+              ])
+            ]
           )
         ])
       ])
@@ -46140,15 +46157,6 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -46300,16 +46308,7 @@ var render = function() {
                   ])
                 ]
               )
-            : _c("div", { staticClass: "field is-grouped" }, [
-                _c(
-                  "p",
-                  { staticClass: "control" },
-                  [_c("register", { attrs: { welcome: _vm.welcome } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c("p", { staticClass: "control" }, [_c("login")], 1)
-              ])
+            : _vm._e()
         ])
       ]
     )

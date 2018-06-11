@@ -29,16 +29,7 @@
             </div>
           </div>
         
-          <!-- logged out -->
-          <div  class="field is-grouped" v-else>
-                <p class="control">
-                    <register :welcome="welcome"></register>
-                </p>
-                <p class="control">
-                    <login></login>
-                </p>
-          </div>
-
+        
       </div>
     </div>
   </nav>
