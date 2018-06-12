@@ -19,6 +19,7 @@ Vue.use(Buefy)
 Vue.use(VueRouter)
 
 let dashboard = require('./components/Dashboard.vue');
+let myProfile = require('./components/Profile.vue');
 let addTask = require('./components/AddTask.vue');
 
 let welcome  = require('./components/Welcome.vue');
@@ -28,7 +29,8 @@ let appfooter = require('./components/AppFooter.vue');
 
 const routes = [
   { path: '/', component: welcome },
-  { path: '/dashboard', component: dashboard }
+  { path: '/dashboard', component: dashboard },
+  { path: '/profile', component: myProfile }
 ]
 const router = new VueRouter({
   mode: 'history',
@@ -39,5 +41,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    components:{appheader, dashboard, addTask, appfooter}
+    components:{appheader, dashboard, addTask, appfooter, myProfile}
 });

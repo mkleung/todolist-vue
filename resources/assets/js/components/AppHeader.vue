@@ -20,9 +20,8 @@
               Profile
             </a>
             <div class="navbar-dropdown">
-              <a class="navbar-item">
-                Settings
-              </a>
+             
+              <router-link class="navbar-item" to="/profile">Profile</router-link>
               <a class="navbar-item" @click="logoutUser">
                 Logout
               </a>

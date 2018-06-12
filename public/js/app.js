@@ -12169,6 +12169,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_buef
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 var dashboard = __webpack_require__(47);
+var myProfile = __webpack_require__(82);
 var addTask = __webpack_require__(59);
 
 var welcome = __webpack_require__(62);
@@ -12176,7 +12177,7 @@ var welcome = __webpack_require__(62);
 var appheader = __webpack_require__(69);
 var appfooter = __webpack_require__(72);
 
-var routes = [{ path: '/', component: welcome }, { path: '/dashboard', component: dashboard }];
+var routes = [{ path: '/', component: welcome }, { path: '/dashboard', component: dashboard }, { path: '/profile', component: myProfile }];
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   mode: 'history',
   routes: routes
@@ -12186,7 +12187,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
   router: router,
-  components: { appheader: appheader, dashboard: dashboard, addTask: addTask, appfooter: appfooter }
+  components: { appheader: appheader, dashboard: dashboard, addTask: addTask, appfooter: appfooter, myProfile: myProfile }
 });
 
 /***/ }),
@@ -46193,7 +46194,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 var login = __webpack_require__(11);
 var register = __webpack_require__(12);
@@ -46292,20 +46292,30 @@ var render = function() {
                     _vm._v("\n            Profile\n          ")
                   ]),
                   _vm._v(" "),
-                  _c("div", { staticClass: "navbar-dropdown" }, [
-                    _c("a", { staticClass: "navbar-item" }, [
-                      _vm._v("\n              Settings\n            ")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "navbar-item",
-                        on: { click: _vm.logoutUser }
-                      },
-                      [_vm._v("\n              Logout\n            ")]
-                    )
-                  ])
+                  _c(
+                    "div",
+                    { staticClass: "navbar-dropdown" },
+                    [
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "navbar-item",
+                          attrs: { to: "/profile" }
+                        },
+                        [_vm._v("Profile")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "a",
+                        {
+                          staticClass: "navbar-item",
+                          on: { click: _vm.logoutUser }
+                        },
+                        [_vm._v("\n              Logout\n            ")]
+                      )
+                    ],
+                    1
+                  )
                 ]
               )
             : _vm._e()
@@ -46441,6 +46451,125 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(83)
+/* template */
+var __vue_template__ = __webpack_require__(84)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Profile.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4bdda942", Component.options)
+  } else {
+    hotAPI.reload("data-v-4bdda942", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 83 */
+/***/ (function(module, exports) {
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/***/ }),
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "hero is-primary is-bold" }, [
+      _c("div", { staticClass: "hero-body" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "column is-6 is-offset-3" }, [
+            _c("h1", { staticClass: "title has-text-centered" }, [
+              _vm._v("My Profile")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-6 is-offset-3" }, [
+              _c("div", { staticClass: "card" }, [
+                _vm._v("\n                        Email\n                    ")
+              ])
+            ])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4bdda942", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
