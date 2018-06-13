@@ -46194,6 +46194,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 var login = __webpack_require__(11);
 var register = __webpack_require__(12);
@@ -46300,6 +46304,15 @@ var render = function() {
                         "router-link",
                         {
                           staticClass: "navbar-item",
+                          attrs: { to: "/dashboard" }
+                        },
+                        [_vm._v("Dashboard")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "router-link",
+                        {
+                          staticClass: "navbar-item",
                           attrs: { to: "/profile" }
                         },
                         [_vm._v("Profile")]
@@ -46318,7 +46331,7 @@ var render = function() {
                   )
                 ]
               )
-            : _vm._e()
+            : _c("div", { staticClass: "navbar-item " }, [_c("login")], 1)
         ])
       ]
     )

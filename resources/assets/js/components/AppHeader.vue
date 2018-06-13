@@ -20,14 +20,18 @@
               Profile
             </a>
             <div class="navbar-dropdown">
-             
+              <router-link class="navbar-item" to="/dashboard">Dashboard</router-link>
               <router-link class="navbar-item" to="/profile">Profile</router-link>
               <a class="navbar-item" @click="logoutUser">
                 Logout
               </a>
             </div>
-          </div>
-        
+        </div>
+
+        <!-- Logged out -->
+         <div class="navbar-item " v-else>
+            <login></login>
+        </div>
         
       </div>
     </div>
