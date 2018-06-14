@@ -13,14 +13,7 @@
                         To Do List over coffee
                     </h2>
 
-                    <div class="columns is-mobile">
-                        <div class="column">
-                            <register :welcome="welcome"></register>
-                        </div>
-                        <div class="column">
-                            <login></login>
-                        </div>
-                    </div>
+                    <register :welcome="welcome"></register>
                     
                 </div>
             </div>

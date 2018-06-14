@@ -45404,13 +45404,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 
 var login = __webpack_require__(11);
@@ -46078,17 +46071,9 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "columns is-mobile" }, [
-                _c(
-                  "div",
-                  { staticClass: "column" },
-                  [_c("register", { attrs: { welcome: _vm.welcome } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "column" }, [_c("login")], 1)
-              ])
-            ]
+              _c("register", { attrs: { welcome: _vm.welcome } })
+            ],
+            1
           )
         ])
       ])
