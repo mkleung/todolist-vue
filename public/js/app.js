@@ -46525,6 +46525,29 @@ module.exports = Component.exports
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /***/ }),
 /* 84 */
@@ -46551,7 +46574,51 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "column is-6 is-offset-3" }, [
               _c("div", { staticClass: "card" }, [
-                _vm._v("\n                        Email\n                    ")
+                _c("div", { staticClass: "card-content" }, [
+                  _c("div", { staticClass: "field" }, [
+                    _c("label", { staticClass: "label" }, [_vm._v("Email")]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "control" }, [
+                      _c("input", {
+                        staticClass: "input",
+                        attrs: { type: "text", placeholder: "Email" }
+                      })
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "field" }, [
+                    _c("label", { staticClass: "label" }, [_vm._v("Password")]),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "control has-icons-left has-icons-right" },
+                      [
+                        _c("input", {
+                          staticClass: "input is-danger",
+                          attrs: {
+                            type: "password",
+                            placeholder: "Password",
+                            value: ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon is-small is-left" }, [
+                          _c("i", { staticClass: "fas fa-envelope" })
+                        ]),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "icon is-small is-right" }, [
+                          _c("i", {
+                            staticClass: "fas fa-exclamation-triangle"
+                          })
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c("p", { staticClass: "help is-danger" }, [
+                      _vm._v("This password is invalid")
+                    ])
+                  ])
+                ])
               ])
             ])
           ])

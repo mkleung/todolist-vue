@@ -6,7 +6,30 @@
                     <h1 class="title has-text-centered">My Profile</h1>
                     <div class="column is-6 is-offset-3">
                         <div class="card">
-                            Email
+                            <div class="card-content">
+
+                                <div class="field">
+                                    <label class="label">Email</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Email">
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label class="label">Password</label>
+                                    <div class="control has-icons-left has-icons-right">
+                                        <input class="input is-danger" type="password" placeholder="Password" value="">
+                                        <span class="icon is-small is-left">
+                                        <i class="fas fa-envelope"></i>
+                                        </span>
+                                        <span class="icon is-small is-right">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        </span>
+                                    </div>
+                                    <p class="help is-danger">This password is invalid</p>
+                                    </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
