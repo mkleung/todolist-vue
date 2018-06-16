@@ -44185,6 +44185,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 var tiles = __webpack_require__(49);
 var addTaskModal = __webpack_require__(52);
@@ -46559,6 +46560,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -46583,27 +46587,35 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "column is-6 is-offset-3" }, [
           _c("h1", { staticClass: "title has-text-centered" }, [
-            _vm._v("My Profile")
+            _vm._v("Settings")
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "column is-6 is-offset-3" }, [
-            _c("div", { staticClass: "card" }, [
-              _c("div", { staticClass: "card-content" }, [
-                _vm._m(0),
-                _vm._v(" "),
-                _vm._m(1),
-                _vm._v(" "),
-                _vm._m(2),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "button is-primary",
-                    on: { click: _vm.update }
-                  },
-                  [_vm._v("Update")]
-                )
-              ])
+          _c("div", { staticClass: " has-text-centered" }, [
+            _vm._v(
+              _vm._s(new Date().getMonth()) +
+                "/" +
+                _vm._s(new Date().getDate()) +
+                "/" +
+                _vm._s(new Date().getFullYear()) +
+                " "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "column is-6 is-offset-3" }, [
+          _c("div", { staticClass: "card" }, [
+            _c("div", { staticClass: "card-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _vm._m(2),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "button is-primary", on: { click: _vm.update } },
+                [_vm._v("Update")]
+              )
             ])
           ])
         ])

@@ -7,6 +7,10 @@ body {
     margin-left: 0!important;
 }
 
+.title {
+    margin-top: 20px;
+}
+
 .message {
     background: transparent!important;
     color: #00d1b2;
