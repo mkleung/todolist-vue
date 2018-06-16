@@ -45129,7 +45129,7 @@ var render = function() {
     _c("div", { staticClass: "hero-body" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "column is-6 is-offset-3" }, [
-          _c("h1", { staticClass: "title has-text-centered" }, [
+          _c("h1", { staticClass: "title has-text-centered margin-top-20" }, [
             _vm._v("My Tasks")
           ]),
           _vm._v(" "),
@@ -46586,7 +46586,7 @@ var render = function() {
     _c("div", { staticClass: "hero-body" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "column is-6 is-offset-3" }, [
-          _c("h1", { staticClass: "title has-text-centered" }, [
+          _c("h1", { staticClass: "title has-text-centered margin-top-20" }, [
             _vm._v("Settings")
           ]),
           _vm._v(" "),
