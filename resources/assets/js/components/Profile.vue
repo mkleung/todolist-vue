@@ -9,6 +9,13 @@
                             <div class="card-content">
 
                                 <div class="field">
+                                    <label class="label">Name</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Name">
+                                    </div>
+                                </div>
+
+                                <div class="field">
                                     <label class="label">Email</label>
                                     <div class="control">
                                         <input class="input" type="text" placeholder="Email">
@@ -27,7 +34,9 @@
                                         </span>
                                     </div>
                                     <p class="help is-danger">This password is invalid</p>
-                                    </div>
+                                </div>
+                                <button class="button is-primary" @click="update">Update</button>
+                    
                             </div>
 
                         </div>
@@ -39,6 +48,16 @@
 </template>
 
 <script>
-   
+    export default {
+        data() {
+            return {
+
+            }
+        },
+         methods: {
+            update() {
+            }
+         }
+    }
     
 </script>
