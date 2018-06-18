@@ -9,7 +9,7 @@
         </button>
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
             <div class="modal-card" style="min-width: 480px;">
-                <header class="modal-card-head">
+                <header class="modal-card-head modal-card-head-register">
                     <p class="modal-card-title">Register</p>
                 </header>
                 <section class="modal-card-body">       

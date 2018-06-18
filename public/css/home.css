@@ -79,7 +79,15 @@ body {
 
 .modal-card-head  {
     justify-content: flex-end!important;
-    background-color: #7957d5!important;
+    
+}
+
+.modal-card-head-login {
+    background-color: #167df0!important;
+}
+
+.modal-card-head-register {
+    background-color: #23d160!important;
 }
 
 .modal-card-title {

@@ -11,7 +11,7 @@
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
            
                 <div class="modal-card" style="min-width: 480px;">
-                    <header class="modal-card-head">
+                    <header class="modal-card-head modal-card-head-login">
                         <p class="modal-card-title">Login</p>
                     </header>
                     <section class="modal-card-body">
