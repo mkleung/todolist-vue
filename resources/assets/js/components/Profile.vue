@@ -58,8 +58,19 @@
 
             }
         },
+         mounted(){
+            this.init()
+        },
          methods: {
             update() {
+            },
+            init(){
+                axios.get('getProfile')
+                    .then((response)=>{
+                     console.log(response);
+                            
+                    })
+                    .catch((error) => this.errors = error.response.data);
             }
          }
     }

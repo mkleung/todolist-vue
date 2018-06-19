@@ -45288,9 +45288,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {};
     },
+    mounted: function mounted() {
+        this.init();
+    },
 
     methods: {
-        update: function update() {}
+        update: function update() {},
+        init: function init() {
+            var _this = this;
+
+            axios.get('getProfile').then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                return _this.errors = error.response.data;
+            });
+        }
     }
 });
 
