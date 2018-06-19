@@ -32,7 +32,7 @@ Route::get('/sessionStatus', function() {
     return ['user' => Auth::user() ? Auth::user() : null];
 });
 
-Route::get('logoutUser', 'TaskController@logoutUser');
+Route::get('logoutUser', 'UserController@logoutUser');
 
 
 Route::get('/{vue_capture?}', function () {

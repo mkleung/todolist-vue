@@ -122,8 +122,5 @@ class TaskController extends Controller
     }
 
 
-    public function logoutUser(Request $request){
-        Auth::logout();
-         return view('welcome');
-    }
+
 }
