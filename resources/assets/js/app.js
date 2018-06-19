@@ -20,7 +20,7 @@ Vue.use(VueRouter)
 
 let dashboard = require('./components/Dashboard.vue');
 let myProfile = require('./components/Profile.vue');
-let addTask = require('./components/AddTask.vue');
+
 
 let welcome  = require('./components/Welcome.vue');
 
@@ -41,5 +41,5 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router,
-    components:{appheader, dashboard, addTask, appfooter, myProfile}
+    components:{appheader, dashboard, appfooter, myProfile}
 });

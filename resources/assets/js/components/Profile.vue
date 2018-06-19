@@ -3,7 +3,7 @@
         <div class="hero-body">
             <div class="container">
                 <div class="column is-6 is-offset-3">
-                        <h1 class="title has-text-centered margin-top-20">Settings</h1>
+                        <h1 class="title has-text-centered margin-top-20">My Profile</h1>
                         <div class=" has-text-centered">{{ new Date().getMonth() }}/{{ new Date().getDate() }}/{{ new Date().getFullYear() }} </div>
                 </div>
 

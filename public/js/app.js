@@ -12170,7 +12170,6 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 
 var dashboard = __webpack_require__(47);
 var myProfile = __webpack_require__(59);
-var addTask = __webpack_require__(62);
 
 var welcome = __webpack_require__(65);
 
@@ -12187,7 +12186,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app',
   router: router,
-  components: { appheader: appheader, dashboard: dashboard, addTask: addTask, appfooter: appfooter, myProfile: myProfile }
+  components: { appheader: appheader, dashboard: dashboard, appfooter: appfooter, myProfile: myProfile }
 });
 
 /***/ }),
@@ -45308,7 +45307,7 @@ var render = function() {
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "column is-6 is-offset-3" }, [
           _c("h1", { staticClass: "title has-text-centered margin-top-20" }, [
-            _vm._v("Settings")
+            _vm._v("My Profile")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: " has-text-centered" }, [
@@ -45418,153 +45417,9 @@ if (false) {
 }
 
 /***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(63)
-/* template */
-var __vue_template__ = __webpack_require__(64)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/AddTask.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-227c9a42", Component.options)
-  } else {
-    hotAPI.reload("data-v-227c9a42", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      task: {
-        title: ''
-      },
-      time: new Date()
-    };
-  },
-
-  methods: {
-    addTask: function addTask() {
-      var _this = this;
-
-      if (this.$data.task.title !== "") {
-        axios.post('task', this.$data.task).then(function (response) {
-          _this.$parent.searchList.unshift(response.data);
-          _this.$data.task.title = "";
-
-          _this.$parent.titleList.push(response.data.title);
-        }).catch(function (error) {
-          return _this.errors = error.response.data;
-        });
-      }
-    }
-  }
-});
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "field is-grouped" }, [
-    _c("p", { staticClass: "control is-expanded" }, [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.task.title,
-            expression: "task.title"
-          }
-        ],
-        staticClass: "input",
-        attrs: { type: "text", placeholder: "Add a task" },
-        domProps: { value: _vm.task.title },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.$set(_vm.task, "title", $event.target.value)
-          }
-        }
-      })
-    ]),
-    _vm._v(" "),
-    _c("p", { staticClass: "control" }, [
-      _c(
-        "button",
-        { staticClass: "button is-info", on: { click: _vm.addTask } },
-        [_vm._v("\n            SAVE\n        ")]
-      )
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-227c9a42", module.exports)
-  }
-}
-
-/***/ }),
+/* 62 */,
+/* 63 */,
+/* 64 */,
 /* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
