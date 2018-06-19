@@ -45910,10 +45910,7 @@ var render = function() {
                 _vm._v(" "),
                 _c(
                   "button",
-                  {
-                    staticClass: "button is-primary",
-                    on: { click: _vm.login }
-                  },
+                  { staticClass: "button is-info", on: { click: _vm.login } },
                   [_vm._v("Login")]
                 )
               ])
@@ -46269,7 +46266,7 @@ var render = function() {
                 _c(
                   "button",
                   {
-                    staticClass: "button is-primary",
+                    staticClass: "button is-success",
                     on: { click: _vm.register }
                   },
                   [_vm._v("Register")]

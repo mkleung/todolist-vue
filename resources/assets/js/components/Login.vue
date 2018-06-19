@@ -44,7 +44,7 @@
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
-                        <button class="button is-primary" @click="login">Login</button>
+                        <button class="button is-info" @click="login">Login</button>
                     </footer>
                 </div>
         </b-modal>

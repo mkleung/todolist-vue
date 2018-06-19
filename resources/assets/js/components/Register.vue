@@ -60,7 +60,7 @@
 
                 <footer class="modal-card-foot">
                     <button class="button" type="button" @click="isComponentModalActive = false">Close</button>
-                    <button class="button is-primary" @click="register">Register</button>
+                    <button class="button is-success" @click="register">Register</button>
                 </footer>
             </div>
         </b-modal>
