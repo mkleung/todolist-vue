@@ -34,6 +34,7 @@ Route::get('/sessionStatus', function() {
 
 Route::get('logoutUser', 'UserController@logoutUser');
 
+Route::get('getprofile', 'UserController@getProfile');
 
 Route::get('/{vue_capture?}', function () {
     return view('welcome');
