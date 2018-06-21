@@ -44234,7 +44234,7 @@ var search = __webpack_require__(55);
             var _this3 = this;
 
             axios.get('getTasks').then(function (response) {
-                console.log(response);
+
                 if (response.data == "invalid") {
                     _this3.$router.replace('/');
                 } else {
@@ -45293,11 +45293,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     methods: {
-        update: function update() {},
         init: function init() {
             var _this = this;
 
-            axios.get('getProfile').then(function (response) {
+            axios.get('getprofile').then(function (response) {
                 console.log(response);
             }).catch(function (error) {
                 return _this.errors = error.response.data;

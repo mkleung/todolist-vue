@@ -62,10 +62,10 @@
             this.init()
         },
          methods: {
-            update() {
-            },
+            
             init(){
-                axios.get('getProfile')
+
+                axios.get('getprofile')
                     .then((response)=>{
                      console.log(response);
                             

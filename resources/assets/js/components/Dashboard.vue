@@ -76,7 +76,7 @@
             init(){
                 axios.get('getTasks')
                     .then((response)=>{
-                        console.log(response);
+                        
                         if (response.data == "invalid"){
                             this.$router.replace('/')
                         }
