@@ -46295,7 +46295,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 var login = __webpack_require__(11);
 var register = __webpack_require__(12);
@@ -46357,24 +46356,27 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("nav", { staticClass: "navbar is-transparent is-fixed-top" }, [
-    _c("div", { staticClass: "navbar-brand" }, [
-      _c(
-        "a",
-        { staticClass: "navbar-item", attrs: { href: "https://bulma.io" } },
-        [_vm._v("\n          Coffee To Do\n      ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "navbar-burger burger",
-          class: { "is-active": _vm.navIsActive },
-          attrs: { "data-target": "mainNav" },
-          on: { click: _vm.toggleMenu }
-        },
-        [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
-      )
-    ]),
+    _c(
+      "div",
+      { staticClass: "navbar-brand" },
+      [
+        _c("router-link", { staticClass: "navbar-item", attrs: { to: "/" } }, [
+          _vm._v("Coffee To Do")
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "navbar-burger burger",
+            class: { "is-active": _vm.navIsActive },
+            attrs: { "data-target": "mainNav" },
+            on: { click: _vm.toggleMenu }
+          },
+          [_c("span"), _vm._v(" "), _c("span"), _vm._v(" "), _c("span")]
+        )
+      ],
+      1
+    ),
     _vm._v(" "),
     _c(
       "div",

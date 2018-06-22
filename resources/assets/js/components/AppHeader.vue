@@ -1,9 +1,8 @@
 <template>
   <nav class="navbar is-transparent is-fixed-top">
     <div class="navbar-brand">
-        <a class="navbar-item" href="https://bulma.io">
-            Coffee To Do
-        </a>
+   
+        <router-link class="navbar-item" to="/">Coffee To Do</router-link>
       <div class="navbar-burger burger" @click="toggleMenu" :class="{'is-active': navIsActive}" data-target="mainNav">
         <span></span>
         <span></span>
