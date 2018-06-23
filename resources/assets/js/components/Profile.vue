@@ -14,14 +14,14 @@
                                 <div class="field">
                                     <label class="label">Name</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Name">
+                                        <input class="input" type="text" placeholder="Name" v-model="user.name">
                                     </div>
                                 </div>
 
                                 <div class="field">
                                     <label class="label">Email</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Email">
+                                        <input class="input" type="text" placeholder="Email" v-model="user.email">
                                     </div>
                                 </div>
 
@@ -55,7 +55,11 @@
     export default {
         data() {
             return {
-
+                user: {
+                    name:'',
+                    email: '',
+                    password: ''
+                },
             }
         },
          mounted(){
@@ -67,7 +71,10 @@
 
                 axios.get('getprofile')
                     .then((response)=>{
-                     console.log(response);
+                        
+                        this.user.name = response.data.name;
+                        this.user.email = response.data.email
+                       
                             
                     })
                     .catch((error) => this.errors = error.response.data);
