@@ -46542,30 +46542,6 @@ var staticRenderFns = [
     return _c("footer", { staticClass: "footer" }, [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "content has-text-centered" }, [
-          _c("a", { attrs: { hef: "" } }, [
-            _c("span", { staticClass: "icon has-text-info" }, [
-              _c("i", { staticClass: "fa fa-facebook fa-2x" })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { hef: "" } }, [
-            _c("span", { staticClass: "icon has-text-success" }, [
-              _c("i", { staticClass: "fa fa-twitter fa-2x" })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { hef: "" } }, [
-            _c("span", { staticClass: "icon has-text-warning" }, [
-              _c("i", { staticClass: "fa fa-instagram fa-2x" })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("a", { attrs: { hef: "" } }, [
-            _c("span", { staticClass: "icon has-text-danger" }, [
-              _c("i", { staticClass: "fa fa-reddit fa-2x" })
-            ])
-          ]),
-          _vm._v(" "),
           _c("p", [
             _c("strong", [_vm._v("Coffee To Do")]),
             _vm._v(" by "),
