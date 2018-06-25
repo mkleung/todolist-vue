@@ -75,9 +75,7 @@
                             window.location = "/dashboard";
                     })
                     .catch((error) => {
-                        
                         this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
-                        //this.errors.push(error.response.data);
                 });
             },
         }

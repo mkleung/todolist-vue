@@ -44810,6 +44810,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -44893,6 +44897,23 @@ var render = function() {
                     [
                       _c("b-input", {
                         attrs: { maxlength: "100", type: "textarea" },
+                        nativeOn: {
+                          keydown: function($event) {
+                            if (
+                              !("button" in $event) &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            _vm.addTask()
+                          }
+                        },
                         model: {
                           value: _vm.task.title,
                           callback: function($$v) {
@@ -45641,9 +45662,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.$parent.userLogin = true;
                 window.location = "/dashboard";
             }).catch(function (error) {
-
                 _this.error = error.response.data.email.replace(/[^a-zA-Z ]/g, "");
-                //this.errors.push(error.response.data);
             });
         }
     }

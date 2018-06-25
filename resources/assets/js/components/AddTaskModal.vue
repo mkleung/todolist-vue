@@ -18,7 +18,11 @@
                     <section class="modal-card-body">
                        <div class="field">
                             <p class="control has-icons-left has-icons-right">
-                                <b-input maxlength="100" type="textarea" v-model="task.title"></b-input>
+                                <b-input 
+                                maxlength="100" 
+                                type="textarea" 
+                                v-model="task.title"
+                                @keydown.native.enter="addTask()"></b-input>
                             </p>
                         </div>
                     </section>
