@@ -44379,6 +44379,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ["searchList"],
@@ -44581,7 +44582,7 @@ var render = function() {
                       "b-tooltip",
                       { attrs: { label: "Edit", position: "is-bottom" } },
                       [
-                        _vm.editing != item.id
+                        _vm.editing != item.id && _vm.deleting != item.id
                           ? _c(
                               "a",
                               {
@@ -44643,7 +44644,7 @@ var render = function() {
                       "b-tooltip",
                       { attrs: { label: "Delete", position: "is-bottom" } },
                       [
-                        _vm.deleting != item.id
+                        _vm.deleting != item.id && _vm.editing != item.id
                           ? _c(
                               "a",
                               {

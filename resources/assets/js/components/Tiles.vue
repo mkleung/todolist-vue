@@ -27,16 +27,17 @@
                 </span>
               </label>
             
-              <!-- Edit -->
+              
               <span>
+                    <!-- Edit -->
                     <b-tooltip label="Edit"
                         position="is-bottom">
-                        <a v-if="editing != item.id" @click='toggleEdit(item)'>
+                        <a v-if="editing != item.id && deleting != item.id" @click='toggleEdit(item)'>
                           <i class="fa fa-pencil todoTitle__icon"></i>
                         </a>
                     </b-tooltip>
 
-                    <span v-if="editing == item.id">
+                    <span v-if="editing == item.id ">
                       <a @click="updateTask(item, index)">
                           <i class="fa fa-check todoTitle__icon todoTitle__icon--green"></i>
                       </a>
@@ -48,7 +49,7 @@
                     <!-- Delete -->
                     <b-tooltip label="Delete"
                         position="is-bottom">
-                        <a  v-if="deleting != item.id" @click="toggleDelete(item)">
+                        <a  v-if="deleting != item.id && editing != item.id" @click="toggleDelete(item)">
                           <i class="fa fa-trash todoTitle__icon"></i>
                         </a>
                     </b-tooltip>
