@@ -45325,11 +45325,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             axios.get('getprofile').then(function (response) {
-
                 _this.user.name = response.data.name;
                 _this.user.email = response.data.email;
             }).catch(function (error) {
                 return _this.errors = error.response.data;
+            });
+        },
+        update: function update() {
+            var _this2 = this;
+
+            axios.post('profile', this.$data.user).then(function (response) {
+                console.log(response);
+            }).catch(function (error) {
+                return _this2.errors = error.response.data;
             });
         }
     }

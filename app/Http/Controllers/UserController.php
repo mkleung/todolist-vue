@@ -13,4 +13,8 @@ class UserController extends Controller
          return view('welcome');
     }
 
+    public function editProfile(Resquest $request){
+        
+    }
+
 }

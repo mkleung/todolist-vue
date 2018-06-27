@@ -66,16 +66,18 @@
             this.init()
         },
          methods: {
-            
             init(){
-
                 axios.get('getprofile')
                     .then((response)=>{
-                        
                         this.user.name = response.data.name;
-                        this.user.email = response.data.email
-                       
-                            
+                        this.user.email = response.data.email          
+                    })
+                    .catch((error) => this.errors = error.response.data);
+            },
+            update() {
+                 axios.post('profile', this.$data.user)
+                    .then((response)=>{
+                       console.log(response);
                     })
                     .catch((error) => this.errors = error.response.data);
             }

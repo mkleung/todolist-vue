@@ -40,6 +40,10 @@ Route::get('/getprofile', function() {
 });
 
 
+Route::post('/editprofile', 'UserController@editProfile');
+
+
+
 Route::get('/{vue_capture?}', function () {
     return view('welcome');
 })->where('vue_capture', '[\/\w\.-]*');
