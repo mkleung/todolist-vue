@@ -21,7 +21,7 @@
                                 <div class="field">
                                     <label class="label">Email</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Email" v-model="user.email">
+                                        <input class="input" type="email" placeholder="Email" v-model="user.email" disabled>
                                     </div>
                                 </div>
 
@@ -75,7 +75,7 @@
                     .catch((error) => this.errors = error.response.data);
             },
             update() {
-                 axios.post('profile', this.$data.user)
+                 axios.post('editprofile', this.$data.user)
                     .then((response)=>{
                        console.log(response);
                     })

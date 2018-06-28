@@ -45334,7 +45334,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         update: function update() {
             var _this2 = this;
 
-            axios.post('profile', this.$data.user).then(function (response) {
+            axios.post('editprofile', this.$data.user).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
                 return _this2.errors = error.response.data;
@@ -45416,7 +45416,11 @@ var render = function() {
                       }
                     ],
                     staticClass: "input",
-                    attrs: { type: "text", placeholder: "Email" },
+                    attrs: {
+                      type: "email",
+                      placeholder: "Email",
+                      disabled: ""
+                    },
                     domProps: { value: _vm.user.email },
                     on: {
                       input: function($event) {
