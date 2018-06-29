@@ -18,6 +18,8 @@ class UserController extends Controller
         $editUser = User::where('email', $request->email)->first();
         $editUser->name = $request->name;
         $editUser->save();
+
+        dd($request->oldpassword);
     }
 
 }
