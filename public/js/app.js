@@ -45312,8 +45312,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             user: {
                 name: '',
                 email: '',
-                oldpassword: '',
-                newpassword: ''
+                oldPassword: '',
+                newPassword: ''
             }
         };
     },

@@ -35,7 +35,7 @@
                                 <div class="field">
                                     <label class="label">New Password</label>
                                     <div class="control">
-                                        <input class="input" type="password" v-model="user.newpassword" placeholder="Password">
+                                        <input class="input" type="password"  v-model="user.newpassword" placeholder="Password">
                                     </div>
                                 </div>
                                 
@@ -58,8 +58,8 @@
                 user: {
                     name:'',
                     email: '',
-                    oldpassword : '',
-                    newpassword: '',
+                    oldPassword: '',
+                    newPassword: '',
                 },
             }
         },
