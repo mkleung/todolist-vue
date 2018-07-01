@@ -19,9 +19,13 @@ class UserController extends Controller
     public function editProfile(Request $request){
          $editUser = User::where('email', $request->email)->first();
 
-        $oldPass = Hash::make($request->oldpassword);
+        if (Hash::check($request->oldpassword, $editUser->password)) {
+            $editUser->password = $request->newpassword;
+        }
 
-        dd($request->oldpassword);
+        $editUser->name = $request->name;
+        $editUser->save();
+
         //dd($editUser->password);
         // if (Hash::check($request->oldpassword, $editUser->password)) {
         //     dd("password correct");
