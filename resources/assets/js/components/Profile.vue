@@ -14,7 +14,7 @@
                                 <div class="field">
                                     <label class="label">Name</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="Name" v-model="user.name">
+                                        <input class="input" type="text" placeholder="Name" v-model="user.name" disabled>
                                     </div>
                                 </div>
 
@@ -32,13 +32,15 @@
                                     </div>
                                 </div>
 
+                                <p class="help is-danger" v-if="error">This password is invalid</p>
+
                                 <div class="field">
                                     <label class="label">New Password</label>
                                     <div class="control">
                                         <input class="input" type="password"  v-model="user.newpassword" placeholder="Password">
                                     </div>
                                 </div>
-                                
+
                                 <button class="button is-primary" @click="update">Update</button>
                     
                             </div>
@@ -61,6 +63,7 @@
                     oldPassword: '',
                     newPassword: '',
                 },
+                error: ''
             }
         },
          mounted(){
@@ -75,12 +78,15 @@
                     })
                     .catch((error) => this.errors = error.response.data);
             },
+
             update() {
                  axios.post('editprofile', this.$data.user)
                     .then((response)=>{
-                       console.log(response);
+                       this.error = response.data;
                     })
-                    .catch((error) => this.errors = error.response.data);
+                    .catch((errors) => {
+                        console.log(errors);
+                    });
             }
          }
     }

@@ -22,6 +22,9 @@ class UserController extends Controller
         if (Hash::check($request->oldpassword, $editUser->password)) {
             $editUser->password = $request->newpassword;
         }
+        else {
+           return "invalid password";
+        }
 
         $editUser->name = $request->name;
         $editUser->save();

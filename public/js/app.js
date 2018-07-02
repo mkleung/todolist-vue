@@ -45305,6 +45305,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45314,7 +45316,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 email: '',
                 oldPassword: '',
                 newPassword: ''
-            }
+            },
+            error: ''
         };
     },
     mounted: function mounted() {
@@ -45336,9 +45339,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this2 = this;
 
             axios.post('editprofile', this.$data.user).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
-                return _this2.errors = error.response.data;
+                _this2.error = response.data;
+            }).catch(function (errors) {
+                console.log(errors);
             });
         }
     }
@@ -45389,7 +45392,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "input",
-                    attrs: { type: "text", placeholder: "Name" },
+                    attrs: { type: "text", placeholder: "Name", disabled: "" },
                     domProps: { value: _vm.user.name },
                     on: {
                       input: function($event) {
@@ -45464,6 +45467,12 @@ var render = function() {
                   })
                 ])
               ]),
+              _vm._v(" "),
+              _vm.error
+                ? _c("p", { staticClass: "help is-danger" }, [
+                    _vm._v("This password is invalid")
+                  ])
+                : _vm._e(),
               _vm._v(" "),
               _c("div", { staticClass: "field" }, [
                 _c("label", { staticClass: "label" }, [_vm._v("New Password")]),
