@@ -45680,6 +45680,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -45781,7 +45789,11 @@ var render = function() {
                           }
                         ],
                         staticClass: "input",
-                        attrs: { type: "email", placeholder: "Email" },
+                        attrs: {
+                          type: "email",
+                          placeholder: "Email",
+                          required: ""
+                        },
                         domProps: { value: _vm.user.email },
                         on: {
                           input: function($event) {
@@ -45800,47 +45812,62 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c(
-                  "div",
-                  { staticClass: "field no-margin-left" },
-                  [
-                    _c("label", { staticClass: "label" }, [_vm._v("Password")]),
-                    _vm._v(" "),
-                    _c("b-input", {
-                      attrs: {
-                        type: "password",
-                        "password-reveal": "",
-                        placeholder: "Your password",
-                        required: ""
-                      },
-                      nativeOn: {
-                        keydown: function($event) {
-                          if (
-                            !("button" in $event) &&
-                            _vm._k(
-                              $event.keyCode,
-                              "enter",
-                              13,
-                              $event.key,
-                              "Enter"
-                            )
-                          ) {
-                            return null
+                _c("div", { staticClass: "field no-margin-left" }, [
+                  _c("label", { staticClass: "label" }, [_vm._v("Password")]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    { staticClass: "control has-icons-left has-icons-right" },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.user.password,
+                            expression: "user.password"
                           }
-                          _vm.login()
-                        }
-                      },
-                      model: {
-                        value: _vm.user.password,
-                        callback: function($$v) {
-                          _vm.$set(_vm.user, "password", $$v)
+                        ],
+                        staticClass: "input",
+                        attrs: {
+                          type: "password",
+                          placeholder: "Password",
+                          required: ""
                         },
-                        expression: "user.password"
-                      }
-                    })
-                  ],
-                  1
-                ),
+                        domProps: { value: _vm.user.password },
+                        on: {
+                          input: function($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.$set(_vm.user, "password", $event.target.value)
+                          }
+                        },
+                        nativeOn: {
+                          keydown: function($event) {
+                            if (
+                              !("button" in $event) &&
+                              _vm._k(
+                                $event.keyCode,
+                                "enter",
+                                13,
+                                $event.key,
+                                "Enter"
+                              )
+                            ) {
+                              return null
+                            }
+                            _vm.login()
+                          }
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "icon is-small is-left" }, [
+                        _c("i", { staticClass: "fas fa-key" })
+                      ])
+                    ]
+                  )
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "field no-margin-left" }, [
                   _vm.error.length
@@ -46100,7 +46127,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("span", { staticClass: "icon is-small is-left" }, [
-                        _c("i", { staticClass: "fas fa-envelope" })
+                        _c("i", { staticClass: "fas fa-user" })
                       ]),
                       _vm._v(" "),
                       _c("span", { staticClass: "icon is-small is-right" }, [
@@ -46179,7 +46206,7 @@ var render = function() {
                       }),
                       _vm._v(" "),
                       _c("span", { staticClass: "icon is-small is-left" }, [
-                        _c("i", { staticClass: "fas fa-envelope" })
+                        _c("i", { staticClass: "fas fa-key" })
                       ]),
                       _vm._v(" "),
                       _c("span", { staticClass: "icon is-small is-right" }, [

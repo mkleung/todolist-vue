@@ -17,7 +17,7 @@
                         <p class="control has-icons-left has-icons-right">
                             <input class="input" type="text" placeholder="Enter Name" v-model="user.name">
                             <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-user"></i>
                             </span>
                             <span class="icon is-small is-right">
                             <i class="fas fa-check"></i>
@@ -41,7 +41,7 @@
                         <p class="control has-icons-left has-icons-right">
                             <input class="input" type="password" placeholder="Enter Password" v-model="user.password">
                             <span class="icon is-small is-left">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-key"></i>
                             </span>
                             <span class="icon is-small is-right">
                             <i class="fas fa-check"></i>
