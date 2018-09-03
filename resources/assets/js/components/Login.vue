@@ -18,7 +18,7 @@
                        <div class="field">
                            <label class="label">Email</label>
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="email" placeholder="Email" v-model="user.email" required>
+                                <input class="input" type="email" placeholder="E.g. mike@test.com" v-model="user.email" required>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-envelope"></i>
                                 </span>
@@ -37,7 +37,7 @@
                             </b-input> -->
                             
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="password" placeholder="Password" v-model="user.password" @keydown.native.enter="login()" required>
+                                <input class="input" type="password" placeholder="E.g. test" v-model="user.password" @keydown.native.enter="login()" required>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-key"></i>
                                 </span>

@@ -45791,7 +45791,7 @@ var render = function() {
                         staticClass: "input",
                         attrs: {
                           type: "email",
-                          placeholder: "Email",
+                          placeholder: "E.g. mike@test.com",
                           required: ""
                         },
                         domProps: { value: _vm.user.email },
@@ -45831,7 +45831,7 @@ var render = function() {
                         staticClass: "input",
                         attrs: {
                           type: "password",
-                          placeholder: "Password",
+                          placeholder: "E.g. test",
                           required: ""
                         },
                         domProps: { value: _vm.user.password },
