@@ -114,6 +114,8 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key 
 
 ### Heroku
 
+https://medium.com/@sdkcodes/how-to-deploy-a-laravel-app-to-heroku-24b5cb33fbe
+
 > git push heroku master
 
 > heroku open
