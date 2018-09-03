@@ -112,7 +112,14 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key 
 ### To run the application on your machine, clone and then npm install 
 
 
+### Heroku
+
+> git push heroku master
+
+> heroku open
+
 Reference:
 https://www.youtube.com/watch?v=JDnYobhaScg&list=PLe30vg_FG4OSl8zlikYc_RLkfueqAMUb_&index=10
 
 https://favicon.io/emoji-favicons
+
