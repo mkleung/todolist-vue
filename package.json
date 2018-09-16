@@ -19,8 +19,8 @@
     "vue": "^2.1.10"
   },
   "dependencies": {
-    "buefy": "^0.6.5",
-    "bulma": "^0.6.2",
+    "buefy": "^0.6.7",
+    "bulma": "^0.4.3",
     "cool-checkboxes-for-bulma.io": "^1.1.0",
     "font-awesome": "^4.7.0",
     "vue-router": "^3.0.1"

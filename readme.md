@@ -1,3 +1,11 @@
+# Running the app locally
+
+Goto and fill in the database credentials https://github.com/laravel/laravel/blob/master/.env.example
+
+> php artisan key:generate
+
+
+
 # Installation
 
 > composer create-project --prefer-dist laravel/laravel dailymoneymaster "5.4.*"
@@ -45,29 +53,38 @@ Inside welcome.blade.php, add the following code
 
 ### Add vue routes and declare components
 
+Inside app.j
+
+
 ```
 require('./bootstrap');
-
 window.Vue = require('vue');
-
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css';
+Vue.use(Buefy)
 Vue.use(VueRouter)
-
-let example = require('./components/Example.vue');
+let dashboard = require('./components/Dashboard.vue');
+let myProfile = require('./components/Profile.vue');
+let welcome  = require('./components/Welcome.vue');
+let appheader = require('./components/AppHeader.vue');
+let appfooter = require('./components/AppFooter.vue');
 
 const routes = [
-  { path: '/', component: example },
+  { path: '/', component: welcome },
+  { path: '/dashboard', component: dashboard },
+  { path: '/profile', component: myProfile }
 ]
 const router = new VueRouter({
-  // mode: 'history',
-  routes
-})
+  mode: 'history',
+  routes: routes,
 
+})
 const app = new Vue({
     el: '#app',
     router,
-    components:{example}
+    components:{appheader, dashboard, appfooter, myProfile}
 });
 ```
 

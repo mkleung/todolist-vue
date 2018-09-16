@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -12,7 +11,7 @@ window.Vue = require('vue');
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Buefy from 'buefy'
-import 'buefy/lib/buefy.css'
+import 'buefy/dist/buefy.css';
 
 Vue.use(Buefy)
 
