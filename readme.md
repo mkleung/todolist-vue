@@ -53,7 +53,7 @@ Inside welcome.blade.php, add the following code
 
 ### Add vue routes and declare components
 
-Inside app.j
+Inside app.js
 
 
 ```
@@ -131,7 +131,7 @@ The only supported ciphers are AES-128-CBC and AES-256-CBC with the correct key 
 
 ### Heroku
 
-https://medium.com/@sdkcodes/how-to-deploy-a-laravel-app-to-heroku-24b5cb33fbe
+https://medium.com/@Oriechinedu/how-to-host-a-laravel-app-with-mysql-database-on-heroku-ab56b08be735
 
 > git push heroku master
 
