@@ -142,8 +142,8 @@ https://www.youtube.com/watch?v=JDnYobhaScg&list=PLe30vg_FG4OSl8zlikYc_RLkfueqAM
 
 https://favicon.io/emoji-favicons
 
-Test online database
-db4free.net
-todolistvue
-rootvue
-WKtfkzOL%nfG
+
+
+
+
+https://medium.com/@Oriechinedu/how-to-host-a-laravel-app-with-mysql-database-on-heroku-ab56b08be735
