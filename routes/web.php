@@ -18,6 +18,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/test', function () {
+    $username = "rootvue"; 
+    $password = "WKtfkzOL%nfG"; 
+    $host = "db4free.net:3306"; 
+    $dbname = "todolistvue"; 
+    
+    $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
+    
+    try 
+    { 
+        $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
+        echo "success";
+    } 
+    catch(PDOException $ex) 
+    { 
+        die("Failed to connect to the database: " . $ex->getMessage()); 
+    } 
+});
+
 Route::resource('task', 'TaskController');
 
 

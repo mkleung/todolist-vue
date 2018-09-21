@@ -37,7 +37,7 @@
                             </b-input> -->
                             
                             <p class="control has-icons-left has-icons-right">
-                                <input class="input" type="password" placeholder="E.g. test" v-model="user.password" @keydown.native.enter="login()" required>
+                                <input class="input" type="password" placeholder="E.g. password" v-model="user.password" @keydown.native.enter="login()" required>
                                 <span class="icon is-small is-left">
                                 <i class="fas fa-key"></i>
                                 </span>

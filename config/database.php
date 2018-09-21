@@ -41,19 +41,19 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'db4free.net'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'todolistvue'),
-            'username' => env('DB_USERNAME', 'rootvue'),
-            'password' => env('DB_PASSWORD', 'WKtfkzOL%nfG'),
-            'unix_socket' => env('DB_SOCKET', ''),
+            'host' =>  '85.10.205.173:3306',
+            // 'port' => '3306',
+            'database' => 'todolistvue',
+            'username' =>  'rootvue',
+            'password' =>  'WKtfkzOL%nfG',
+            'unix_socket' => '',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
-            'strict' => true,
+            'strict' => false,
             'engine' => null,
         ],
-
+      
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
