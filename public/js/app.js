@@ -58066,7 +58066,7 @@ var render = function() {
                         staticClass: "input",
                         attrs: {
                           type: "password",
-                          placeholder: "E.g. test",
+                          placeholder: "E.g. password",
                           required: ""
                         },
                         domProps: { value: _vm.user.password },
@@ -58524,7 +58524,10 @@ var render = function() {
         _c("div", { staticClass: "container" }, [
           _c(
             "div",
-            { staticClass: "column is-4 is-offset-4 has-text-centered " },
+            {
+              staticClass:
+                "column is-4 is-offset-4 has-text-centered welcome__container"
+            },
             [
               _c("h1", { staticClass: "title" }, [
                 _vm._v(

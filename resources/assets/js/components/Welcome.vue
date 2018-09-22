@@ -5,7 +5,7 @@
     <div class="hero is-large is-bold">
         <div class="hero-body">
             <div class="container">
-                <div class="column is-4 is-offset-4 has-text-centered ">
+                <div class="column is-4 is-offset-4 has-text-centered welcome__container">
                     <h1 class="title">
                         CoffeeToDo
                     </h1>

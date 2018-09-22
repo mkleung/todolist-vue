@@ -2,6 +2,16 @@ body {
     font-family: 'Quicksand', sans-serif;
 }
 
+.hero {
+    background-image: url("../img/coffee.jpg");
+    background-size: cover;
+}
+
+.welcome__container {
+    background-color: rgba(255,255,255,0.98);
+    padding:60px!important;
+}
+
 /* helpers */
 .no-margin-left {
     margin-left: 0!important;
