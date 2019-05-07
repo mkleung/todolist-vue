@@ -1,6 +1,6 @@
 # Link to Live Site
 
-[Todo](https://todolistvuejs.herokuapp.com/)
+https://todolistvuejs.herokuapp.com/
 
 - You can register, login, create, edit and delete todos.
 
