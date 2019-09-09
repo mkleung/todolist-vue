@@ -1,3 +1,9 @@
+# Link to Live Site
+
+https://todolistvuejs.herokuapp.com/
+
+- You can register, login, create, edit and delete todos.
+
 # Running the app locally
 
 Goto and fill in the database credentials https://github.com/laravel/laravel/blob/master/.env.example
