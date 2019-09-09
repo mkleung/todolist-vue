@@ -5,14 +5,20 @@
     <div class="hero is-large is-bold">
         <div class="hero-body">
             <div class="container">
-                <div class="column is-4 is-offset-4 has-text-centered welcome__container">
+                <div class="column is-6 is-offset-3 has-text-centered welcome__container">
                     <h1 class="title">
-                        CoffeeToDo
+                        ATOMIC TO DO
                     </h1>
+                    <br />
                     <h2 class="subtitle ">
-                        To Do List over coffee
+                        A todo list for productive people.
                     </h2>
-
+                    <div>
+                        <div>- Timer for each task</div>
+                        <div>- User authentication</div>
+                        <div>- Calendar Component</div>
+                    </div>
+                    <br />
                     <register :welcome="welcome"></register>
                     
                 </div>

@@ -1,5 +1,6 @@
 <?php
-
+ 
+    
 return [
 
     /*
@@ -31,6 +32,8 @@ return [
     |
     */
 
+
+
     'connections' => [
 
         'sqlite' => [
@@ -38,6 +41,17 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
+
+        'your_heroku_mysql_connection' => array(
+            'driver' => 'mysql',
+            'host' => 'us-cdbr-iron-east-02.cleardb.net',
+            'database' => 'heroku_4cb7f9eb116e4dd',
+            'username' => 'b7f5c31a961ce3',
+            'password' => '8c9965b7',
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ),
 
         'mysql' => [
             'driver' => 'mysql',

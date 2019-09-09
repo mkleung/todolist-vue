@@ -19,11 +19,13 @@ Route::get('/', function () {
 });
 
 
+Route::get('/dash', 'HomeController@index');
+
 Route::get('/test', function () {
-    $username = "rootvue"; 
-    $password = "WKtfkzOL%nfG"; 
-    $host = "db4free.net:3306"; 
-    $dbname = "todolistvue"; 
+    $username = "b7f5c31a961ce3"; 
+    $password = "8c9965b7"; 
+    $host = "us-cdbr-iron-east-02.cleardb.net"; 
+    $dbname = "heroku_4cb7f9eb116e4dd"; 
     
     $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
     
@@ -40,20 +42,20 @@ Route::get('/test', function () {
 
 Route::resource('task', 'TaskController');
 
-
-
 Route::get('getTasks', 'TaskController@getTasks');
 
-
 Route::post('toggleTask', 'TaskController@toggleTask');
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 //https://laracasts.com/discuss/channels/vue/how-do-i-handle-loginregistration-and-sessions-with-vue-router-and-axios-for-an-spa?page=1
 Route::get('/sessionStatus', function() {
     return ['user' => Auth::user() ? Auth::user() : null];
 });
+
+Route::post('login', 'UserController@loginUser');
 
 Route::get('logoutUser', 'UserController@logoutUser');
 

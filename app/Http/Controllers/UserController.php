@@ -16,6 +16,12 @@ class UserController extends Controller
          return view('welcome');
     }
 
+
+    public function loginUser(Request $request){
+       dd($request->email);
+    }
+
+
     public function editProfile(Request $request){
          $editUser = User::where('email', $request->email)->first();
 

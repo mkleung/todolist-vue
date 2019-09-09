@@ -57839,6 +57839,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 var login = __webpack_require__(11);
@@ -57930,26 +57936,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             isComponentModalActive: false,
             error: "",
             user: {
-                email: '',
-                password: ''
+                email: 'mike@test.com',
+                password: 'password'
             }
         };
     },
 
     methods: {
         login: function login() {
-            var _this = this;
-
             if (this.user.password == "") {
                 this.error = "Invalid Password";
             }
-            axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
-                _this.isComponentModalActive = false;
-                _this.$parent.userLogin = true;
-                window.location = "/dashboard";
-            }).catch(function (error) {
-                _this.error = error.response.data.email.replace(/[^a-zA-Z ]/g, "");
-            });
+            // axios.post('login', {email:this.user.email, password:this.user.password})
+            //     .then((response)=>{
+            //             this.isComponentModalActive = false;
+            //             this.$parent.userLogin = true;
+            //             window.location = "/dashboard";
+
+            //     })
+            //     .catch((error) => {
+            //         this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
+            // });
+
+            window.location = "/dash";
         }
     }
 });
@@ -58526,20 +58535,26 @@ var render = function() {
             "div",
             {
               staticClass:
-                "column is-4 is-offset-4 has-text-centered welcome__container"
+                "column is-6 is-offset-3 has-text-centered welcome__container"
             },
             [
               _c("h1", { staticClass: "title" }, [
                 _vm._v(
-                  "\n                        CoffeeToDo\n                    "
+                  "\n                        ATOMIC TO DO\n                    "
                 )
               ]),
               _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
               _c("h2", { staticClass: "subtitle " }, [
                 _vm._v(
-                  "\n                        To Do List over coffee\n                    "
+                  "\n                        A todo list for productive people.\n                    "
                 )
               ]),
+              _vm._v(" "),
+              _vm._m(0),
+              _vm._v(" "),
+              _c("br"),
               _vm._v(" "),
               _c("register", { attrs: { welcome: _vm.welcome } })
             ],
@@ -58550,7 +58565,20 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", [_vm._v("- Timer for each task")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("- User authentication")]),
+      _vm._v(" "),
+      _c("div", [_vm._v("- Calendar Component")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -58718,7 +58746,7 @@ var render = function() {
       { staticClass: "navbar-brand" },
       [
         _c("router-link", { staticClass: "navbar-item", attrs: { to: "/" } }, [
-          _vm._v("Coffee To Do")
+          _vm._v("ATOMIC")
         ]),
         _vm._v(" "),
         _c(
@@ -58870,7 +58898,7 @@ var staticRenderFns = [
       _c("div", { staticClass: "container" }, [
         _c("div", { staticClass: "content has-text-centered" }, [
           _c("p", [
-            _c("strong", [_vm._v("Coffee To Do")]),
+            _c("strong", [_vm._v("Atomic Todo")]),
             _vm._v(" by "),
             _c(
               "a",

@@ -66,8 +66,8 @@
                 isComponentModalActive: false,
                 error:"",
                 user: {
-                    email: '',
-                    password: ''
+                    email: 'mike@test.com',
+                    password: 'password'
                 },
             }
         },
@@ -76,15 +76,18 @@
                 if (this.user.password == "") {
                     this.error = "Invalid Password";
                 }
-                axios.post('login', {email:this.user.email, password:this.user.password})
-                    .then((response)=>{
-                            this.isComponentModalActive = false;
-                            this.$parent.userLogin = true;
-                            window.location = "/dashboard";
-                    })
-                    .catch((error) => {
-                        this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
-                });
+                // axios.post('login', {email:this.user.email, password:this.user.password})
+                //     .then((response)=>{
+                //             this.isComponentModalActive = false;
+                //             this.$parent.userLogin = true;
+                //             window.location = "/dashboard";
+                            
+                //     })
+                //     .catch((error) => {
+                //         this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
+                // });
+
+                 window.location = "/dash";
             },
         }
     }

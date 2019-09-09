@@ -7,7 +7,7 @@
                 <a hef=""><span class="icon has-text-warning"><i class="fa fa-instagram fa-2x"></i></span></a>
                 <a hef=""><span class="icon has-text-danger"><i class="fa fa-reddit fa-2x"></i></span></a> -->
             <p>
-                <strong>Coffee To Do</strong> by <a href="http://mikeleung.ca" target="_blank">Mike Leung</a>
+                <strong>Atomic Todo</strong> by <a href="http://mikeleung.ca" target="_blank">Mike Leung</a>
             </p>
             </div>
         </div>
