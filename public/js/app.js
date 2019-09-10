@@ -57071,10 +57071,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             this.isComponentModalActive = false;
+
             if (this.$data.task.title !== "") {
                 axios.post('task', this.$data.task).then(function (response) {
                     _this.$parent.searchList.unshift(response.data);
                     _this.$parent.titleList.push(response.data.title);
+                    _this.$data.task.title = "";
                 }).catch(function (error) {
                     return _this.errors = error.response.data;
                 });
@@ -57151,6 +57153,9 @@ var render = function() {
                               return null
                             }
                             _vm.addTask()
+                          },
+                          focus: function($event) {
+                            $event.target.select()
                           }
                         },
                         model: {
@@ -57848,21 +57853,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 var login = __webpack_require__(11);
 var register = __webpack_require__(12);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: { register: register, login: login },
-  data: function data() {
-    return {
-      userLogin: false,
-      welcome: true
-    };
-  },
+    components: { register: register, login: login },
+    data: function data() {
+        return {
+            userLogin: false,
+            welcome: true
+        };
+    },
 
-  methods: {}
+    methods: {}
 });
 
 /***/ }),
@@ -58279,6 +58287,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this.errors.push(errorDescription[0]);
                 }
             });
+        },
+        demo: function demo() {
+            window.location = "/dashboard";
         }
     }
 });
@@ -58293,7 +58304,20 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "section",
+    {
+      staticStyle: {
+        display: "flex",
+        "justify-content": "center",
+        "align-items": "center"
+      }
+    },
     [
+      _c(
+        "button",
+        { staticClass: "button is-success", on: { click: _vm.demo } },
+        [_vm._v("Demo")]
+      ),
+      _vm._v("  \n\n    "),
       _c(
         "button",
         {
@@ -58305,16 +58329,7 @@ var render = function() {
             }
           }
         },
-        [
-          _c("span", { staticClass: "icon" }, [
-            _c("i", {
-              staticClass: "fa",
-              class: [_vm.welcome ? "fa-heart" : "fa-thumbs-up"]
-            })
-          ]),
-          _vm._v(" "),
-          _c("span", [_vm._v("Register")])
-        ]
+        [_c("span", [_vm._v("Register")])]
       ),
       _vm._v(" "),
       _c(
@@ -58546,8 +58561,6 @@ var render = function() {
                   "\n                        ATOMIC TO DO\n                    "
                 )
               ]),
-              _vm._v(" "),
-              _c("br"),
               _vm._v(" "),
               _c("h2", { staticClass: "subtitle " }, [
                 _vm._v(

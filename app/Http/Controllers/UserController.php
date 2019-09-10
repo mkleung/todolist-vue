@@ -21,6 +21,15 @@ class UserController extends Controller
        dd($request->email);
     }
 
+    public function register(Request $request){
+
+        $myUser = new User;
+        $myUser->name = $request->name;
+        $myUser->email = $request->email;
+        $myUser->password = bcrypt($request->password);
+        $myUser->save();
+    }
+
 
     public function editProfile(Request $request){
          $editUser = User::where('email', $request->email)->first();

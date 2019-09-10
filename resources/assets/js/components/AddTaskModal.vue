@@ -22,7 +22,7 @@
                                 maxlength="100" 
                                 type="textarea" 
                                 v-model="task.title"
-                                @keydown.native.enter="addTask()"></b-input>
+                                @keydown.native.enter="addTask()"  @focus.native="$event.target.select()" ></b-input>
                             </p>
                         </div>
                     </section>
@@ -49,15 +49,18 @@
                 },
             }
         },
+  
         
         methods: {
             addTask() {
                 this.isComponentModalActive = false;
+                
                 if (this.$data.task.title !== "") {
                     axios.post('task', this.$data.task)
                     .then((response)=>{
                         this.$parent.searchList.unshift(response.data)
                         this.$parent.titleList.push(response.data.title);
+                        this.$data.task.title = "";
                     })
                     .catch((error) => this.errors = error.response.data);
                 }

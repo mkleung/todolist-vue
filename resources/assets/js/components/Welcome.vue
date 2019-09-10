@@ -9,16 +9,19 @@
                     <h1 class="title">
                         ATOMIC TO DO
                     </h1>
-                    <br />
+                 
+                    
                     <h2 class="subtitle ">
                         A todo list for productive people.
                     </h2>
+                    
                     <div>
                         <div>- Timer for each task</div>
                         <div>- User authentication</div>
                         <div>- Calendar Component</div>
                     </div>
-                    <br />
+                    <br >
+                     
                     <register :welcome="welcome"></register>
                     
                 </div>
@@ -44,8 +47,8 @@
               welcome: true
             }
         },
-        methods: {
-          
+         methods: {
+           
         }
     }
 </script>

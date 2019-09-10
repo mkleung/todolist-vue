@@ -103,7 +103,7 @@ body {
 
 .modal-card-head  {
     justify-content: flex-end!important;
-    
+    background-color: #167df0!important;
 }
 
 .modal-card-head-login {

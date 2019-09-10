@@ -1,10 +1,10 @@
 <template>
-    <section>
+    <section style="display: flex; justify-content: center; align-items:center;">
+        <button class="button is-success" @click="demo">Demo</button> &nbsp;
+
         <button class="button "  :class="[  welcome ? 'is-success is-outlined' : 'is-info'  ]"
             @click="isComponentModalActive = true">
-            <span class="icon">
-                    <i class="fa"  :class="[  welcome ? 'fa-heart' : 'fa-thumbs-up'  ]"></i>
-                </span>
+         
             <span>Register</span>
         </button>
         <b-modal :active.sync="isComponentModalActive" has-modal-card>
@@ -98,6 +98,9 @@
                             this.errors.push(errorDescription[0]);
                         }
                     });
+            },
+             demo() {
+                window.location = "/dashboard";
             },
         }
     }

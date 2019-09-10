@@ -19,10 +19,6 @@ Route::get('/', function () {
 });
 
 
-Route::get('/dash', 'HomeController@index');
-
-
-Route::get('/test', "TaskController@getTasks");
 
 Route::resource('task', 'TaskController');
 
@@ -42,6 +38,8 @@ Route::get('/sessionStatus', function() {
 });
 
 Route::post('login', 'UserController@loginUser');
+
+Route::post('register', 'UserController@register');
 
 Route::get('logoutUser', 'UserController@logoutUser');
 

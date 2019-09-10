@@ -119,6 +119,8 @@ export default {
           })
           .catch((error) => this.errors = error.response.data);
     },
+
+  
     deleteTask(key, item){
           axios.delete(`task/${item.id}`)
               .then((response)=> {

@@ -118,6 +118,7 @@ class TaskController extends Controller
      */
     public function update(Request $request)
     {
+ 
         $editTask = Task::where('id', $request->id)->first();
         $editTask->title = $request->title;
         $editTask->save();
