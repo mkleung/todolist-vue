@@ -77,10 +77,14 @@
                 axios.get('getTasks')
                     .then((response)=>{
                         
+                        var taskList = response.data;
+                       
                         if (response.data == "invalid"){
                             this.$router.replace('/')
                         }
                         else {
+
+                           
                             var taskList = response.data;
                             this.list = response.data;
                             this.searchList = response.data;

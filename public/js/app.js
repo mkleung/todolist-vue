@@ -56470,9 +56470,12 @@ var search = __webpack_require__(55);
 
             axios.get('getTasks').then(function (response) {
 
+                var taskList = response.data;
+
                 if (response.data == "invalid") {
                     _this3.$router.replace('/');
                 } else {
+
                     var taskList = response.data;
                     _this3.list = response.data;
                     _this3.searchList = response.data;
@@ -58746,7 +58749,7 @@ var render = function() {
       { staticClass: "navbar-brand" },
       [
         _c("router-link", { staticClass: "navbar-item", attrs: { to: "/" } }, [
-          _vm._v("ATOMIC")
+          _vm._v("ATOMIC TO DO")
         ]),
         _vm._v(" "),
         _c(

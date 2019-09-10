@@ -2,7 +2,7 @@
   <nav class="navbar is-transparent is-fixed-top">
     <div class="navbar-brand">
    
-        <router-link class="navbar-item" to="/">ATOMIC</router-link>
+        <router-link class="navbar-item" to="/">ATOMIC TO DO</router-link>
       <div class="navbar-burger burger" @click="toggleMenu" :class="{'is-active': navIsActive}" data-target="mainNav">
         <span></span>
         <span></span>

@@ -108,20 +108,22 @@ body {
 
 .modal-card-head-login {
     background-color: #167df0!important;
+    color: #FFF!important;
+}
+
+.modal-card-title {
+    color: #FFF !important;
 }
 
 .modal-card-head-register {
     background-color: #23d160!important;
 }
 
-.modal-card-title {
-    color: #FFF!important;
-}
-
 .modal-card-foot {
     justify-content: flex-end!important;
     border: none!important;
 }
+
 
 
 footer {

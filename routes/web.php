@@ -21,28 +21,14 @@ Route::get('/', function () {
 
 Route::get('/dash', 'HomeController@index');
 
-Route::get('/test', function () {
-    $username = "b7f5c31a961ce3"; 
-    $password = "8c9965b7"; 
-    $host = "us-cdbr-iron-east-02.cleardb.net"; 
-    $dbname = "heroku_4cb7f9eb116e4dd"; 
-    
-    $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'); 
-    
-    try 
-    { 
-        $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
-        echo "success";
-    } 
-    catch(PDOException $ex) 
-    { 
-        die("Failed to connect to the database: " . $ex->getMessage()); 
-    } 
-});
+
+Route::get('/test', "TaskController@getTasks");
 
 Route::resource('task', 'TaskController');
 
-Route::get('getTasks', 'TaskController@getTasks');
+
+
+Route::get('/getTasks', 'TaskController@getTasks');
 
 Route::post('toggleTask', 'TaskController@toggleTask');
 

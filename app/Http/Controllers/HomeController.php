@@ -23,12 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd("dashboard");
-    }
-
-
-    public function dash()
-    {
-        dd("dashboard");
+        return redirect('/dashboard');
     }
 }

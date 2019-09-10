@@ -21,17 +21,25 @@ class TaskController extends Controller
     }
 
     public function getTasks(){
+
+        // if(\DB::connection()->getDatabaseName())
+        // {
+        //   echo "conncted sucessfully to database ".\DB::connection()->getDatabaseName();
+        // }
+
+        $allTasks = Task::orderBy('created_at', 'DESC')->get();
+        return $allTasks;
         
-        if (Auth::check()){
-            $allTasks = Task::orderBy('created_at', 'DESC')->get();
-            return $allTasks;
-        }
-        else {
-            return "invalid";
-        }
+        // if (Auth::check()){
             
-           
-        
+        //     
+        //     return $allTasks;
+        // }
+        // else {
+        //     return "invalid";
+        // }
+            
+
     }
 
     /**
@@ -55,7 +63,7 @@ class TaskController extends Controller
 
         $myTask = new Task;
         $myTask->title = $request->title;
-        $myTask->user_id = Auth::id();
+        $myTask->user_id = 1;
         $myTask->status = false;
 
         $now = new DateTime();
@@ -64,6 +72,19 @@ class TaskController extends Controller
         $myTask->save();
 
         return $myTask;
+
+
+        // $myTask = new Task;
+        // $myTask->title = $request->title;
+        // $myTask->user_id = Auth::id();
+        // $myTask->status = false;
+
+        // $now = new DateTime();
+
+        // $myTask->due_date = $now; 
+        // $myTask->save();
+
+        // return $myTask;
     }
 
     /**

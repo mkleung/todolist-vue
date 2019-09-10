@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'heroku'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
             'prefix' => '',
         ],
 
-        'your_heroku_mysql_connection' => array(
+        'heroku' => array(
             'driver' => 'mysql',
             'host' => 'us-cdbr-iron-east-02.cleardb.net',
             'database' => 'heroku_4cb7f9eb116e4dd',
@@ -55,11 +55,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' =>  '85.10.205.173:3306',
-            // 'port' => '3306',
-            'database' => 'todolistvue',
-            'username' =>  'rootvue',
-            'password' =>  'WKtfkzOL%nfG',
+            'host' =>  '127.0.0.1',
+            'port' => '8889',
+            'database' => 'todo',
+            'username' =>  'root',
+            'password' =>  'root',
             'unix_socket' => '',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
