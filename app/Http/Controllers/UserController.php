@@ -18,7 +18,14 @@ class UserController extends Controller
 
 
     public function loginUser(Request $request){
-       dd($request->email);
+        $loginUser = User::where('email', $request->email)->first();
+        if (Hash::check($request->password, $loginUser->password)) {
+            return "valid password";
+        }
+        else {
+           return "invalid password";
+        }
+
     }
 
     public function register(Request $request){

@@ -73,21 +73,25 @@
         },
         methods: {
             login() {
-                if (this.user.password == "") {
-                    this.error = "Invalid Password";
+               
+                if (this.user.password == "" || this.user.email == "") {
+                    this.error = "Invalid Username and Password";
                 }
-                // axios.post('login', {email:this.user.email, password:this.user.password})
-                //     .then((response)=>{
-                //             this.isComponentModalActive = false;
-                //             this.$parent.userLogin = true;
-                //             window.location = "/dashboard";
+                else {
+                    axios.post('login', {email:this.user.email, password:this.user.password})
+                    .then((response)=>{
+                            this.isComponentModalActive = false;
+                            this.$parent.userLogin = true;
+                            window.location = "/dashboard";
                             
-                //     })
-                //     .catch((error) => {
-                //         this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
-                // });
+                    })
+                    .catch((error) => {
+                        this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
+                });
+                }
+     
 
-                 window.location = "/dash";
+                 
             },
         }
     }

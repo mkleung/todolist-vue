@@ -56471,7 +56471,7 @@ var search = __webpack_require__(55);
             axios.get('getTasks').then(function (response) {
 
                 var taskList = response.data;
-
+                console.log(taskList);
                 if (response.data == "invalid") {
                     _this3.$router.replace('/');
                 } else {
@@ -57955,21 +57955,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         login: function login() {
-            if (this.user.password == "") {
-                this.error = "Invalid Password";
+            var _this = this;
+
+            if (this.user.password == "" || this.user.email == "") {
+                this.error = "Invalid Username and Password";
+            } else {
+                axios.post('login', { email: this.user.email, password: this.user.password }).then(function (response) {
+                    _this.isComponentModalActive = false;
+                    _this.$parent.userLogin = true;
+                    window.location = "/dashboard";
+                }).catch(function (error) {
+                    _this.error = error.response.data.email.replace(/[^a-zA-Z ]/g, "");
+                });
             }
-            // axios.post('login', {email:this.user.email, password:this.user.password})
-            //     .then((response)=>{
-            //             this.isComponentModalActive = false;
-            //             this.$parent.userLogin = true;
-            //             window.location = "/dashboard";
-
-            //     })
-            //     .catch((error) => {
-            //         this.error = (error.response.data.email).replace(/[^a-zA-Z ]/g, "");
-            // });
-
-            window.location = "/dash";
         }
     }
 });
@@ -58696,6 +58694,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 var login = __webpack_require__(11);
 var register = __webpack_require__(12);
@@ -58717,6 +58716,7 @@ var register = __webpack_require__(12);
     axios.get('/sessionStatus').then(function (response) {
       if (response.data.user) {
         _this.userLogin = response.data.user;
+        console.log(_this.userLogin.email);
       }
     }).catch(function (error) {
       console.log(error.response.data);
@@ -58794,7 +58794,11 @@ var render = function() {
                 { staticClass: "navbar-item has-dropdown is-hoverable" },
                 [
                   _c("a", { staticClass: "navbar-link" }, [
-                    _vm._v("\n            Profile\n          ")
+                    _vm._v(
+                      "\n             Hello  " +
+                        _vm._s(_vm.userLogin.email) +
+                        "\n          "
+                    )
                   ]),
                   _vm._v(" "),
                   _c(

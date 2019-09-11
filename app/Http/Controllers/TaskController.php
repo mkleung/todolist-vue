@@ -21,25 +21,9 @@ class TaskController extends Controller
     }
 
     public function getTasks(){
-
-        // if(\DB::connection()->getDatabaseName())
-        // {
-        //   echo "conncted sucessfully to database ".\DB::connection()->getDatabaseName();
-        // }
-
-        $allTasks = Task::orderBy('created_at', 'DESC')->get();
+        $user = auth()->user();
+        $allTasks = Task::where('user_id', $user->id)->get();
         return $allTasks;
-        
-        // if (Auth::check()){
-            
-        //     
-        //     return $allTasks;
-        // }
-        // else {
-        //     return "invalid";
-        // }
-            
-
     }
 
     /**

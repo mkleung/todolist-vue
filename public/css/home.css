@@ -113,6 +113,7 @@ body {
 
 .modal-card-title {
     color: #FFF !important;
+    text-align:left;
 }
 
 .modal-card-head-register {

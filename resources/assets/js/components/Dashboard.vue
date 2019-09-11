@@ -78,7 +78,7 @@
                     .then((response)=>{
                         
                         var taskList = response.data;
-                       
+                       console.log(taskList);
                         if (response.data == "invalid"){
                             this.$router.replace('/')
                         }

@@ -15,8 +15,9 @@
 
         <!-- logged in -->
         <div class="navbar-item has-dropdown is-hoverable" v-if="userLogin">
+          
             <a class="navbar-link">
-              Profile
+               Hello  {{ userLogin.email }}
             </a>
             <div class="navbar-dropdown">
               <router-link class="navbar-item" to="/dashboard">Dashboard</router-link>
@@ -57,6 +58,7 @@
               .then(response => {
                   if (response.data.user) {
                     this.userLogin = response.data.user;
+                    console.log(this.userLogin.email)
                   }
               })
               .catch(error => {
